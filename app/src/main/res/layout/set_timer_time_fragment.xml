@@ -52,13 +52,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvLabelMeasure"
-            android:text="H"
+            android:text="@string/shortcut_hours"
             android:textColor="@color/white_active"
             android:fontFamily="@font/roboto_condensed_regular"
             app:layout_constraintStart_toEndOf="@+id/tvLabel"
             app:layout_constraintBottom_toBottomOf="@+id/tvLabel"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
         />
     </android.support.constraint.ConstraintLayout>
     <LinearLayout

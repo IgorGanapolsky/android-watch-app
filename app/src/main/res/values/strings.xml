@@ -1,10 +1,5 @@
 <resources>
-    <string name="app_name">My Test Application</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
-    <string name="hello_world">Hello Square World!</string>
+    <string name="app_name">Vibrating Watch Timer</string>
     <string name="title_activity_add_timer">AddTimerActivity</string>
     <string name="timer_time_default_digit">00</string>
     <string name="timer_time_default_sep">:</string>
@@ -12,11 +7,10 @@
     <string name="shortcut_minutes">M</string>
     <string name="shortcut_seconds">S</string>
     <string name="main_add_timer_button">Add timer</string>
+    <string name="adding_timer_descr">Adding timer</string>
     <string name="screen_title_vibration">Select vibration</string>
     <string name="screen_title_set_repeat">Set repeat</string>
     <string name="add_timer_button_label">Add timer</string>
     <string name="title_activity_timers">TimersActivity</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

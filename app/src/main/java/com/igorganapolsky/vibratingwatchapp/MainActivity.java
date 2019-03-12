@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.llAddTimerButton).setOnClickListener(this);
+        findViewById(R.id.llAddTimerButtonLayout).setOnClickListener(this);
     }
 
     @Override
