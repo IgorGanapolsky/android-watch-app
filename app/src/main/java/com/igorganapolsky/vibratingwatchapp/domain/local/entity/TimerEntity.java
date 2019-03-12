@@ -1,0 +1,112 @@
+package com.igorganapolsky.vibratingwatchapp.domain.local.entity;
+
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+import java.io.Serializable;
+
+@Entity
+public class TimerEntity implements Serializable {
+
+    public static final String TIMER_ID = "timer_id";
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
+    @ColumnInfo(name = "time_total")
+    private long millisecondsTotal;
+
+    @ColumnInfo(name = "time_left")
+    private long millisecondsLeft;
+
+    @ColumnInfo(name = "buzz_type")
+    private String buzzType;
+
+    @ColumnInfo(name = "buzz_count")
+    private int buzzCount;
+
+    @ColumnInfo(name = "buzz_time")
+    private int buzzTime;
+
+    @ColumnInfo(name = "repeat")
+    private int repeat;
+
+    @ColumnInfo(name = "timestamp")
+    private long timestamp;
+
+    @ColumnInfo(name = "state")
+    private String state;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public long getMillisecondsTotal() {
+        return millisecondsTotal;
+    }
+
+    public void setMillisecondsTotal(long millisecondsTotal) {
+        this.millisecondsTotal = millisecondsTotal;
+    }
+
+    public long getMillisecondsLeft() {
+        return millisecondsLeft;
+    }
+
+    public void setMillisecondsLeft(long millisecondsLeft) {
+        this.millisecondsLeft = millisecondsLeft;
+    }
+
+    public String getBuzzType() {
+        return buzzType;
+    }
+
+    public void setBuzzType(String buzzType) {
+        this.buzzType = buzzType;
+    }
+
+    public int getRepeat() {
+        return repeat;
+    }
+
+    public void setRepeat(int repeat) {
+        this.repeat = repeat;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public int getBuzzCount() {
+        return buzzCount;
+    }
+
+    public void setBuzzCount(int buzzCount) {
+        this.buzzCount = buzzCount;
+    }
+
+    public int getBuzzTime() {
+        return buzzTime;
+    }
+
+    public void setBuzzTime(int buzzTime) {
+        this.buzzTime = buzzTime;
+    }
+}

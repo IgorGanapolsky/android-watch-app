@@ -1,103 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/settimer"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.SetTimerTimeFragment">
+    android:layout_gravity="center_horizontal">
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="135dp"
-        android:layout_height="135dp" android:layout_gravity="center_horizontal">
+    <com.triggertrap.seekarc.SeekArc
+        android:id="@+id/seekArc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        app:arcColor="@color/white_inactive"
+        app:arcWidth="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/timeSwapContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:progressColor="@color/white_active"
+        app:progressWidth="4dp"
+        app:rotation="0"
+        app:roundEdges="true"
+        app:startAngle="0"
+        app:sweepAngle="360"
+        app:thumb="@drawable/ic_thumb"
+        app:touchInside="false" />
 
-        <com.triggertrap.seekarc.SeekArc
-            android:id="@+id/seekArc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            app:rotation="0"
-            app:startAngle="0"
-            app:sweepAngle="360"
-            app:touchInside="false"
-            app:progressWidth="4dp"
-            app:progressColor="@color/white_active"
-            app:arcColor="@color/white_inactive"
-            app:arcWidth="4dp"
-            app:roundEdges="true"
-            app:thumb="@drawable/ic_thumb"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.0"/>
-        <TextView
-            android:id="@+id/tvLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="35sp"
-            android:textColor="@color/white_active"
-            android:fontFamily="@font/roboto_condensed_regular"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@+id/seekArc"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="135dp"
-        />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvLabelMeasure"
-            android:text="H"
-            android:textColor="@color/white_active"
-            android:fontFamily="@font/roboto_condensed_regular"
-            app:layout_constraintStart_toEndOf="@+id/tvLabel"
-            app:layout_constraintBottom_toBottomOf="@+id/tvLabel"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-        />
-    </android.support.constraint.ConstraintLayout>
-    <LinearLayout
-        android:orientation="horizontal"
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvLabel"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal">
-        <TextView
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@color/white_active"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="@+id/seekArc"
+        app:layout_constraintEnd_toEndOf="@id/seekArc"
+        app:layout_constraintStart_toStartOf="@id/seekArc"
+        app:layout_constraintTop_toTopOf="@+id/seekArc" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvLabelMeasure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:text="H"
+        android:textColor="@color/white_active"
+        app:layout_constraintBottom_toBottomOf="@+id/tvLabel"
+        app:layout_constraintStart_toEndOf="@+id/tvLabel"
+        app:layout_constraintTop_toTopOf="@+id/tvLabel"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/timeSwapContainer"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/seekArc"
+        app:layout_constraintStart_toStartOf="@id/seekArc"
+        app:layout_constraintTop_toBottomOf="@id/seekArc">
+
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tvHours"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:text="@string/shortcut_hours"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textSize="14sp"
             android:textColor="@color/white_active"
-            android:fontFamily="@font/roboto_condensed_regular"
-            android:clickable="true"
-            android:focusable="true" android:paddingLeft="15dp" android:paddingRight="15dp"/>
-        <TextView
+            android:textSize="14sp" />
+
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tvMinutes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:text="@string/shortcut_minutes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
             android:textAlignment="center"
             android:textColor="@color/white_inactive"
-            android:fontFamily="@font/roboto_condensed_regular"
-            android:clickable="true"
-            android:focusable="true" android:paddingLeft="15dp" android:paddingRight="15dp"/>
-        <TextView
+            android:textSize="14sp" />
+
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tvSeconds"
-            android:text="@string/shortcut_seconds"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="14sp"
-            android:textColor="@color/white_inactive"
-            android:fontFamily="@font/roboto_condensed_regular"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true" android:paddingLeft="15dp" android:paddingRight="15dp"/>
-    </LinearLayout>
-</LinearLayout>
+            android:focusable="true"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/shortcut_seconds"
+            android:textAlignment="center"
+            android:textColor="@color/white_inactive"
+            android:textSize="14sp" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</android.support.constraint.ConstraintLayout>

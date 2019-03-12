@@ -1,83 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:paddingBottom="10dp">
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp"
+    android:orientation="horizontal">
 
-    <ProgressBar
-        android:id="@+id/pbProgress"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:indeterminate="false"
-        android:indeterminateOnly="false"
-        android:progress="25"
-        android:progressDrawable="@drawable/progress_circular" />
-
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:id="@+id/ivStatus"
-        android:layout_width="12dp"
-        android:layout_height="12dp"
-        app:srcCompat="@drawable/ic_play" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_play"/>
 
-    <TextView
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/icProgress"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@mipmap/ic_round_progress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvRepeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:scaleType="centerInside"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        tools:text="1"/>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/ivRepeat"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvRepeat"
+        app:srcCompat="@drawable/ic_repeat"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvVibration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ivRepeat"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        tools:text="1"/>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/ivVibration"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTime"
+        app:layout_constraintEnd_toStartOf="@id/tvVibration"
+        app:srcCompat="@drawable/ic_vibrate"/>
+
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tvTime"
         android:layout_width="0dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="2dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ivVibration"
         android:fontFamily="@font/roboto_condensed_regular"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="14sp"
-        tools:text="00 : 00 : 00" />
+        tools:text="00 : 00 : 00"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:gravity="center_vertical">
-
-        <ImageView
-            android:id="@+id/ivVibration"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:layout_marginEnd="5dp"
-            app:srcCompat="@drawable/ic_vibrate" />
-
-        <TextView
-            android:id="@+id/tvVibration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_condensed_regular"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="10sp"
-            tools:text="1" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <ImageView
-            android:id="@+id/ivRepeat"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            app:srcCompat="@drawable/ic_repeat" />
-
-        <TextView
-            android:id="@+id/tvRepeat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:fontFamily="@font/roboto_condensed_regular"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="10sp"
-            tools:text="1" />
-    </RelativeLayout>
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

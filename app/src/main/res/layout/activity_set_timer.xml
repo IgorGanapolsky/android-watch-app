@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/list_start_padding"
+    android:paddingEnd="@dimen/list_end_padding">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvTimeHours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:paddingLeft="5dp"
+        android:layout_marginTop="@dimen/list_start_padding"
+        android:paddingRight="5dp"
+        android:text="@string/timer_time_default_digit"
+        android:textColor="@color/white_active"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvHourSeparator"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvHourSeparator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/list_start_padding"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/timer_time_default_sep"
+        android:textColor="@color/white_active"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTimeHours"
+        app:layout_constraintEnd_toStartOf="@+id/tvTimeMinutes"
+        app:layout_constraintStart_toEndOf="@id/tvTimeHours"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvTimeMinutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/list_start_padding"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/timer_time_default_digit"
+        android:textColor="@color/white_active"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTimeHours"
+        app:layout_constraintEnd_toStartOf="@+id/tvSecondsSeparator"
+        app:layout_constraintStart_toEndOf="@id/tvHourSeparator"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvSecondsSeparator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginTop="@dimen/list_start_padding"
+        android:text="@string/timer_time_default_sep"
+        android:textColor="@color/white_active"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTimeHours"
+        app:layout_constraintEnd_toStartOf="@+id/tvTimeSeconds"
+        app:layout_constraintStart_toEndOf="@id/tvTimeMinutes"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvTimeSeconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:paddingLeft="5dp"
+        android:layout_marginTop="@dimen/list_start_padding"
+        android:paddingRight="5dp"
+        android:text="@string/timer_time_default_digit"
+        android:textColor="@color/white_active"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTimeHours"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvSecondsSeparator"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.igorganapolsky.vibratingwatchapp.core.custom.SwipeRestrictViewPager
+        android:id="@+id/vpWizard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tlDots"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimeHours"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tlDots"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vpWizard"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp"
+        app:tabPaddingEnd="5dp"
+        app:tabPaddingStart="5dp"
+        app:tabRippleColor="@null"/>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/ivNextPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_next"/>
+</android.support.constraint.ConstraintLayout>
+
+

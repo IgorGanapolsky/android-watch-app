@@ -1,64 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.fragments.TimerDeleteFragment"
-        android:orientation="vertical"
-        android:background="#89023E"
->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#89023E"
+    android:orientation="vertical"
+    tools:context=".presentation.details.dialog.TimerDeleteDialogFragment">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-    >
+            android:fontFamily="@font/roboto_condensed_light"
+            android:paddingTop="25dp"
+            android:text="Delete timer"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="26sp" />
+
         <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="25dp"
-                android:fontFamily="@font/roboto_condensed_light"
-                android:textColor="@color/white"
-                android:textSize="26sp"
-                android:textAlignment="center"
-                android:text="Delete timer"
-        />
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:fontFamily="@font/roboto_condensed_light"
-                android:textColor="@color/progress_gray"
-                android:textSize="14sp"
-                android:textAlignment="center"
-                android:text="Are you sure?"
-        />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_condensed_light"
+            android:paddingTop="10dp"
+            android:text="Are you sure?"
+            android:textAlignment="center"
+            android:textColor="@color/progress_gray"
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="30dp"
-    >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="30dp">
+
         <ImageView
-                android:id="@+id/ivCancel"
-                android:layout_marginLeft="20dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_close"
-        />
+            android:id="@+id/ivCancel"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_close" />
+
         <ImageView
-                android:id="@+id/ivApprove"
-                android:layout_marginRight="20dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_done"
-        />
+            android:id="@+id/ivApprove"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_done" />
     </LinearLayout>
 
 </LinearLayout>

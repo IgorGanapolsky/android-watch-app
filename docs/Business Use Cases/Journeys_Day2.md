@@ -1,4 +1,4 @@
-###### Journey 1 (dev est. 16 hours):
+###### Journey 1 (dev est. 16 hoursTotal):
 Given I am on the timer creation screen
 https://marvelapp.com/7iab626/screen/51207912
 
@@ -11,7 +11,7 @@ https://marvelapp.com/7iab626/screen/51207913
 
 -----------------------------------------------------------------------
 
-###### Journey 2 (est. 8 hours):
+###### Journey 2 (est. 8 hoursTotal):
 Given I am on the timer creation screen,
 https://marvelapp.com/7iab626/screen/51207919
 
@@ -21,7 +21,7 @@ https://marvelapp.com/7iab626/screen/51207926
 
 -----------------------------------------------------------------------
 
-###### Journey 3 (est. 8 hours):
+###### Journey 3 (est. 8 hoursTotal):
 Given there are multiple active timers running or paused,
 https://marvelapp.com/7iab626/screen/51207933
 
@@ -35,7 +35,7 @@ NOTE - this is the same UI as Case 2
 
 -----------------------------------------------------------------------
 
-###### Journey 4 (est. 4 hours):
+###### Journey 4 (est. 4 hoursTotal):
 Given there is an active timer(s) running or paused,
 https://marvelapp.com/7iab626/screen/51207935
 
@@ -48,7 +48,7 @@ NOTE - This would be a swipe to the right
 
 -----------------------------------------------------------------------
 
-###### Journey 5 (est. 8 hours):
+###### Journey 5 (est. 8 hoursTotal):
 Given there is an active timer(s) running or paused,
 https://marvelapp.com/7iab626/screen/51207941
 
@@ -64,7 +64,7 @@ https://marvelapp.com/7iab626/screen/51207943
 
 -----------------------------------------------------------------------
 
-###### Journey 6 (est. 8 hours):
+###### Journey 6 (est. 8 hoursTotal):
 Given that I am on the screen with a list of created timers,
 https://marvelapp.com/7iab626/screen/51207952
 When I long-press on a timer,
@@ -75,7 +75,7 @@ https://marvelapp.com/7iab626/screen/51207953
 
 -----------------------------------------------------------------------
 
-###### Journey 7 (est. 8 hours):
+###### Journey 7 (est. 8 hoursTotal):
 Given that I am on the screen with a list of created timers,
 When I try to delete a timer,
 Then a confirmation dialog should appear
@@ -86,7 +86,7 @@ NOTE - same UI as 10A above - just click on the delete
 
 -----------------------------------------------------------------------
 
-###### Journey 8 (est. 4 hours):
+###### Journey 8 (est. 4 hoursTotal):
 Given that a running timer finished its countdown and is vibrating,
 https://marvelapp.com/7iab626/screen/51207955
 
@@ -98,7 +98,7 @@ https://marvelapp.com/7iab626/screen/51207956
 
 -----------------------------------------------------------------------
 
-###### Journey 9 (est. 4 hours):
+###### Journey 9 (est. 4 hoursTotal):
 Given that a running timer finished its countdown and is vibrating,
 https://marvelapp.com/7iab626/screen/51207957
 
@@ -110,7 +110,7 @@ https://marvelapp.com/7iab626/screen/51207958
 
 -----------------------------------------------------------------------
 
-###### Journey 10 (est. 8 hours):
+###### Journey 10 (est. 8 hoursTotal):
 Given that a running timer finished its countdown and is vibrating,
 When I rotate a back/forth wrist gesture three times,
 Then the timer transitions to the next interval (or stops if it only had one interval)
@@ -120,7 +120,7 @@ NOTE - this is a gesture I can ‘do’ in MarvelApp
 
 -----------------------------------------------------------------------
 
-###### Journey 11 (est. 8 hours):
+###### Journey 11 (est. 8 hoursTotal):
 Given that I am on the smart watch face screen (watch face),
 https://marvelapp.com/7iab626/screen/51207961
 
@@ -136,7 +136,7 @@ Click the Timer logo in 2nd screen to add it to the watch face
 -----------------------------------------------------------------------
 
 
-###### Journey 12 (est. 4 hours):
+###### Journey 12 (est. 4 hoursTotal):
 Given that I have added a complication for my app,
 When I view the complication,
 Then I see the ongoing timer progress (if there is One ongoing timer), otherwise I just see the shortcut to take me to my timer list

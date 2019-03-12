@@ -4,7 +4,7 @@
         CREATE TABLE `timers` (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             time INTEGER,
-            buzzMode INTEGER,
+            buzzType INTEGER,
             repeatMode INTEGER,
             timestamp INTEGER,
             state TEXT

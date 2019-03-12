@@ -6,30 +6,30 @@
         android:viewportHeight="39">
 
     <group
-            android:translateX="-448.000000"
-            android:translateY="-1800.000000">
+        android:translateX="-448.000000"
+        android:translateY="-1800.000000">
         <group
-                android:translateX="368.000000"
-                android:translateY="1779.000000">
+            android:translateX="368.000000"
+            android:translateY="1779.000000">
             <group
-                    android:translateX="20.000000"
-                    android:translateY="20.000000">
+                android:translateX="20.000000"
+                android:translateY="20.000000">
                 <group
-                        android:translateX="60.000000"
-                        android:translateY="1.000000">
+                    android:translateX="60.000000"
+                    android:translateY="1.000000">
                     <path
-                            android:fillColor="#D8D8D8"
+                        android:fillColor="#D8D8D8"
+                        android:fillType="evenOdd"
+                        android:strokeWidth="1"
+                        android:pathData="M 19.5 0 C 30.2695526217 0 39 8.7304473783 39 19.5 C 39 30.2695526217 30.2695526217 39 19.5 39 C 8.7304473783 39 0 30.2695526217 0 19.5 C 0 8.7304473783 8.7304473783 0 19.5 0 Z"/>
+                    <group
+                        android:translateX="13.000000"
+                        android:translateY="13.000000">
+                        <path
+                            android:fillColor="#89023E"
                             android:fillType="evenOdd"
                             android:strokeWidth="1"
-                            android:pathData="M 19.5 0 C 30.2695526217 0 39 8.7304473783 39 19.5 C 39 30.2695526217 30.2695526217 39 19.5 39 C 8.7304473783 39 0 30.2695526217 0 19.5 C 0 8.7304473783 8.7304473783 0 19.5 0 Z" />
-                    <group
-                            android:translateX="13.000000"
-                            android:translateY="13.000000">
-                        <path
-                                android:fillColor="#89023E"
-                                android:fillType="evenOdd"
-                                android:strokeWidth="1"
-                                android:pathData="M 14 1.4 L 12.6 0 L 7 5.6 L 1.4 0 L 0 1.4 L 5.6 7 L 0 12.6 L 1.4 14 L 7 8.4 L 12.6 14 L 14 12.6 L 8.4 7 Z" />
+                            android:pathData="M 14 1.4 L 12.6 0 L 7 5.6 L 1.4 0 L 0 1.4 L 5.6 7 L 0 12.6 L 1.4 14 L 7 8.4 L 12.6 14 L 14 12.6 L 8.4 7 Z"/>
                     </group>
                 </group>
             </group>

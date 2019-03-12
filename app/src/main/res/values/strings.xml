@@ -1,9 +1,6 @@
 <resources>
-    <string name="app_name">My Test Application</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
+    <string name="app_name">Timer</string>
+
     <string name="hello_world">Hello Square World!</string>
     <string name="title_activity_add_timer">AddTimerActivity</string>
     <string name="timer_time_default_digit">00</string>
@@ -16,6 +13,22 @@
     <string name="screen_title_set_repeat">Set repeat</string>
     <string name="add_timer_button_label">Add timer</string>
     <string name="title_activity_timers">TimersActivity</string>
+
+    <!-- Buzzes -->
+
+    <plurals name="time_variants">
+        <item quantity="one">second</item>
+        <item quantity="few">seconds each</item>
+        <item quantity="many">seconds each</item>
+        <item quantity="other">seconds</item>
+    </plurals>
+
+    <plurals name="buzz_variants">
+        <item quantity="zero">long buzz</item>
+        <item quantity="one">buzz</item>
+        <item quantity="few">buzzes</item>
+        <item quantity="other">long buzz</item>
+    </plurals>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
