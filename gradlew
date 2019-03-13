@@ -44,7 +44,7 @@ die () {
     exit 1
 }
 
-# OS specific support (must be 'true' or 'false').
+# OS specific support_v7 (must be 'true' or 'false').
 cygwin=false
 msys=false
 darwin=false
