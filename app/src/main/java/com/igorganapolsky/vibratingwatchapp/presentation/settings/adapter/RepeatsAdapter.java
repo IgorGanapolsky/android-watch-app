@@ -6,11 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.igorganapolsky.vibratingwatchapp.R;
 
 public class RepeatsAdapter extends RecyclerView.Adapter<RepeatsAdapter.RepeatsRecyclerViewHolder> {
-    private String[] repeats = {
+
+    private final String[] repeats = {
         "1", "2", "3",
         "4", "5", "6",
         "7", "8", "9"};

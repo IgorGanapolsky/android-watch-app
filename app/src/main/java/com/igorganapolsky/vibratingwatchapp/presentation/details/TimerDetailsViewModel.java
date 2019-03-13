@@ -12,13 +12,14 @@ import com.igorganapolsky.vibratingwatchapp.manager.timer.TickListener;
 
 public class TimerDetailsViewModel extends ViewModel implements TickListener {
 
-    private Repository repository;
-    private CountdownManager countdownManager;
+    private final Repository repository;
+    private final CountdownManager countdownManager;
+
+    private final MutableLiveData<CountData> activeTimerData = new MutableLiveData<>();
+    private final MutableLiveData<TimerModel.State> viewStateData = new MutableLiveData<>();
+
     private TimerModel currentTimer;
     private int currentId;
-
-    private MutableLiveData<CountData> activeTimerData = new MutableLiveData<>();
-    private MutableLiveData<TimerModel.State> viewStateData = new MutableLiveData<>();
 
     public TimerDetailsViewModel(Repository repository, CountdownManager countdownManager) {
         this.repository = repository;
@@ -87,9 +88,6 @@ public class TimerDetailsViewModel extends ViewModel implements TickListener {
         if (isActive) {
             return countdownManager.getActiveTimeLeft();
         } else {
-//            long currentTimeTotal = TimerTransform.timeToMillis(currentTimer.getHoursTotal(), currentTimer.getMinutesTotal(), currentTimer.getSecondsTotal());
-//            long currentTimeLeft = TimerTransform.timeToMillis(currentTimer.getHoursLeft(), currentTimer.getMinutesLeft(), currentTimer.getSecondsLeft());
-//            return currentTimeLeft > 0 ? currentTimeLeft : currentTimeTotal;
             return TimerTransform.timeToMillis(currentTimer.getHoursTotal(), currentTimer.getMinutesTotal(), currentTimer.getSecondsTotal());
         }
     }

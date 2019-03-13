@@ -14,6 +14,5 @@
     <string name="add_timer_button_label">Add timer</string>
     <string name="title_activity_timers">TimersActivity</string>
     <string name="set_timer_default_value">0</string>
-    <string name="delete_timer_title">Delete timer</string>
-    <string name="delete_timer_desc">Are you sure?</string>
+
 </resources>

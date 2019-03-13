@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".presentation.settings.step.SetTimerRepeatFragment">
 
-    <LinearLayout
+    <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -14,21 +15,21 @@
         android:gravity="center_horizontal|center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:contentDescription="TODO"
-            android:src="@drawable/ic_repeat" />
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="@dimen/icon_size"
+            android:scaleType="center"
+            android:layout_height="@dimen/icon_size"
+            android:src="@drawable/ic_repeat"/>
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:fontFamily="@font/roboto_condensed_regular"
             android:text="@string/screen_title_set_repeat"
             android:textColor="@color/white_active"
-            android:textSize="16sp" />
-    </LinearLayout>
+            android:textSize="16sp"/>
+    </android.support.v7.widget.LinearLayoutCompat>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -43,6 +44,6 @@
             android:overScrollMode="never"
             android:paddingLeft="75dp"
             android:paddingRight="75dp"
-            android:scrollbars="horizontal" />
+            android:scrollbars="horizontal"/>
     </FrameLayout>
-</LinearLayout>
+</android.support.v7.widget.LinearLayoutCompat>

@@ -12,17 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.igorganapolsky.vibratingwatchapp.R;
 import com.igorganapolsky.vibratingwatchapp.core.custom.RecyclerViewSnapLayoutManager;
+import com.igorganapolsky.vibratingwatchapp.core.util.ViewModelFactory;
 import com.igorganapolsky.vibratingwatchapp.presentation.settings.SetTimerViewModel;
 import com.igorganapolsky.vibratingwatchapp.presentation.settings.adapter.HolderClickListener;
 import com.igorganapolsky.vibratingwatchapp.presentation.settings.adapter.RepeatsAdapter;
-import com.igorganapolsky.vibratingwatchapp.core.util.ViewModelFactory;
 
 public class SetTimerRepeatFragment extends Fragment implements HolderClickListener {
 
     private WearableRecyclerView wrvRepeats;
-    private RecyclerViewSnapLayoutManager layoutManager;
     private SetTimerViewModel mViewModel;
-    private RepeatsAdapter adapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,8 +46,8 @@ public class SetTimerRepeatFragment extends Fragment implements HolderClickListe
     private void setupView(View rootView) {
         wrvRepeats = rootView.findViewById(R.id.wrvRepeats);
 
-        adapter = new RepeatsAdapter(this);
-        layoutManager = new RecyclerViewSnapLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL);
+        RepeatsAdapter adapter = new RepeatsAdapter(this);
+        RecyclerViewSnapLayoutManager layoutManager = new RecyclerViewSnapLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL);
         layoutManager.setItemSelectListener((int pos) -> mViewModel.setTimerRepeat(pos));
 
         wrvRepeats.setAdapter(adapter);

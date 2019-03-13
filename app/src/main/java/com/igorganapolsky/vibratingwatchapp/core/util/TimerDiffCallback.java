@@ -7,8 +7,8 @@ import java.util.List;
 
 public class TimerDiffCallback extends DiffUtil.Callback {
 
-    private List<TimerModel> oldModelList;
-    private List<TimerModel> newModelList;
+    private final List<TimerModel> oldModelList;
+    private final List<TimerModel> newModelList;
 
     public TimerDiffCallback(List<TimerModel> oldModelList, List<TimerModel> newModelList) {
         this.oldModelList = oldModelList;

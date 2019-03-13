@@ -40,17 +40,6 @@ public class WatchRepository implements Repository {
     }
 
     @Override
-    public LiveData<TimerModel> getObservableTimerById(int id) {
-        return Transformations.map(timerDb.timersDao().observeById(id), (entity -> {
-            if (entity == null) {
-                return null;
-            } else {
-                return Mappers.mapToTimerModel(entity);
-            }
-        }));
-    }
-
-    @Override
     public void updateTimer(TimerModel model) {
         executor.execute(() -> {
             TimerEntity timerEntity = Mappers.mapToTimerEntity(model);
@@ -62,11 +51,6 @@ public class WatchRepository implements Repository {
     @Override
     public void saveTimer(TimerModel model) {
         executor.execute(() -> timerDb.timersDao().insert(Mappers.mapToTimerEntity(model)));
-    }
-
-    @Override
-    public void updateTimerTimeLeft(int timerId, long timeLeft) {
-        // TODO (implement logic)
     }
 
     @Override

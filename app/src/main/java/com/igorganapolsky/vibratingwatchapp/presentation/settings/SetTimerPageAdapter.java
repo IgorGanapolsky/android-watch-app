@@ -8,13 +8,14 @@ import com.igorganapolsky.vibratingwatchapp.presentation.settings.step.SetTimerT
 import com.igorganapolsky.vibratingwatchapp.presentation.settings.step.SetTimerVibrationFragment;
 
 public class SetTimerPageAdapter extends FragmentStatePagerAdapter {
-    private Fragment[] fragments = {
-            new SetTimerTimeFragment(),
-            new SetTimerVibrationFragment(),
-            new SetTimerRepeatFragment()
+
+    private final Fragment[] fragments = {
+        new SetTimerTimeFragment(),
+        new SetTimerVibrationFragment(),
+        new SetTimerRepeatFragment()
     };
 
-    public SetTimerPageAdapter(FragmentManager fm) {
+    SetTimerPageAdapter(FragmentManager fm) {
         super(fm);
     }
 

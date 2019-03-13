@@ -14,27 +14,24 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.igorganapolsky.vibratingwatchapp.R;
+import com.igorganapolsky.vibratingwatchapp.core.util.ViewModelFactory;
 import com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity;
 import com.igorganapolsky.vibratingwatchapp.domain.model.CountData;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
 import com.igorganapolsky.vibratingwatchapp.presentation.details.dialog.TimerDeleteDialogFragment;
 import com.igorganapolsky.vibratingwatchapp.presentation.settings.SetTimerActivity;
-import com.igorganapolsky.vibratingwatchapp.core.util.ViewModelFactory;
 
 import static com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity.TIMER_ID;
 
 public class TimerDetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private final int SETTING_REQUEST_CODE = 100;
-    private final int SETTING_SUCCESS_CODE = 101;
+    private final static int SETTING_REQUEST_CODE = 100;
 
     private TimerDetailsViewModel mViewModel;
 
     private ProgressBar pbTime;
     private TextView tvTime;
     private ImageView ivStart;
-    private ImageView ivStop;
-    private ImageView ivRestart;
 
     private ImageView ivTimerSettings;
     private ImageView ivTimerRemove;
@@ -53,7 +50,7 @@ public class TimerDetailsActivity extends AppCompatActivity implements View.OnCl
 
         switch (requestCode) {
             case SETTING_REQUEST_CODE:
-                if (resultCode == SETTING_SUCCESS_CODE) {
+                if (resultCode == SetTimerActivity.SETTING_SUCCESS_CODE) {
                    mViewModel.checkUpdates();
                 }
                 break;
@@ -90,9 +87,9 @@ public class TimerDetailsActivity extends AppCompatActivity implements View.OnCl
         // CONTROLS
         ivStart = findViewById(R.id.ivStart);
         ivStart.setOnClickListener(this);
-        ivStop = findViewById(R.id.ivStop);
+        ImageView ivStop = findViewById(R.id.ivStop);
         ivStop.setOnClickListener(this);
-        ivRestart = findViewById(R.id.ivRestart);
+        ImageView ivRestart = findViewById(R.id.ivRestart);
         ivRestart.setOnClickListener(this);
 
         blinking = new AlphaAnimation(1f, .25f);

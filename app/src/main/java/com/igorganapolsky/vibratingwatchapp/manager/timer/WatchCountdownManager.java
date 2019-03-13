@@ -10,11 +10,11 @@ import com.igorganapolsky.vibratingwatchapp.manager.vibration.BeepManager;
 
 public class WatchCountdownManager implements CountdownManager {
 
-    private MutableLiveData<TimerModel> activeModelData = new MutableLiveData<>();
+    private final MutableLiveData<TimerModel> activeModelData = new MutableLiveData<>();
+    private final BeepManager beepManager;
 
     private TickListener tickListener;
     private CountDownTimer currentCountdownTimer;
-    private BeepManager beepManager;
 
     private TimerModel activeModel;
     private long totalTime;

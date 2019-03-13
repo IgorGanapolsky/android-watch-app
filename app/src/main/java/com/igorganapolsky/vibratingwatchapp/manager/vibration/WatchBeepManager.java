@@ -9,7 +9,7 @@ import com.igorganapolsky.vibratingwatchapp.domain.model.BuzzSetup;
 
 public class WatchBeepManager implements BeepManager {
 
-    private Vibrator vibrator;
+    private final Vibrator vibrator;
     private BuzzSetup setup;
     private boolean isVibratorActive;
 
@@ -58,17 +58,12 @@ public class WatchBeepManager implements BeepManager {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private VibrationEffect prepareVibrationEffect() {
-        long oneTickTime = TimerTransform.secondsToMillis(setup.getBuzzTime());
-        int tickCount = setup.getBuzzCount();
-
-        long[] timings = new long[tickCount];
-        int[] amplitude = new int[tickCount];
-
-        for (int i = 0; i < timings.length; i++) {
-            timings[i] = oneTickTime;
-            amplitude[i] = 255 / 2;
+        try {
+            long[] pattern = preparePattern();
+            return VibrationEffect.createWaveform(pattern, -1);
+        } catch (Exception exp) {
+            return VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE);
         }
-        return VibrationEffect.createWaveform(timings, amplitude, -1);
     }
 
     private long[] preparePattern() {

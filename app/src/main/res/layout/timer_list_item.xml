@@ -7,8 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:paddingTop="4dp"
-    android:paddingBottom="4dp"
+    android:paddingTop="@dimen/text_inner_padding"
+    android:paddingBottom="@dimen/text_inner_padding"
     android:orientation="horizontal">
 
     <android.support.v7.widget.AppCompatImageView
@@ -16,17 +16,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_play"/>
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/icProgress"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:scaleType="centerInside"
-        app:srcCompat="@mipmap/ic_round_progress"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_active_progress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
@@ -39,7 +39,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:fontFamily="@font/roboto_condensed_regular"
-        android:scaleType="centerInside"
         android:paddingStart="4dp"
         android:paddingEnd="4dp"
         android:textColor="@color/white"
@@ -48,9 +47,9 @@
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/ivRepeat"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:scaleType="centerInside"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:scaleType="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tvRepeat"
@@ -61,8 +60,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:paddingStart="4dp"
-        android:paddingEnd="4dp"
+        android:paddingStart="@dimen/text_inner_padding"
+        android:paddingEnd="@dimen/text_inner_padding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/ivRepeat"
         android:fontFamily="@font/roboto_condensed_regular"
@@ -73,9 +72,9 @@
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/ivVibration"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:scaleType="centerInside"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:scaleType="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvTime"
@@ -86,7 +85,7 @@
         android:id="@+id/tvTime"
         android:layout_width="0dp"
         android:paddingStart="20dp"
-        android:paddingEnd="2dp"
+        android:paddingEnd="@dimen/text_inner_padding"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

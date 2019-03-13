@@ -12,7 +12,7 @@ import java.util.List;
 public class TimerListViewModel extends ViewModel {
 
     private Repository repository;
-    private CountdownManager countdownManager;
+    private final CountdownManager countdownManager;
 
     public TimerListViewModel(Repository repository, CountdownManager countdownManager) {
         this.repository = repository;

@@ -2,9 +2,9 @@ package com.igorganapolsky.vibratingwatchapp.domain.model;
 
 public class CountData {
 
-    private int currentProgress;
-    private String currentTime;
-    private boolean isAnimationNeeded;
+    private final int currentProgress;
+    private final String currentTime;
+    private final boolean isAnimationNeeded;
 
     public CountData(String currentTime, int currentProgress, boolean isAnimationNeeded) {
         this.currentTime = currentTime;

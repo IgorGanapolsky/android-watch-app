@@ -23,7 +23,6 @@ public class SetTimerVibrationFragment extends Fragment implements HolderClickLi
     private SetTimerViewModel mViewModel;
     private WearableRecyclerView wrvVibrations;
     private VibrationsAdapter vibrationsAdapter;
-    private RecyclerViewSnapLayoutManager layoutManager;
 
     @Nullable
     @Override
@@ -35,7 +34,8 @@ public class SetTimerVibrationFragment extends Fragment implements HolderClickLi
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mViewModel = ViewModelProviders.of(Objects.requireNonNull(getActivity()), ViewModelFactory.getInstance()).get(SetTimerViewModel.class);
+        mViewModel = ViewModelProviders.of(Objects.requireNonNull(getActivity()),
+            ViewModelFactory.getInstance()).get(SetTimerViewModel.class);
 
         setupView(view);
         setupObservers();
@@ -44,15 +44,20 @@ public class SetTimerVibrationFragment extends Fragment implements HolderClickLi
     private void setupView(View view) {
         wrvVibrations = view.findViewById(R.id.wrvVibrations);
 
-        layoutManager = new RecyclerViewSnapLayoutManager(getActivity());
+        RecyclerViewSnapLayoutManager layoutManager = new RecyclerViewSnapLayoutManager(getActivity());
         layoutManager.setItemSelectListener((int pos) -> mViewModel.setBuzz(pos));
 
-        vibrationsAdapter = new VibrationsAdapter(this);
+        vibrationsAdapter = new VibrationsAdapter(this,
+            getResources().getStringArray(R.array.buzzes),
+            getResources().getStringArray(R.array.times));
+
         wrvVibrations.setAdapter(vibrationsAdapter);
         wrvVibrations.setLayoutManager(layoutManager);
     }
+
     private void setupObservers() {
         mViewModel.getBuzzData().observe(this, (buzzList) -> {
+            if (buzzList == null) return;
             vibrationsAdapter.setItems(buzzList);
             wrvVibrations.smoothScrollToPosition(mViewModel.getBuzzPosition());
         });

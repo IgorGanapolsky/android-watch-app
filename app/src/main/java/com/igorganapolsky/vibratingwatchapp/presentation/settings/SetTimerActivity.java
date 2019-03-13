@@ -13,9 +13,9 @@ import android.widget.TextView;
 import com.igorganapolsky.vibratingwatchapp.R;
 import com.igorganapolsky.vibratingwatchapp.core.custom.StepActionListener;
 import com.igorganapolsky.vibratingwatchapp.core.custom.SwipeRestrictViewPager;
+import com.igorganapolsky.vibratingwatchapp.core.util.ViewModelFactory;
 import com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerSetup;
-import com.igorganapolsky.vibratingwatchapp.core.util.ViewModelFactory;
 
 import java.util.Locale;
 
@@ -23,12 +23,11 @@ import static com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEnti
 
 public class SetTimerActivity extends AppCompatActivity implements View.OnClickListener, StepActionListener {
 
-    private final int SETTING_SUCCESS_CODE = 101;
+    public static final int SETTING_SUCCESS_CODE = 101;
 
     private SetTimerViewModel mViewModel;
 
     private SwipeRestrictViewPager vpWizard;
-    private AppCompatImageView ivNextPage;
 
     private TextView tvTimeHours;
     private TextView tvTimeMinutes;
@@ -61,7 +60,7 @@ public class SetTimerActivity extends AppCompatActivity implements View.OnClickL
 
     private void setupView() {
         vpWizard = findViewById(R.id.vpWizard);
-        ivNextPage = findViewById(R.id.ivNextPage);
+        AppCompatImageView ivNextPage = findViewById(R.id.ivNextPage);
 
         tvTimeHours = findViewById(R.id.tvTimeHours);
         tvTimeMinutes = findViewById(R.id.tvTimeMinutes);

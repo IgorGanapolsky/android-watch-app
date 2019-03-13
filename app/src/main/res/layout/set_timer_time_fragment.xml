@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/settimer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,21 +27,21 @@
         app:startAngle="0"
         app:sweepAngle="360"
         app:thumb="@drawable/ic_thumb"
-        app:touchInside="false" />
+        app:touchInside="false"/>
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tvLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_condensed_regular"
-        android:text="0"
+        android:text="@string/set_timer_default_value"
         android:textAlignment="center"
         android:textColor="@color/white_active"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="@+id/seekArc"
         app:layout_constraintEnd_toEndOf="@id/seekArc"
         app:layout_constraintStart_toStartOf="@id/seekArc"
-        app:layout_constraintTop_toTopOf="@+id/seekArc" />
+        app:layout_constraintTop_toTopOf="@+id/seekArc"/>
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tvLabelMeasure"
@@ -46,12 +49,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:fontFamily="@font/roboto_condensed_regular"
-        android:text="H"
+        tools:text="H"
         android:textColor="@color/white_active"
         app:layout_constraintBottom_toBottomOf="@+id/tvLabel"
         app:layout_constraintStart_toEndOf="@+id/tvLabel"
         app:layout_constraintTop_toTopOf="@+id/tvLabel"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintVertical_bias="0.7"/>
 
     <android.support.v7.widget.LinearLayoutCompat
         android:id="@+id/timeSwapContainer"
@@ -79,7 +82,7 @@
             android:text="@string/shortcut_hours"
             android:textAlignment="center"
             android:textColor="@color/white_active"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tvMinutes"
@@ -94,7 +97,7 @@
             android:text="@string/shortcut_minutes"
             android:textAlignment="center"
             android:textColor="@color/white_inactive"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tvSeconds"
@@ -109,8 +112,7 @@
             android:text="@string/shortcut_seconds"
             android:textAlignment="center"
             android:textColor="@color/white_inactive"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
-
 </android.support.constraint.ConstraintLayout>

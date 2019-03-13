@@ -16,16 +16,16 @@ public class SetTimerViewModel extends ViewModel {
 
     enum Type {NEW, EDIT}
 
-    private Repository repository;
+    private final Repository repository;
+
+    private final MutableLiveData<TimerModel> timerData = new MutableLiveData<>();
+    private final MutableLiveData<TimerSetup> setupData = new MutableLiveData<>();
+    private final MutableLiveData<Boolean> swipeState = new MutableLiveData<>();
+    private final MutableLiveData<List<BuzzSetup>> buzzData = new MutableLiveData<>();
 
     private Type currentType = Type.NEW;
     private TimerModel currentTimer;
     private TimerSetup setup;
-
-    private MutableLiveData<TimerModel> timerData = new MutableLiveData<>();
-    private MutableLiveData<TimerSetup> setupData = new MutableLiveData<>();
-    private MutableLiveData<Boolean> swipeState = new MutableLiveData<>();
-    private MutableLiveData<List<BuzzSetup>> buzzData = new MutableLiveData<>();
 
     public SetTimerViewModel(Repository repository) {
         this.repository = repository;

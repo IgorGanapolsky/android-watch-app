@@ -1,5 +1,7 @@
 package com.igorganapolsky.vibratingwatchapp.domain.model;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Locale;
 import java.util.Objects;
 
@@ -33,7 +35,7 @@ public class TimerModel {
         TimerModel model = new TimerModel();
         model.setType(BuzzSetup.Type.SHORT);
         model.setRepeat(1);
-        model.setBuzzCount(0);
+        model.setBuzzCount(1);
         model.setBuzzTime(5);
         return model;
     }
@@ -173,6 +175,7 @@ public class TimerModel {
         return Objects.hash(id);
     }
 
+    @NotNull
     @Override
     public String toString() {
         return String.format(Locale.ENGLISH, "%02d : %02d : %02d", hoursTotal, minutesTotal, secondsTotal);

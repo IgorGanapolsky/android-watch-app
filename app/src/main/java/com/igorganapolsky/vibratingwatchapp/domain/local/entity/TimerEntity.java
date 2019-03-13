@@ -4,10 +4,8 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-import java.io.Serializable;
-
-@Entity
-public class TimerEntity implements Serializable {
+@Entity(tableName = "timers")
+public class TimerEntity {
 
     public static final String TIMER_ID = "timer_id";
 

@@ -65,11 +65,11 @@ public class TimerListAdapter extends RecyclerView.Adapter<TimerListAdapter.Time
 
     static class TimerItemViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView ivStatus;
-        private ImageView icProgress;
-        private TextView tvTime;
-        private TextView tvVibration;
-        private TextView tvRepeat;
+        private final ImageView ivStatus;
+        private final ImageView icProgress;
+        private final TextView tvTime;
+        private final TextView tvVibration;
+        private final TextView tvRepeat;
 
         TimerItemViewHolder(@NonNull View itemView) {
             super(itemView);

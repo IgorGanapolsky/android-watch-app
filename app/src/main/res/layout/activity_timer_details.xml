@@ -16,8 +16,8 @@
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/ivTimerSettings"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
             android:padding="4dp"
             app:layout_constraintBottom_toTopOf="@+id/pbTime"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,8 +55,8 @@
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/ivStart"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
             android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="@id/pbTime"
             app:layout_constraintEnd_toStartOf="@id/ivStop"
@@ -68,8 +68,8 @@
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/ivStop"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
             android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="@id/ivStart"
             app:layout_constraintEnd_toStartOf="@id/ivRestart"
@@ -79,8 +79,8 @@
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/ivRestart"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
             android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="@id/ivStart"
             app:layout_constraintEnd_toEndOf="@id/tvTime"
@@ -90,8 +90,8 @@
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/ivTimerRemove"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
             android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -11,8 +11,6 @@ public interface Repository {
 
     LiveData<List<TimerModel>> getAll();
 
-    LiveData<TimerModel> getObservableTimerById(int timerId);
-
     void updateTimer(TimerModel timer);
 
     void saveTimer(TimerModel timer);
@@ -20,7 +18,4 @@ public interface Repository {
     void deleteTimer(int timerId);
 
     void updateTimerState(int timerId, TimerModel.State newState);
-
-    void updateTimerTimeLeft(int timerId, long timeLeft);
-
 }

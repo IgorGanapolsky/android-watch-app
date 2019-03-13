@@ -14,11 +14,16 @@ import java.util.Locale;
 
 public class VibrationsAdapter extends RecyclerView.Adapter<VibrationsAdapter.VibrationsRecyclerViewHolder> {
 
+    private final String[] vibTitles;
+    private final String[] timeTitles;
+
     private HolderClickListener holderClickListener;
     private List<BuzzSetup> buzzList;
 
-    public VibrationsAdapter(HolderClickListener holderClickListener) {
+    public VibrationsAdapter(HolderClickListener holderClickListener, String[] vibTitles, String[] timeTitles) {
         this.holderClickListener = holderClickListener;
+        this.vibTitles = vibTitles;
+        this.timeTitles = timeTitles;
         setHasStableIds(true);
     }
 
@@ -35,7 +40,8 @@ public class VibrationsAdapter extends RecyclerView.Adapter<VibrationsAdapter.Vi
     @NonNull
     @Override
     public VibrationsRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.set_timer_vibrations_line, viewGroup, false);
+        View itemView = LayoutInflater.from(viewGroup.getContext())
+            .inflate(R.layout.set_timer_vibrations_line, viewGroup, false);
         return new VibrationsRecyclerViewHolder(itemView);
     }
 
@@ -43,7 +49,8 @@ public class VibrationsAdapter extends RecyclerView.Adapter<VibrationsAdapter.Vi
     public void onBindViewHolder(@NonNull VibrationsRecyclerViewHolder vibrationsRecyclerViewHolder, int index) {
         vibrationsRecyclerViewHolder.bind(
             buzzList.get(index),
-            index + 1,
+            vibTitles, timeTitles,
+            index,
             holderClickListener);
     }
 
@@ -54,27 +61,23 @@ public class VibrationsAdapter extends RecyclerView.Adapter<VibrationsAdapter.Vi
 
     static class VibrationsRecyclerViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvIndex;
-        private TextView buzzTitle;
+        private final TextView tvIndex;
+        private final TextView buzzTitle;
 
         VibrationsRecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
-
             tvIndex = itemView.findViewById(R.id.index);
             buzzTitle = itemView.findViewById(R.id.buzzTitle);
         }
 
-        void bind(BuzzSetup buzz, int index, HolderClickListener holderClickListener) {
+        //TODO (think about better adapter pattern usages)
+        void bind(BuzzSetup buzz, String[] vibTitles, String[] timeTitles, int index, HolderClickListener holderClickListener) {
 
-            String countValue = itemView.getContext()
-                .getResources()
-                .getQuantityString(R.plurals.buzz_variants, buzz.getBuzzTime() <= 5 ? buzz.getBuzzCount() : 0);
-            String timeValue = itemView.getContext()
-                .getResources()
-                .getQuantityString(R.plurals.time_variants, buzz.getBuzzTime());
-            String totalString = String.format(Locale.getDefault(), "%d %s - %d %s", buzz.getBuzzCount(), countValue, buzz.getBuzzTime(), timeValue);
+            String buzzText = vibTitles[index];
+            String timeText = timeTitles[index];
+            String totalString = String.format(Locale.getDefault(), "%s - %s", buzzText, timeText);
 
-            tvIndex.setText(String.valueOf(index));
+            tvIndex.setText(String.valueOf(index + 1));
             buzzTitle.setText(totalString);
 
             if (holderClickListener != null) {
