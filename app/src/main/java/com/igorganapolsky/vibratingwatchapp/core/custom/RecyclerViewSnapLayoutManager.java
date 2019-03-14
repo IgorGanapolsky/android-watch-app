@@ -35,7 +35,6 @@ public class RecyclerViewSnapLayoutManager extends LinearLayoutManager {
     @Override
     public void onScrollStateChanged(int state) {
         super.onScrollStateChanged(state);
-
         if (state == RecyclerView.SCROLL_STATE_IDLE) {
             recyclerView.dispatchSetSelected(false);
             int position = findPosition();

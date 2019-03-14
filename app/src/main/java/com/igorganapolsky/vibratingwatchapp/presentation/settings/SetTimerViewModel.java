@@ -21,7 +21,7 @@ public class SetTimerViewModel extends ViewModel {
     private final MutableLiveData<TimerModel> timerData = new MutableLiveData<>();
     private final MutableLiveData<TimerSetup> setupData = new MutableLiveData<>();
     private final MutableLiveData<Boolean> swipeState = new MutableLiveData<>();
-    private final MutableLiveData<List<BuzzSetup>> buzzData = new MutableLiveData<>();
+    private final MutableLiveData<BuzzSetup> buzzData = new MutableLiveData<>();
 
     private Type currentType = Type.NEW;
     private TimerModel currentTimer;
@@ -29,10 +29,8 @@ public class SetTimerViewModel extends ViewModel {
 
     public SetTimerViewModel(Repository repository) {
         this.repository = repository;
-
         this.currentTimer = TimerModel.createDefault();
         this.setup = TimerSetup.HOURS;
-        buzzData.setValue(initBuzzList());
     }
 
     void setCurrentModelId(int currentId) {
@@ -53,7 +51,7 @@ public class SetTimerViewModel extends ViewModel {
         return setupData;
     }
 
-    public LiveData<List<BuzzSetup>> getBuzzData() {
+    public LiveData<BuzzSetup> getBuzzData() {
         return buzzData;
     }
 
@@ -69,8 +67,7 @@ public class SetTimerViewModel extends ViewModel {
         currentTimer.setRepeat(repeatValue + 1);
     }
 
-    public void setBuzz(int position) {
-        BuzzSetup newBuzz = Objects.requireNonNull(buzzData.getValue()).get(position);
+    public void setBuzz(BuzzSetup newBuzz) {
         currentTimer.setBuzzTime(newBuzz.getBuzzTime());
         currentTimer.setBuzzCount(newBuzz.getBuzzCount());
         currentTimer.setType(newBuzz.getBuzzType());
@@ -104,28 +101,6 @@ public class SetTimerViewModel extends ViewModel {
         return currentTimer.getValue(setup);
     }
 
-    public int getBuzzPosition() {
-        int position;
-        switch (currentTimer.getBuzzCount()) {
-            case 1:
-                if (currentTimer.getType() == BuzzSetup.Type.LONG) {
-                    position = 3;
-                } else {
-                    position = 0;
-                }
-                break;
-            case 3:
-                position = 1;
-                break;
-            case 5:
-                position = 2;
-                break;
-            default:
-                position = 0;
-        }
-        return position;
-    }
-
     public int getRepeatPosition() {
         return currentTimer.getRepeat() - 1 >= 0 ? currentTimer.getRepeat() - 1 : 0;
     }
@@ -136,14 +111,5 @@ public class SetTimerViewModel extends ViewModel {
         } else {
             repository.updateTimer(currentTimer);
         }
-    }
-
-    private List<BuzzSetup> initBuzzList() {
-        List<BuzzSetup> setupList = new ArrayList<>(4);
-        setupList.add(new BuzzSetup(BuzzSetup.Type.SHORT, 1, 5));
-        setupList.add(new BuzzSetup(BuzzSetup.Type.SHORT, 3, 3));
-        setupList.add(new BuzzSetup(BuzzSetup.Type.SHORT, 5, 5));
-        setupList.add(new BuzzSetup(BuzzSetup.Type.LONG, 1, 20));
-        return setupList;
     }
 }

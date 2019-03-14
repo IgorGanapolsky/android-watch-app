@@ -25,7 +25,7 @@ public class SetTimerRepeatFragment extends Fragment implements HolderClickListe
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewModel = ViewModelProviders.of(getActivity(), ViewModelFactory.getInstance()).get(SetTimerViewModel.class);
+        mViewModel = ViewModelProviders.of(requireActivity(), ViewModelFactory.getInstance()).get(SetTimerViewModel.class);
     }
 
     @Nullable

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.support.wear.widget.WearableRecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +46,7 @@ public class SetTimerVibrationFragment extends Fragment implements HolderClickLi
         wrvVibrations = view.findViewById(R.id.wrvVibrations);
 
         RecyclerViewSnapLayoutManager layoutManager = new RecyclerViewSnapLayoutManager(getActivity());
-        layoutManager.setItemSelectListener((int pos) -> mViewModel.setBuzz(pos));
+        layoutManager.setItemSelectListener((int pos) -> mViewModel.setBuzz(vibrationsAdapter.getBuzzByPosition(pos)));
 
         vibrationsAdapter = new VibrationsAdapter(this,
             getResources().getStringArray(R.array.buzzes),
@@ -53,13 +54,14 @@ public class SetTimerVibrationFragment extends Fragment implements HolderClickLi
 
         wrvVibrations.setAdapter(vibrationsAdapter);
         wrvVibrations.setLayoutManager(layoutManager);
+        wrvVibrations.setHasFixedSize(true);
+
     }
 
     private void setupObservers() {
-        mViewModel.getBuzzData().observe(this, (buzzList) -> {
-            if (buzzList == null) return;
-            vibrationsAdapter.setItems(buzzList);
-            wrvVibrations.smoothScrollToPosition(mViewModel.getBuzzPosition());
+        mViewModel.getBuzzData().observe(this, (setup) -> {
+            if (setup == null) return;
+            wrvVibrations.scrollToPosition(vibrationsAdapter.getPosition(setup));
         });
     }
 
