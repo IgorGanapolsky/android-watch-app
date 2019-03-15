@@ -1,7 +1,6 @@
 package com.igorganapolsky.vibratingwatchapp.manager.timer;
 
 import android.arch.lifecycle.LiveData;
-
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
 
 public interface CountdownManager {
@@ -13,6 +12,8 @@ public interface CountdownManager {
     TimerModel getActive();
 
     int getActiveId();
+
+    boolean isHasMoreRepeats();
 
     boolean isActive();
 
@@ -30,4 +31,6 @@ public interface CountdownManager {
     void onStop();
 
     void onRestart();
+
+    boolean onNextLap();
 }

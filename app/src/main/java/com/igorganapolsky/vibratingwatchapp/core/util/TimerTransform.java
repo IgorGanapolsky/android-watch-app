@@ -19,9 +19,9 @@ public class TimerTransform {
 
     public static String millisToString(TimerModel value) {
         return String.format(Locale.ENGLISH, "%02d : %02d : %02d",
-            value.getHoursTotal(),
-            value.getMinutesTotal(),
-            value.getSecondsTotal());
+            value.getHours(),
+            value.getMinutes(),
+            value.getSeconds());
     }
 
     public static long secondsToMillis(int seconds) {

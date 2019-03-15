@@ -15,6 +15,7 @@ import com.igorganapolsky.vibratingwatchapp.core.custom.StepActionListener;
 import com.igorganapolsky.vibratingwatchapp.core.custom.SwipeRestrictViewPager;
 import com.igorganapolsky.vibratingwatchapp.core.util.ViewModelFactory;
 import com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity;
+import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerSetup;
 
 import java.util.Locale;
@@ -54,7 +55,7 @@ public class SetTimerActivity extends AppCompatActivity implements View.OnClickL
 
     private void setupViewModel() {
         Bundle bundle = getIntent().getExtras();
-        int currentId = bundle != null ? bundle.getInt(TIMER_ID) : 0;
+        int currentId = bundle != null ? bundle.getInt(TIMER_ID) : TimerModel.UNDEFINE_ID;
         mViewModel.setCurrentModelId(currentId);
     }
 
@@ -81,9 +82,9 @@ public class SetTimerActivity extends AppCompatActivity implements View.OnClickL
         mViewModel.getSwipeState().observe(this, this::updateSwipeStateIfNeeded);
         mViewModel.getTimerData().observe(this, (timerModel -> {
             if (timerModel == null) return;
-            updateTimerData(TimerSetup.HOURS, timerModel.getHoursTotal());
-            updateTimerData(TimerSetup.MINUTES, timerModel.getMinutesTotal());
-            updateTimerData(TimerSetup.SECONDS, timerModel.getSecondsTotal());
+            updateTimerData(TimerSetup.HOURS, timerModel.getHours());
+            updateTimerData(TimerSetup.MINUTES, timerModel.getMinutes());
+            updateTimerData(TimerSetup.SECONDS, timerModel.getSeconds());
         }));
     }
 

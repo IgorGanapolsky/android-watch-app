@@ -2,7 +2,9 @@ package com.igorganapolsky.vibratingwatchapp.manager.timer;
 
 public interface TickListener {
 
-    void onTick(String newValue, int progress);
+    void onTick(Long timeLeft, int progress);
 
-    void onFinish(String newValue, int progress, boolean isStop);
+    void onLapEnd(Long timeLeft, int progress);
+
+    void onFinish(Long timeLeft, int progress, boolean isStop);
 }

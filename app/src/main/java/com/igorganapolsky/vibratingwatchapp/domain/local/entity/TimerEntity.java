@@ -12,11 +12,8 @@ public class TimerEntity {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @ColumnInfo(name = "time_total")
-    private long millisecondsTotal;
-
-    @ColumnInfo(name = "time_left")
-    private long millisecondsLeft;
+    @ColumnInfo(name = "time")
+    private long milliseconds;
 
     @ColumnInfo(name = "buzz_type")
     private String buzzType;
@@ -44,20 +41,12 @@ public class TimerEntity {
         this.id = id;
     }
 
-    public long getMillisecondsTotal() {
-        return millisecondsTotal;
+    public long getMilliseconds() {
+        return milliseconds;
     }
 
-    public void setMillisecondsTotal(long millisecondsTotal) {
-        this.millisecondsTotal = millisecondsTotal;
-    }
-
-    public long getMillisecondsLeft() {
-        return millisecondsLeft;
-    }
-
-    public void setMillisecondsLeft(long millisecondsLeft) {
-        this.millisecondsLeft = millisecondsLeft;
+    public void setMilliseconds(long milliseconds) {
+        this.milliseconds = milliseconds;
     }
 
     public String getBuzzType() {

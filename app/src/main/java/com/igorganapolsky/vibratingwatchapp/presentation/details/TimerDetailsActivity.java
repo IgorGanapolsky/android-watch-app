@@ -32,6 +32,9 @@ public class TimerDetailsActivity extends AppCompatActivity implements View.OnCl
     private ProgressBar pbTime;
     private TextView tvTime;
     private ImageView ivStart;
+    private ImageView ivContinueTimer;
+    private ImageView ivStop;
+    private ImageView ivRestart;
 
     private ImageView ivTimerSettings;
     private ImageView ivTimerRemove;
@@ -51,12 +54,11 @@ public class TimerDetailsActivity extends AppCompatActivity implements View.OnCl
         switch (requestCode) {
             case SETTING_REQUEST_CODE:
                 if (resultCode == SetTimerActivity.SETTING_SUCCESS_CODE) {
-                   mViewModel.checkUpdates();
+                    mViewModel.checkUpdates();
                 }
                 break;
         }
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,20 +78,22 @@ public class TimerDetailsActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void setupView() {
-        ivTimerSettings = findViewById(R.id.ivTimerSettings);
-        ivTimerSettings.setOnClickListener(this);
-        ivTimerRemove = findViewById(R.id.ivTimerRemove);
-        ivTimerRemove.setOnClickListener(this);
-
         pbTime = findViewById(R.id.pbTime);
         tvTime = findViewById(R.id.tvTime);
+        ivTimerSettings = findViewById(R.id.ivTimerSettings);
+        ivTimerRemove = findViewById(R.id.ivTimerRemove);
+        ivContinueTimer = findViewById(R.id.ivContinueTimer);
+        ivContinueTimer.setOnClickListener(this);
+        ivTimerRemove.setOnClickListener(this);
+        ivTimerSettings.setOnClickListener(this);
 
         // CONTROLS
         ivStart = findViewById(R.id.ivStart);
-        ivStart.setOnClickListener(this);
-        ImageView ivStop = findViewById(R.id.ivStop);
+        ivStop = findViewById(R.id.ivStop);
+        ivRestart = findViewById(R.id.ivRestart);
+
         ivStop.setOnClickListener(this);
-        ImageView ivRestart = findViewById(R.id.ivRestart);
+        ivStart.setOnClickListener(this);
         ivRestart.setOnClickListener(this);
 
         blinking = new AlphaAnimation(1f, .25f);
@@ -114,21 +118,20 @@ public class TimerDetailsActivity extends AppCompatActivity implements View.OnCl
                     mViewModel.onPause();
                 }
                 break;
-
             case R.id.ivStop:
                 mViewModel.onStop();
                 break;
-
             case R.id.ivRestart:
                 mViewModel.onRestart();
                 break;
-
             case R.id.ivTimerSettings:
                 Bundle bundle = getIntent().getExtras();
-                int currentId = bundle != null ? bundle.getInt(TIMER_ID) : 0;
+                int currentId = bundle != null ? bundle.getInt(TIMER_ID) : TimerModel.UNDEFINE_ID;
                 startActivityForResult(SetTimerActivity.createIntent(this, currentId), SETTING_REQUEST_CODE);
                 break;
-
+            case R.id.ivContinueTimer:
+                mViewModel.onNextLap();
+                break;
             case R.id.ivTimerRemove:
                 getSupportFragmentManager()
                     .beginTransaction()
@@ -144,28 +147,47 @@ public class TimerDetailsActivity extends AppCompatActivity implements View.OnCl
         switch (state) {
             case PAUSE:
                 ivStart.setSelected(false);
+                ivStart.setEnabled(true);
+                ivStop.setEnabled(true);
+                ivRestart.setEnabled(true);
                 disableAdditionalButtons(true);
                 tvTime.startAnimation(blinking);
+                ivContinueTimer.setVisibility(View.GONE);
                 break;
             case RUN:
                 ivStart.setSelected(true);
                 disableAdditionalButtons(true);
+                ivStart.setEnabled(true);
+                ivStop.setEnabled(true);
+                ivRestart.setEnabled(true);
+                ivContinueTimer.setVisibility(View.GONE);
                 blinking.cancel();
                 blinking.reset();
                 break;
             case FINISH:
                 ivStart.setSelected(false);
                 disableAdditionalButtons(false);
+                ivStart.setEnabled(true);
+                ivStop.setEnabled(true);
+                ivRestart.setEnabled(true);
                 blinking.cancel();
                 blinking.reset();
+                ivContinueTimer.setVisibility(View.GONE);
+                break;
+            case BEEPING:
+                ivStart.setEnabled(false);
+                ivStop.setEnabled(false);
+                ivRestart.setEnabled(false);
+                tvTime.startAnimation(blinking);
+                ivContinueTimer.setVisibility(View.VISIBLE);
                 break;
         }
     }
 
     private void updateTimerData(CountData data) {
         if (data == null) return;
-            pbTime.setProgress(100 - data.getCurrentProgress(), data.isAnimationNeeded());
-            tvTime.setText(data.getCurrentTime());
+        pbTime.setProgress(100 - data.getCurrentProgress(), data.isAnimationNeeded());
+        tvTime.setText(data.getCurrentTime());
     }
 
     private void disableAdditionalButtons(boolean disable) {

@@ -1,15 +1,17 @@
 package com.igorganapolsky.vibratingwatchapp.domain.model;
 
+import com.igorganapolsky.vibratingwatchapp.core.util.TimerTransform;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
 import java.util.Objects;
 
+//TODO (need to be refactored)
 public class TimerModel {
 
-    public enum State {RUN, PAUSE, FINISH}
+    public static final int UNDEFINE_ID = -1;
 
-    private int id;
+    public enum State {RUN, PAUSE, BEEPING, FINISH}
 
     /* Buzz */
     private int buzzCount;
@@ -20,15 +22,11 @@ public class TimerModel {
     private int repeat;
 
     /* Setup time */
-    private int hoursTotal;
-    private int minutesTotal;
-    private int secondsTotal;
+    private int hours;
+    private int minutes;
+    private int seconds;
 
-    /* Time left (not use now) */
-    private int hoursLeft;
-    private int minutesLeft;
-    private int secondsLeft;
-
+    private int id;
     private State state = State.FINISH;
 
     public static TimerModel createDefault() {
@@ -44,34 +42,38 @@ public class TimerModel {
         this(0, 0, 0);
     }
 
-    public TimerModel(int hoursTotal, int minutesTotal, int secondsTotal) {
-        this.hoursTotal = hoursTotal;
-        this.minutesTotal = minutesTotal;
-        this.secondsTotal = secondsTotal;
+    public TimerModel(int hours, int minutes, int seconds) {
+        this.hours = hours;
+        this.minutes = minutes;
+        this.seconds = seconds;
     }
 
-    public int getHoursTotal() {
-        return hoursTotal;
+    public long getTimeInMillis() {
+        return TimerTransform.timeToMillis(hours, minutes, seconds);
     }
 
-    public void setHoursTotal(int hoursTotal) {
-        this.hoursTotal = hoursTotal;
+    public int getHours() {
+        return hours;
     }
 
-    public int getMinutesTotal() {
-        return minutesTotal;
+    public void setHours(int hours) {
+        this.hours = hours;
     }
 
-    public void setMinutesTotal(int minutesTotal) {
-        this.minutesTotal = minutesTotal;
+    public int getMinutes() {
+        return minutes;
     }
 
-    public int getSecondsTotal() {
-        return secondsTotal;
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
     }
 
-    public void setSecondsTotal(int secondsTotal) {
-        this.secondsTotal = secondsTotal;
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
     }
 
     public int getBuzzCount() {
@@ -90,30 +92,6 @@ public class TimerModel {
         this.repeat = repeat;
     }
 
-    public int getHoursLeft() {
-        return hoursLeft;
-    }
-
-    public void setHoursLeft(int hoursLeft) {
-        this.hoursLeft = hoursLeft;
-    }
-
-    public int getMinutesLeft() {
-        return minutesLeft;
-    }
-
-    public void setMinutesLeft(int minutesLeft) {
-        this.minutesLeft = minutesLeft;
-    }
-
-    public int getSecondsLeft() {
-        return secondsLeft;
-    }
-
-    public void setSecondsLeft(int secondsLeft) {
-        this.secondsLeft = secondsLeft;
-    }
-
     public State getState() {
         return state;
     }
@@ -125,11 +103,11 @@ public class TimerModel {
     public int getValue(TimerSetup timerSetup) {
         switch (timerSetup) {
             case HOURS:
-                return getHoursTotal();
+                return getHours();
             case MINUTES:
-                return getMinutesTotal();
+                return getMinutes();
             case SECONDS:
-                return getSecondsTotal();
+                return getSeconds();
         }
         return -1;
     }
@@ -151,7 +129,7 @@ public class TimerModel {
     }
 
     public boolean isDefaultTime() {
-        return hoursTotal == 0 && minutesTotal == 0 && secondsTotal == 0;
+        return hours == 0 && minutes == 0 && seconds == 0;
     }
 
     public int getBuzzTime() {
@@ -178,6 +156,6 @@ public class TimerModel {
     @NotNull
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH, "%02d : %02d : %02d", hoursTotal, minutesTotal, secondsTotal);
+        return String.format(Locale.ENGLISH, "%02d : %02d : %02d", hours, minutes, seconds);
     }
 }

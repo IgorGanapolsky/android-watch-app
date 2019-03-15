@@ -14,14 +14,9 @@ public class Mappers {
         model.setType(BuzzSetup.Type.valueOf(entity.getBuzzType()));
         model.setState(TimerModel.State.valueOf(entity.getState()));
         model.setBuzzTime(entity.getBuzzTime());
-
-        model.setHoursTotal(TimerTransform.getHours(entity.getMillisecondsTotal()));
-        model.setHoursLeft(TimerTransform.getHours(entity.getMillisecondsLeft()));
-        model.setMinutesTotal(TimerTransform.getMinutes(entity.getMillisecondsTotal()));
-        model.setMinutesLeft(TimerTransform.getMinutes(entity.getMillisecondsLeft()));
-        model.setSecondsTotal(TimerTransform.getSeconds(entity.getMillisecondsTotal()));
-        model.setSecondsLeft(TimerTransform.getSeconds(entity.getMillisecondsLeft()));
-
+        model.setHours(TimerTransform.getHours(entity.getMilliseconds()));
+        model.setMinutes(TimerTransform.getMinutes(entity.getMilliseconds()));
+        model.setSeconds(TimerTransform.getSeconds(entity.getMilliseconds()));
         return model;
     }
 
@@ -32,9 +27,7 @@ public class Mappers {
         entity.setBuzzCount(model.getBuzzCount());
         entity.setBuzzType(model.getType().name());
         entity.setBuzzTime(model.getBuzzTime());
-
-        entity.setMillisecondsTotal(TimerTransform.timeToMillis(model.getHoursTotal(), model.getMinutesTotal(), model.getSecondsTotal()));
-        entity.setMillisecondsLeft(TimerTransform.timeToMillis(model.getHoursLeft(), model.getMinutesLeft(), model.getSecondsLeft()));
+        entity.setMilliseconds(model.getTimeInMillis());
         return entity;
     }
 

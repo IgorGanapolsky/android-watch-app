@@ -34,12 +34,9 @@ public class TimerDiffCallback extends DiffUtil.Callback {
     public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
         return oldModelList.get(oldItemPosition).getState() == newModelList.get(newItemPosition).getState() &&
             oldModelList.get(oldItemPosition).getBuzzCount() == newModelList.get(newItemPosition).getBuzzCount() &&
-            oldModelList.get(oldItemPosition).getHoursLeft() == newModelList.get(newItemPosition).getHoursLeft() &&
-            oldModelList.get(oldItemPosition).getHoursTotal() == newModelList.get(newItemPosition).getHoursTotal() &&
-            oldModelList.get(oldItemPosition).getMinutesLeft() == newModelList.get(newItemPosition).getMinutesLeft() &&
-            oldModelList.get(oldItemPosition).getMinutesTotal() == newModelList.get(newItemPosition).getMinutesTotal() &&
-            oldModelList.get(oldItemPosition).getSecondsLeft() == newModelList.get(newItemPosition).getSecondsLeft() &&
-            oldModelList.get(oldItemPosition).getSecondsTotal() == newModelList.get(newItemPosition).getSecondsTotal() &&
+            oldModelList.get(oldItemPosition).getHours() == newModelList.get(newItemPosition).getHours() &&
+            oldModelList.get(oldItemPosition).getMinutes() == newModelList.get(newItemPosition).getMinutes() &&
+            oldModelList.get(oldItemPosition).getSeconds() == newModelList.get(newItemPosition).getSeconds() &&
             oldModelList.get(oldItemPosition).getRepeat() == newModelList.get(newItemPosition).getRepeat();
     }
 }
