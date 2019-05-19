@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.igorganapolsky.vibratingwatchapp.R;
 import com.igorganapolsky.vibratingwatchapp.presentation.details.TimerDetailsViewModel;
-import com.igorganapolsky.vibratingwatchapp.core.util.ViewModelFactory;
+import com.igorganapolsky.vibratingwatchapp.presentation.ViewModelFactory;
 
 import java.util.Objects;
 

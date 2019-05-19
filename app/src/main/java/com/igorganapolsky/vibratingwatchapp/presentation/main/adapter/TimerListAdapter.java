@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.igorganapolsky.vibratingwatchapp.R;
-import com.igorganapolsky.vibratingwatchapp.core.util.TimerDiffCallback;
-import com.igorganapolsky.vibratingwatchapp.core.util.TimerTransform;
+import com.igorganapolsky.vibratingwatchapp.util.TimerDiffCallback;
+import com.igorganapolsky.vibratingwatchapp.util.TimerTransform;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
 
 import java.util.ArrayList;

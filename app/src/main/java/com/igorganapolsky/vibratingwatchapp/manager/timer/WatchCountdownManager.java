@@ -3,7 +3,7 @@ package com.igorganapolsky.vibratingwatchapp.manager.timer;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import android.os.CountDownTimer;
-import com.igorganapolsky.vibratingwatchapp.core.util.Mappers;
+import com.igorganapolsky.vibratingwatchapp.util.Mappers;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
 import com.igorganapolsky.vibratingwatchapp.manager.vibration.BeepManager;
 

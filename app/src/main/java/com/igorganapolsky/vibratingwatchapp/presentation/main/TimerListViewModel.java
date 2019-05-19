@@ -11,7 +11,8 @@ import java.util.List;
 
 public class TimerListViewModel extends ViewModel {
 
-    private final Repository repository;
+    private Repository repository;
+
     private final CountdownManager countdownManager;
 
     public TimerListViewModel(Repository repository, CountdownManager countdownManager) {

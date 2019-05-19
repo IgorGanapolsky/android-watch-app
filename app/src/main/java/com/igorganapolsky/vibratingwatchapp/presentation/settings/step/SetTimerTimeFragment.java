@@ -12,11 +12,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.igorganapolsky.vibratingwatchapp.R;
-import com.igorganapolsky.vibratingwatchapp.core.custom.StepActionListener;
+import com.igorganapolsky.vibratingwatchapp.util.StepActionListener;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerSetup;
 import com.igorganapolsky.vibratingwatchapp.presentation.settings.SetTimerActivity;
 import com.igorganapolsky.vibratingwatchapp.presentation.settings.SetTimerViewModel;
-import com.igorganapolsky.vibratingwatchapp.core.util.ViewModelFactory;
+import com.igorganapolsky.vibratingwatchapp.presentation.ViewModelFactory;
 import com.triggertrap.seekarc.SeekArc;
 
 import java.util.Locale;

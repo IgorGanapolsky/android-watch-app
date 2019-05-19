@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.core.util;
+package com.igorganapolsky.vibratingwatchapp.presentation;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;

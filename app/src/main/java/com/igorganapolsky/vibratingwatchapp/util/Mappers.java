@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.core.util;
+package com.igorganapolsky.vibratingwatchapp.util;
 
 import com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity;
 import com.igorganapolsky.vibratingwatchapp.domain.model.BuzzSetup;

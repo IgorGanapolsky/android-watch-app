@@ -2,7 +2,7 @@ package com.igorganapolsky.vibratingwatchapp.domain;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Transformations;
-import com.igorganapolsky.vibratingwatchapp.core.util.Mappers;
+import com.igorganapolsky.vibratingwatchapp.util.Mappers;
 import com.igorganapolsky.vibratingwatchapp.domain.local.TimersDatabase;
 import com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;

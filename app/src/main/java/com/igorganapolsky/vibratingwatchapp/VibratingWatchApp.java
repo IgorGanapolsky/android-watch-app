@@ -4,7 +4,7 @@ import android.app.Application;
 import androidx.room.Room;
 import android.content.Context;
 import android.os.Vibrator;
-import com.igorganapolsky.vibratingwatchapp.core.util.ViewModelFactory;
+import com.igorganapolsky.vibratingwatchapp.presentation.ViewModelFactory;
 import com.igorganapolsky.vibratingwatchapp.domain.Repository;
 import com.igorganapolsky.vibratingwatchapp.domain.WatchRepository;
 import com.igorganapolsky.vibratingwatchapp.domain.local.TimersDatabase;

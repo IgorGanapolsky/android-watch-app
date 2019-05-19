@@ -13,7 +13,7 @@ import com.igorganapolsky.vibratingwatchapp.R;
 import com.igorganapolsky.vibratingwatchapp.presentation.details.TimerDetailsActivity;
 import com.igorganapolsky.vibratingwatchapp.presentation.main.adapter.TimerListAdapter;
 import com.igorganapolsky.vibratingwatchapp.presentation.settings.SetTimerActivity;
-import com.igorganapolsky.vibratingwatchapp.core.util.ViewModelFactory;
+import com.igorganapolsky.vibratingwatchapp.presentation.ViewModelFactory;
 
 public class TimerListActivity extends AppCompatActivity implements View.OnClickListener, TimerListAdapter.OnItemClickListener {
 

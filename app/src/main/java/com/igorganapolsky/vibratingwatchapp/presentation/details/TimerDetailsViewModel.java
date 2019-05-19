@@ -3,7 +3,7 @@ package com.igorganapolsky.vibratingwatchapp.presentation.details;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import com.igorganapolsky.vibratingwatchapp.core.util.TimerTransform;
+import com.igorganapolsky.vibratingwatchapp.util.TimerTransform;
 import com.igorganapolsky.vibratingwatchapp.domain.Repository;
 import com.igorganapolsky.vibratingwatchapp.domain.model.CountData;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;

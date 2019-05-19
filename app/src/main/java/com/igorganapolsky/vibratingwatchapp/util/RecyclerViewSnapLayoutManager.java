@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.core.custom;
+package com.igorganapolsky.vibratingwatchapp.util;
 
 import android.content.Context;
 import android.view.View;

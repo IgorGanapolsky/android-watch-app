@@ -1,6 +1,6 @@
 package com.igorganapolsky.vibratingwatchapp.domain.model;
 
-import com.igorganapolsky.vibratingwatchapp.core.util.TimerTransform;
+import com.igorganapolsky.vibratingwatchapp.util.TimerTransform;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;

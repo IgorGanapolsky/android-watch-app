@@ -4,7 +4,7 @@ import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import androidx.annotation.RequiresApi;
-import com.igorganapolsky.vibratingwatchapp.core.util.TimerTransform;
+import com.igorganapolsky.vibratingwatchapp.util.TimerTransform;
 import com.igorganapolsky.vibratingwatchapp.domain.model.BuzzSetup;
 
 public class WatchBeepManager implements BeepManager {
