@@ -1,7 +1,7 @@
 package com.igorganapolsky.vibratingwatchapp.manager.timer;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import android.os.CountDownTimer;
 import com.igorganapolsky.vibratingwatchapp.core.util.Mappers;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;

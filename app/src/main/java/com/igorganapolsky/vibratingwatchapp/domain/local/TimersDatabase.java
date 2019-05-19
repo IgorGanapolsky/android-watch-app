@@ -1,7 +1,7 @@
 package com.igorganapolsky.vibratingwatchapp.domain.local;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.RoomDatabase;
+import androidx.room.Database;
+import androidx.room.RoomDatabase;
 import com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity;
 
 @Database(entities = {TimerEntity.class}, version = 7, exportSchema = false)

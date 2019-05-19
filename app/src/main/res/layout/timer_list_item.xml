@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,7 +11,7 @@
     android:paddingBottom="@dimen/text_inner_padding"
     android:orientation="horizontal">
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivStatus"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,7 +21,7 @@
         android:scaleType="center"
         app:srcCompat="@drawable/ic_play"/>
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/icProgress"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvRepeat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         android:textSize="10sp"
         tools:text="1"/>
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivRepeat"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toStartOf="@id/tvRepeat"
         app:srcCompat="@drawable/ic_repeat"/>
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvVibration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
         android:textSize="10sp"
         tools:text="1"/>
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivVibration"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
@@ -81,7 +81,7 @@
         app:layout_constraintEnd_toStartOf="@id/tvVibration"
         app:srcCompat="@drawable/ic_vibrate"/>
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTime"
         android:layout_width="0dp"
         android:paddingStart="20dp"
@@ -97,4 +97,4 @@
         android:textSize="14sp"
         tools:text="00 : 00 : 00"/>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

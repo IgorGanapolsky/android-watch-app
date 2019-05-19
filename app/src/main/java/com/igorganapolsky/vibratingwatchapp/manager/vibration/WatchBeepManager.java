@@ -3,7 +3,7 @@ package com.igorganapolsky.vibratingwatchapp.manager.vibration;
 import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import com.igorganapolsky.vibratingwatchapp.core.util.TimerTransform;
 import com.igorganapolsky.vibratingwatchapp.domain.model.BuzzSetup;
 

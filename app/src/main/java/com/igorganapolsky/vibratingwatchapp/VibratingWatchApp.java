@@ -1,7 +1,7 @@
 package com.igorganapolsky.vibratingwatchapp;
 
 import android.app.Application;
-import android.arch.persistence.room.Room;
+import androidx.room.Room;
 import android.content.Context;
 import android.os.Vibrator;
 import com.igorganapolsky.vibratingwatchapp.core.util.ViewModelFactory;
@@ -14,7 +14,6 @@ import com.igorganapolsky.vibratingwatchapp.manager.vibration.BeepManager;
 import com.igorganapolsky.vibratingwatchapp.manager.vibration.WatchBeepManager;
 
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class VibratingWatchApp extends Application {
 

@@ -1,8 +1,8 @@
 package com.igorganapolsky.vibratingwatchapp.core.util;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.annotation.NonNull;
 import com.igorganapolsky.vibratingwatchapp.domain.Repository;
 import com.igorganapolsky.vibratingwatchapp.manager.timer.CountdownManager;
 import com.igorganapolsky.vibratingwatchapp.presentation.details.TimerDetailsViewModel;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -29,7 +29,7 @@
         app:thumb="@drawable/ic_thumb"
         app:touchInside="false"/>
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         app:layout_constraintStart_toStartOf="@id/seekArc"
         app:layout_constraintTop_toTopOf="@+id/seekArc"/>
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvLabelMeasure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
         app:layout_constraintTop_toTopOf="@+id/tvLabel"
         app:layout_constraintVertical_bias="0.7"/>
 
-    <android.support.v7.widget.LinearLayoutCompat
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/timeSwapContainer"
         android:layout_width="0dp"
         android:layout_height="20dp"
@@ -69,7 +69,7 @@
         app:layout_constraintStart_toStartOf="@id/seekArc"
         app:layout_constraintTop_toBottomOf="@id/seekArc">
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvHours"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
             android:textColor="@color/white_active"
             android:textSize="14sp"/>
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvMinutes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
             android:textColor="@color/white_inactive"
             android:textSize="14sp"/>
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvSeconds"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -114,5 +114,5 @@
             android:textColor="@color/white_inactive"
             android:textSize="14sp"/>
 
-    </android.support.v7.widget.LinearLayoutCompat>
-</android.support.constraint.ConstraintLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

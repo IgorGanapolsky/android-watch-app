@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.wear.widget.BoxInsetLayout
+<androidx.wear.widget.BoxInsetLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,21 +10,21 @@
     android:paddingStart="@dimen/list_start_padding"
     android:paddingEnd="@dimen/list_end_padding">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/contentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         app:layout_box="left|right">
 
-        <android.support.constraint.Guideline
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/glList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.35"/>
 
-        <android.support.wear.widget.WearableRecyclerView
+        <androidx.wear.widget.WearableRecyclerView
             android:id="@+id/wrvTimerList"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -39,7 +39,7 @@
             app:layout_constraintTop_toBottomOf="@+id/glList"
             tools:listitem="@layout/timer_list_item"/>
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivTimerListImage"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -50,7 +50,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/addTimerButtonImage"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -62,7 +62,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivTimerListImage"/>
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/addTimerButtonImageLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,5 +73,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addTimerButtonImage"/>
-    </android.support.constraint.ConstraintLayout>
-</android.support.wear.widget.BoxInsetLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.wear.widget.BoxInsetLayout>

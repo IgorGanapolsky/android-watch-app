@@ -1,6 +1,6 @@
 package com.igorganapolsky.vibratingwatchapp.domain;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
 
 import java.util.List;
