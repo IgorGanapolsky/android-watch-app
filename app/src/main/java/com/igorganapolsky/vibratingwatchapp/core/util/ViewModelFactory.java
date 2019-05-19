@@ -13,8 +13,8 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
 
     private static ViewModelFactory factory;
 
-    private Repository repository;
-    private CountdownManager countdownManager;
+    private final Repository repository;
+    private final CountdownManager countdownManager;
 
     private ViewModelFactory(Repository repository, CountdownManager countdownManager) {
         this.repository = repository;

@@ -15,7 +15,7 @@ public class RepeatsAdapter extends RecyclerView.Adapter<RepeatsAdapter.RepeatsR
         "4", "5", "6",
         "7", "8", "9"};
 
-    private HolderClickListener holderClickListener;
+    private final HolderClickListener holderClickListener;
 
     public RepeatsAdapter(HolderClickListener holderClickListener) {
         this.holderClickListener = holderClickListener;
@@ -45,7 +45,7 @@ public class RepeatsAdapter extends RecyclerView.Adapter<RepeatsAdapter.RepeatsR
     }
 
     static class RepeatsRecyclerViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvLabel;
+        private final TextView tvLabel;
 
         RepeatsRecyclerViewHolder(@NonNull View itemView) {
             super(itemView);

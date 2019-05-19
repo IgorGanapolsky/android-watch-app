@@ -11,7 +11,7 @@ import java.util.List;
 
 public class TimerListViewModel extends ViewModel {
 
-    private Repository repository;
+    private final Repository repository;
     private final CountdownManager countdownManager;
 
     public TimerListViewModel(Repository repository, CountdownManager countdownManager) {
@@ -20,7 +20,7 @@ public class TimerListViewModel extends ViewModel {
         countdownManager.observeActiveModel().observeForever(activeObserver);
     }
 
-    private Observer<TimerModel> activeObserver = model -> {
+    private final Observer<TimerModel> activeObserver = model -> {
         if (model == null) return;
         if (model.getState() == TimerModel.State.RUN && model.getState() == TimerModel.State.FINISH) {
             repository.updateTimerState(model.getId(), model.getState());

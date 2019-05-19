@@ -34,7 +34,7 @@ public class SetTimerViewModel extends ViewModel {
             currentType = Type.EDIT;
             currentTimer = repository.getTimerById(currentId);
         }
-        swipeState.setValue(!currentTimer.isDefaultTime());
+        swipeState.setValue(currentTimer.hasTime());
         setupData.setValue(setup);
         timerData.setValue(currentTimer);
     }
@@ -90,7 +90,7 @@ public class SetTimerViewModel extends ViewModel {
         }
 
         setupData.setValue(setup);
-        swipeState.setValue(!currentTimer.isDefaultTime());
+        swipeState.setValue(currentTimer.hasTime());
     }
 
     public int getCurrentTimeValue() {

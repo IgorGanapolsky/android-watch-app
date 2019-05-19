@@ -1,18 +1,18 @@
 package com.igorganapolsky.vibratingwatchapp.presentation.details;
 
-import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 import com.igorganapolsky.vibratingwatchapp.R;
 import com.igorganapolsky.vibratingwatchapp.core.util.ViewModelFactory;
 import com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity;
@@ -25,7 +25,7 @@ import static com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEnti
 
 public class TimerDetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private final static int SETTING_REQUEST_CODE = 100;
+    private static final int SETTING_REQUEST_CODE = 100;
 
     private TimerDetailsViewModel mViewModel;
 
@@ -51,12 +51,8 @@ public class TimerDetailsActivity extends AppCompatActivity implements View.OnCl
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case SETTING_REQUEST_CODE:
-                if (resultCode == SetTimerActivity.SETTING_SUCCESS_CODE) {
-                    mViewModel.checkUpdates();
-                }
-                break;
+        if (requestCode == SETTING_REQUEST_CODE && resultCode == SetTimerActivity.SETTING_SUCCESS_CODE) {
+            mViewModel.checkUpdates();
         }
     }
 

@@ -7,7 +7,7 @@ import com.igorganapolsky.vibratingwatchapp.presentation.settings.step.SetTimerR
 import com.igorganapolsky.vibratingwatchapp.presentation.settings.step.SetTimerTimeFragment;
 import com.igorganapolsky.vibratingwatchapp.presentation.settings.step.SetTimerVibrationFragment;
 
-public class SetTimerPageAdapter extends FragmentStatePagerAdapter {
+class SetTimerPageAdapter extends FragmentStatePagerAdapter {
 
     private final Fragment[] fragments = {
         new SetTimerTimeFragment(),

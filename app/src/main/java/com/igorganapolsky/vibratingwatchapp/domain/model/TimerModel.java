@@ -42,7 +42,7 @@ public class TimerModel {
         this(0, 0, 0);
     }
 
-    public TimerModel(int hours, int minutes, int seconds) {
+    private TimerModel(int hours, int minutes, int seconds) {
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
@@ -128,8 +128,8 @@ public class TimerModel {
         this.id = id;
     }
 
-    public boolean isDefaultTime() {
-        return hours == 0 && minutes == 0 && seconds == 0;
+    public boolean hasTime() {
+        return hours != 0 || minutes != 0 || seconds != 0;
     }
 
     public int getBuzzTime() {

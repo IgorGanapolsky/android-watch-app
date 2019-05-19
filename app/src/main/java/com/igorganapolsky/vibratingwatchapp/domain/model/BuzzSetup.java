@@ -4,9 +4,9 @@ public class BuzzSetup {
 
    public enum Type {SHORT, LONG}
 
-    private Type buzzType;
-    private int buzzCount;
-    private int buzzTime;
+    private final Type buzzType;
+    private final int buzzCount;
+    private final int buzzTime;
 
     public BuzzSetup(Type buzzType, int buzzCount, int buzzTime) {
         this.buzzType = buzzType;

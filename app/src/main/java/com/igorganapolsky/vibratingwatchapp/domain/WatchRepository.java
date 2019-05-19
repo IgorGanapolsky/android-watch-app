@@ -13,8 +13,8 @@ import java.util.concurrent.ExecutorService;
 
 public class WatchRepository implements Repository {
 
-    private TimersDatabase timerDb;
-    private ExecutorService executor;
+    private final TimersDatabase timerDb;
+    private final ExecutorService executor;
 
     public WatchRepository(TimersDatabase timerDb, ExecutorService executor) {
         this.timerDb = timerDb;

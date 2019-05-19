@@ -1,10 +1,10 @@
 package com.igorganapolsky.vibratingwatchapp.core.custom;
 
 import android.content.Context;
+import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.View;
 
 public class RecyclerViewSnapLayoutManager extends LinearLayoutManager {
     private RecyclerView recyclerView;
@@ -19,7 +19,7 @@ public class RecyclerViewSnapLayoutManager extends LinearLayoutManager {
         this(context, orientation, false);
     }
 
-    public RecyclerViewSnapLayoutManager(Context context, int orientation, boolean reverseLayout) {
+    private RecyclerViewSnapLayoutManager(Context context, int orientation, boolean reverseLayout) {
         super(context, orientation, reverseLayout);
     }
 

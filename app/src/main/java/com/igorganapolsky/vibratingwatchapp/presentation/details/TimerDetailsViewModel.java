@@ -22,7 +22,7 @@ public class TimerDetailsViewModel extends ViewModel implements TickListener {
 
     private TimerModel currentTimer;
     private int currentId = UNDEFINE_ID;
-    private CountData countData;
+    private final CountData countData;
 
     public TimerDetailsViewModel(Repository repository, CountdownManager countdownManager) {
         this.repository = repository;

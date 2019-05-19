@@ -11,7 +11,7 @@ public class WatchBeepManager implements BeepManager {
 
     private final Vibrator vibrator;
     private BuzzSetup setup;
-    private boolean isVibratorActive;
+    private final boolean isVibratorActive;
 
     private VibrationEffect vibEffect;
     private long[] pattern;

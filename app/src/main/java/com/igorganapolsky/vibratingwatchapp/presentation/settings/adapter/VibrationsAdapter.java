@@ -20,7 +20,7 @@ public class VibrationsAdapter extends RecyclerView.Adapter<VibrationsAdapter.Vi
     private final String[] vibTitles;
     private final String[] timeTitles;
 
-    private HolderClickListener holderClickListener;
+    private final HolderClickListener holderClickListener;
     private final List<BuzzSetup> buzzList;
 
     public VibrationsAdapter(HolderClickListener holderClickListener, String[] vibTitles, String[] timeTitles) {
