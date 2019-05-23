@@ -41,7 +41,7 @@ public class WatchCountdownManager implements CountdownManager {
     @Override
     public void onStart() {
         if (activeModel != null) {
-            activeModel.setState(TimerModel.State.RUN);
+            activeModel.setState(TimerModel.State.RUNNING);
         }
         activeModelData.postValue(activeModel);
         currentCountdownTimer = prepareCountdownTimer();
@@ -51,7 +51,7 @@ public class WatchCountdownManager implements CountdownManager {
     @Override
     public void onPause() {
         if (activeModel != null) {
-            activeModel.setState(TimerModel.State.PAUSE);
+            activeModel.setState(TimerModel.State.PAUSED);
         }
         if (currentCountdownTimer != null) {
             currentCountdownTimer.cancel();
@@ -67,7 +67,7 @@ public class WatchCountdownManager implements CountdownManager {
     @Override
     public void onRestart() {
         if (activeModel != null) {
-            activeModel.setState(TimerModel.State.RUN);
+            activeModel.setState(TimerModel.State.RUNNING);
         }
         clearCountDown();
         onStart();
@@ -114,7 +114,7 @@ public class WatchCountdownManager implements CountdownManager {
     }
 
     private void notifyOnFinish(boolean isStop) {
-        activeModel.setState(TimerModel.State.FINISH);
+        activeModel.setState(TimerModel.State.FINISHED);
         activeModelData.setValue(activeModel);
         if (tickListener != null) {
             tickListener.onFinish(timeLeft, 100, isStop);
@@ -163,7 +163,7 @@ public class WatchCountdownManager implements CountdownManager {
 
     @Override
     public boolean isActive() {
-        return activeModel != null && activeModel.getState() != TimerModel.State.FINISH;
+        return activeModel != null && activeModel.getState() != TimerModel.State.FINISHED;
     }
 
     @Override
@@ -173,7 +173,7 @@ public class WatchCountdownManager implements CountdownManager {
 
     @Override
     public int getActiveProgress() {
-        return activeModel.getState() == TimerModel.State.FINISH ? 100 : calculateProgress();
+        return activeModel.getState() == TimerModel.State.FINISHED ? 100 : calculateProgress();
     }
 
     @Override

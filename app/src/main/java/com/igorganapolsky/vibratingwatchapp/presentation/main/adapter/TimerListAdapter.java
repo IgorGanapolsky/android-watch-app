@@ -82,7 +82,7 @@ public class TimerListAdapter extends RecyclerView.Adapter<TimerListAdapter.Time
 
         void bind(TimerModel model, OnItemClickListener itemClickListener) {
 
-            if (model.getState() == TimerModel.State.FINISH) {
+            if (model.getState() == TimerModel.State.FINISHED) {
                 ivStatus.setVisibility(View.VISIBLE);
                 icProgress.setVisibility(View.INVISIBLE);
             } else {

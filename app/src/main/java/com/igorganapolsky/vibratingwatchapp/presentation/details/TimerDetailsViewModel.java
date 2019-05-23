@@ -3,14 +3,12 @@ package com.igorganapolsky.vibratingwatchapp.presentation.details;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import com.igorganapolsky.vibratingwatchapp.util.TimerTransform;
 import com.igorganapolsky.vibratingwatchapp.domain.Repository;
 import com.igorganapolsky.vibratingwatchapp.domain.model.CountData;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
 import com.igorganapolsky.vibratingwatchapp.manager.timer.CountdownManager;
 import com.igorganapolsky.vibratingwatchapp.manager.timer.TickListener;
-
-import static com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel.UNDEFINE_ID;
+import com.igorganapolsky.vibratingwatchapp.util.TimerTransform;
 
 public class TimerDetailsViewModel extends ViewModel implements TickListener {
 
@@ -21,7 +19,7 @@ public class TimerDetailsViewModel extends ViewModel implements TickListener {
     private final MutableLiveData<TimerModel.State> viewStateData = new MutableLiveData<>();
 
     private TimerModel currentTimer;
-    private int currentId = UNDEFINE_ID;
+    private int currentId = TimerModel.UNDEFINE_ID;
     private final CountData countData;
 
     public TimerDetailsViewModel(Repository repository, CountdownManager countdownManager) {
@@ -59,7 +57,7 @@ public class TimerDetailsViewModel extends ViewModel implements TickListener {
     @Override
     public void onFinish(Long timeLeft, int progress, boolean isStop) {
         if (currentId == countdownManager.getActiveId()) {
-            viewStateData.setValue(TimerModel.State.FINISH);
+            viewStateData.setValue(TimerModel.State.FINISHED);
             updateCountData(timeLeft, progress, isStop);
             activeTimerData.setValue(countData);
         }
@@ -125,7 +123,7 @@ public class TimerDetailsViewModel extends ViewModel implements TickListener {
     }
 
     void onStart() {
-        viewStateData.setValue(TimerModel.State.RUN);
+        viewStateData.setValue(TimerModel.State.RUNNING);
         int currentActiveTimerId = countdownManager.getActiveId();
 
         if (currentTimer.getId() == currentActiveTimerId) {
@@ -140,22 +138,22 @@ public class TimerDetailsViewModel extends ViewModel implements TickListener {
     }
 
     void onPause() {
-        viewStateData.setValue(TimerModel.State.PAUSE);
+        viewStateData.setValue(TimerModel.State.PAUSED);
         countdownManager.onPause();
     }
 
     void onStop() {
         if (currentTimer.getId() == countdownManager.getActiveId()) {
-            viewStateData.setValue(TimerModel.State.FINISH);
+            viewStateData.setValue(TimerModel.State.FINISHED);
             countdownManager.onStop();
         }
     }
 
     void onRestart() {
         if (currentTimer.getId() == countdownManager.getActiveId() &&
-            currentTimer.getState() != TimerModel.State.FINISH) {
+            currentTimer.getState() != TimerModel.State.FINISHED) {
 
-            viewStateData.setValue(TimerModel.State.RUN);
+            viewStateData.setValue(TimerModel.State.RUNNING);
             countdownManager.onRestart();
         }
     }
@@ -163,7 +161,7 @@ public class TimerDetailsViewModel extends ViewModel implements TickListener {
     void onNextLap() {
         if (currentTimer.getId() == countdownManager.getActiveId()) {
             boolean isNextLapStarted = countdownManager.onNextLap();
-            TimerModel.State newState = isNextLapStarted ? TimerModel.State.RUN : TimerModel.State.FINISH;
+            TimerModel.State newState = isNextLapStarted ? TimerModel.State.RUNNING : TimerModel.State.FINISHED;
             viewStateData.setValue(newState);
 
         }

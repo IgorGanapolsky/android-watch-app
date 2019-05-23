@@ -1,8 +1,11 @@
 package com.igorganapolsky.vibratingwatchapp.domain.model;
 
+/**
+ * Represents timer info.
+ */
 public class BuzzSetup {
 
-   public enum Type {SHORT, LONG}
+    public enum Type {SHORT_BUZZ, LONG_BUZZ}
 
     private final Type buzzType;
     private final int buzzCount;
@@ -14,15 +17,15 @@ public class BuzzSetup {
         this.buzzTime = buzzTime;
     }
 
-    public Type getBuzzType() {
+    public final Type getBuzzType() {
         return buzzType;
     }
 
-    public int getBuzzCount() {
+    public final int getBuzzCount() {
         return buzzCount;
     }
 
-    public int getBuzzTime() {
+    public final int getBuzzTime() {
         return buzzTime;
     }
 }

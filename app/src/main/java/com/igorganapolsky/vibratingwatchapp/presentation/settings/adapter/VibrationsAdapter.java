@@ -60,10 +60,10 @@ public class VibrationsAdapter extends RecyclerView.Adapter<VibrationsAdapter.Vi
      */
     private List<BuzzSetup> initBuzzList() {
         List<BuzzSetup> setupList = new ArrayList<>(4);
-        setupList.add(new BuzzSetup(BuzzSetup.Type.SHORT, 1, 5));
-        setupList.add(new BuzzSetup(BuzzSetup.Type.SHORT, 3, 3));
-        setupList.add(new BuzzSetup(BuzzSetup.Type.SHORT, 5, 5));
-        setupList.add(new BuzzSetup(BuzzSetup.Type.LONG, 1, 20));
+        setupList.add(new BuzzSetup(BuzzSetup.Type.SHORT_BUZZ, 1, 5));
+        setupList.add(new BuzzSetup(BuzzSetup.Type.SHORT_BUZZ, 3, 3));
+        setupList.add(new BuzzSetup(BuzzSetup.Type.SHORT_BUZZ, 5, 5));
+        setupList.add(new BuzzSetup(BuzzSetup.Type.LONG_BUZZ, 1, 20));
         return setupList;
     }
 

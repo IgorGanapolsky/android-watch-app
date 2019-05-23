@@ -64,6 +64,6 @@ public class WatchRepository implements Repository {
     }
 
     private void disableAll() {
-        executor.execute(() -> timerDb.timersDao().disableAll(TimerModel.State.FINISH.name()));
+        executor.execute(() -> timerDb.timersDao().disableAll(TimerModel.State.FINISHED.name()));
     }
 }

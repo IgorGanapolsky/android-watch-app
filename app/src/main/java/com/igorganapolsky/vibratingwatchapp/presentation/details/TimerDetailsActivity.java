@@ -141,7 +141,7 @@ public class TimerDetailsActivity extends AppCompatActivity implements View.OnCl
 
     private void swapActionMenuState(TimerModel.State state) {
         switch (state) {
-            case PAUSE:
+            case PAUSED:
                 ivStart.setSelected(false);
                 ivStart.setEnabled(true);
                 ivStop.setEnabled(true);
@@ -150,7 +150,7 @@ public class TimerDetailsActivity extends AppCompatActivity implements View.OnCl
                 tvTime.startAnimation(blinking);
                 ivContinueTimer.setVisibility(View.GONE);
                 break;
-            case RUN:
+            case RUNNING:
                 ivStart.setSelected(true);
                 disableAdditionalButtons(true);
                 ivStart.setEnabled(true);
@@ -160,7 +160,7 @@ public class TimerDetailsActivity extends AppCompatActivity implements View.OnCl
                 blinking.cancel();
                 blinking.reset();
                 break;
-            case FINISH:
+            case FINISHED:
                 ivStart.setSelected(false);
                 disableAdditionalButtons(false);
                 ivStart.setEnabled(true);
