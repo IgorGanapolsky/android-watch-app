@@ -1,10 +1,8 @@
-package com.igorganapolsky.vibratingwatchapp.domain;
+package com.igorganapolsky.vibratingwatchapp.domain.repo;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Transformations;
 import com.igorganapolsky.vibratingwatchapp.util.Mappers;
-import com.igorganapolsky.vibratingwatchapp.domain.local.TimersDatabase;
-import com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
 
 import java.util.ArrayList;

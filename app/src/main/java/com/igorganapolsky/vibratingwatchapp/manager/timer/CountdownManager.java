@@ -13,8 +13,6 @@ public interface CountdownManager {
 
     int getActiveId();
 
-    boolean isHasMoreRepeats();
-
     boolean isActive();
 
     long getActiveTimeLeft();

@@ -3,7 +3,7 @@ package com.igorganapolsky.vibratingwatchapp.presentation.settings;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import com.igorganapolsky.vibratingwatchapp.domain.Repository;
+import com.igorganapolsky.vibratingwatchapp.domain.repo.Repository;
 import com.igorganapolsky.vibratingwatchapp.domain.model.BuzzSetup;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerSetup;

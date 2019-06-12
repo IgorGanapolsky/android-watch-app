@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.domain;
+package com.igorganapolsky.vibratingwatchapp.domain.repo;
 
 import androidx.lifecycle.LiveData;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;

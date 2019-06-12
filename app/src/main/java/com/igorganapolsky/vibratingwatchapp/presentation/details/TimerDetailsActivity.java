@@ -15,13 +15,13 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import com.igorganapolsky.vibratingwatchapp.R;
 import com.igorganapolsky.vibratingwatchapp.presentation.ViewModelFactory;
-import com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity;
+import com.igorganapolsky.vibratingwatchapp.domain.repo.TimerEntity;
 import com.igorganapolsky.vibratingwatchapp.domain.model.CountData;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
 import com.igorganapolsky.vibratingwatchapp.presentation.details.dialog.TimerDeleteDialogFragment;
 import com.igorganapolsky.vibratingwatchapp.presentation.settings.SetTimerActivity;
 
-import static com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity.TIMER_ID;
+import static com.igorganapolsky.vibratingwatchapp.domain.repo.TimerEntity.TIMER_ID;
 
 public class TimerDetailsActivity extends AppCompatActivity implements View.OnClickListener {
 

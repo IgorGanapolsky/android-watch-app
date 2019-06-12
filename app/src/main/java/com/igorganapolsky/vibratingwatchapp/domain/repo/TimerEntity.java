@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.domain.local.entity;
+package com.igorganapolsky.vibratingwatchapp.domain.repo;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

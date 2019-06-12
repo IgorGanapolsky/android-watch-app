@@ -14,13 +14,13 @@ import com.igorganapolsky.vibratingwatchapp.R;
 import com.igorganapolsky.vibratingwatchapp.util.StepActionListener;
 import com.igorganapolsky.vibratingwatchapp.util.SwipeRestrictViewPager;
 import com.igorganapolsky.vibratingwatchapp.presentation.ViewModelFactory;
-import com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity;
+import com.igorganapolsky.vibratingwatchapp.domain.repo.TimerEntity;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerSetup;
 
 import java.util.Locale;
 
-import static com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity.TIMER_ID;
+import static com.igorganapolsky.vibratingwatchapp.domain.repo.TimerEntity.TIMER_ID;
 
 public class SetTimerActivity extends AppCompatActivity implements View.OnClickListener, StepActionListener {
 

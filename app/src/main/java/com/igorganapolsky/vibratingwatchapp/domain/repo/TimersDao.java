@@ -1,11 +1,10 @@
-package com.igorganapolsky.vibratingwatchapp.domain.local;
+package com.igorganapolsky.vibratingwatchapp.domain.repo;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
-import com.igorganapolsky.vibratingwatchapp.domain.local.entity.TimerEntity;
 
 import java.util.List;
 
