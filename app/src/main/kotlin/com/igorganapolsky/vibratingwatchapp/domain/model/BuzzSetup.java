@@ -1,7 +1,7 @@
 package com.igorganapolsky.vibratingwatchapp.domain.model;
 
 /**
- * Represents timer info.
+ * Represents timer buzz info.
  */
 public class BuzzSetup {
 

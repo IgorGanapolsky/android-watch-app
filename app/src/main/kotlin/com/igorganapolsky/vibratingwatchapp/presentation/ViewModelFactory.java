@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 import com.igorganapolsky.vibratingwatchapp.domain.repo.Repository;
-import com.igorganapolsky.vibratingwatchapp.manager.timer.CountdownManager;
+import com.igorganapolsky.vibratingwatchapp.core.timer.CountdownManager;
 import com.igorganapolsky.vibratingwatchapp.presentation.details.TimerDetailsViewModel;
 import com.igorganapolsky.vibratingwatchapp.presentation.main.TimerListViewModel;
 import com.igorganapolsky.vibratingwatchapp.presentation.settings.SetTimerViewModel;

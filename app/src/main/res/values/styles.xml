@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme"
-           parent="@style/Theme.AppCompat.DayNight.NoActionBar">
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowBackground">
             @drawable/background_gradient
         </item>
     </style>
+
     <style name="BuzzLine" />
     <style name="BuzzLine.Index">
         <item name="android:background">@drawable/list_item_index_bg_selector</item>

@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.manager.vibration;
+package com.igorganapolsky.vibratingwatchapp.core.vibration;
 
 import com.igorganapolsky.vibratingwatchapp.domain.model.BuzzSetup;
 

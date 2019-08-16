@@ -1,22 +1,42 @@
+import com.igorganapolsky.vibratingwatchapp.buildsrc.Libs
+
 buildscript {
-    ext.kotlin_version = '1.3.31'
     repositories {
         google()
         jcenter()
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath Libs.androidGradlePlugin
+        classpath Libs.Kotlin.gradlePlugin
     }
+}
+
+plugins {
+    id "com.diffplug.gradle.spotless" version "3.23.1"
 }
 
 allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        mavenLocal()
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+subprojects {
+    apply plugin: 'com.diffplug.gradle.spotless'
+    spotless {
+        kotlin {
+            target "**/*.kt"
+            ktlint("0.31.0")
+            licenseHeaderFile project.rootProject.file('spotless/copyright.kt')
+        }
+    }
+
+    // Treat all Kotlin warnings as errors
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions.allWarningsAsErrors = true
+    }
 }

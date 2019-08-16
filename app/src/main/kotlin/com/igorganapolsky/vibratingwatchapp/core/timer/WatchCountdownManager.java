@@ -1,11 +1,11 @@
-package com.igorganapolsky.vibratingwatchapp.manager.timer;
+package com.igorganapolsky.vibratingwatchapp.core.timer;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import android.os.CountDownTimer;
 import com.igorganapolsky.vibratingwatchapp.util.Mappers;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
-import com.igorganapolsky.vibratingwatchapp.manager.vibration.BeepManager;
+import com.igorganapolsky.vibratingwatchapp.core.vibration.BeepManager;
 
 public class WatchCountdownManager implements CountdownManager {
 

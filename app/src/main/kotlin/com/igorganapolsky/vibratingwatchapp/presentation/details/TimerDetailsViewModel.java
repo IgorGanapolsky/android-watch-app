@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel;
 import com.igorganapolsky.vibratingwatchapp.domain.repo.Repository;
 import com.igorganapolsky.vibratingwatchapp.domain.model.CountData;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
-import com.igorganapolsky.vibratingwatchapp.manager.timer.CountdownManager;
-import com.igorganapolsky.vibratingwatchapp.manager.timer.TickListener;
+import com.igorganapolsky.vibratingwatchapp.core.timer.CountdownManager;
+import com.igorganapolsky.vibratingwatchapp.core.timer.TickListener;
 import com.igorganapolsky.vibratingwatchapp.util.TimerTransform;
 
 public class TimerDetailsViewModel extends ViewModel implements TickListener {

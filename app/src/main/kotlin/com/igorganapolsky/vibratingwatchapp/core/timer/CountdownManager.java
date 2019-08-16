@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.manager.timer;
+package com.igorganapolsky.vibratingwatchapp.core.timer;
 
 import androidx.lifecycle.LiveData;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
@@ -13,12 +13,13 @@ public interface CountdownManager {
 
     int getActiveId();
 
+    boolean isHasMoreRepeats();
+
     boolean isActive();
 
     long getActiveTimeLeft();
 
     int getActiveProgress();
-
 
     void setupTimer(TimerModel model);
 

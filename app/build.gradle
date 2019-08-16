@@ -1,6 +1,18 @@
+import com.igorganapolsky.vibratingwatchapp.buildsrc.Libs
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+
 apply plugin: 'kotlin-android-extensions'
+androidExtensions {
+    experimental = true
+}
 
 repositories {
     maven {
@@ -9,60 +21,96 @@ repositories {
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
+
     defaultConfig {
         applicationId "com.igorganapolsky.vibratingwatchapp"
         minSdkVersion 24
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
     }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+
+    lintOptions {
+        // Disable lintVital. Not needed since lint is run on CI
+        checkReleaseBuilds false
+        // Allow lint to check dependencies
+        checkDependencies true
+        // Ignore any tests
+        ignoreTestSources true
+
+        disable 'GradleCompatible', 'FontValidationError'
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    packagingOptions {
+        // Exclude AndroidX rvVersion files
+        exclude 'META-INF/*.rvVersion'
+        // Exclude consumer proguard files
+        exclude 'META-INF/proguard/*'
+        // Exclude the Firebase/Fabric/other random properties files
+        exclude '/*.properties'
+        exclude 'fabric/*.properties'
+        exclude 'META-INF/*.properties'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility = '1.8'
-        targetCompatibility = '1.8'
-    }
 }
 
 dependencies {
 
     // kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-
-    // play services
-    implementation 'com.google.android.gms:play-services-wearable:16.0.1'
+    implementation Libs.Kotlin.stdlib
+    implementation Libs.Kotlin.reflect
 
     // wear
-    implementation 'com.google.android.support:wearable:2.4.0'
-    compileOnly 'com.google.android.wearable:wearable:2.4.0'
+    implementation Libs.Wear.wear
+    implementation Libs.Wear.wear_implementation
+    kapt Libs.Wear.wear_compile_only
 
     // support
-    def support_version = "28.0.0"
-    implementation 'androidx.wear:wear:1.0.0'
-    implementation 'androidx.percentlayout:percentlayout:1.0.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.annotation:annotation:1.1.0'
-    implementation "com.android.support:recyclerview-selection:$support_version"
+    implementation Libs.AndroidX.percentLayout
+    implementation Libs.AndroidX.legacySupport
+    implementation Libs.AndroidX.recyclerview
+    implementation Libs.AndroidX.recyclerviewSelection
+    implementation Libs.AndroidX.appcompat
+    implementation Libs.AndroidX.annotate
+    implementation Libs.Google.material
 
     // room and lifecycle
-    def room_version = "2.0.0"
-    implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
-    testImplementation "androidx.room:room-testing:$room_version"
-    implementation "androidx.lifecycle:lifecycle-extensions:$room_version"
+    kapt Libs.AndroidX.Room.compiler
+    kapt Libs.AndroidX.Room.runtime
+    implementation Libs.AndroidX.Room.runtime
+    testImplementation Libs.AndroidX.Room.testing
+    implementation Libs.AndroidX.Lifecycle.extensions
 
     // constraint
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
+    implementation Libs.AndroidX.constraintlayout
 
     // arc progress
-    implementation 'com.github.Triggertrap:SeekArc:v1.1'
-
+    implementation 'com.github.IgorGanapolsky:SeekArc:v1.2.0'
 }

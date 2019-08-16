@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.manager.timer;
+package com.igorganapolsky.vibratingwatchapp.core.timer;
 
 public interface TickListener {
 
