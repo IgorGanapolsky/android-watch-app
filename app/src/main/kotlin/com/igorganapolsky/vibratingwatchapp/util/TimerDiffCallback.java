@@ -33,7 +33,7 @@ public class TimerDiffCallback extends DiffUtil.Callback {
     @Override
     public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
         return oldModelList.get(oldItemPosition).getState() == newModelList.get(newItemPosition).getState() &&
-            oldModelList.get(oldItemPosition).getBuzzCount() == newModelList.get(newItemPosition).getBuzzCount() &&
+            oldModelList.get(oldItemPosition).getVibrationCount() == newModelList.get(newItemPosition).getVibrationCount() &&
             oldModelList.get(oldItemPosition).getHours() == newModelList.get(newItemPosition).getHours() &&
             oldModelList.get(oldItemPosition).getMinutes() == newModelList.get(newItemPosition).getMinutes() &&
             oldModelList.get(oldItemPosition).getSeconds() == newModelList.get(newItemPosition).getSeconds() &&

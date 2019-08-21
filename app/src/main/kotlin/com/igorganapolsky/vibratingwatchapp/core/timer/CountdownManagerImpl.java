@@ -1,16 +1,18 @@
 package com.igorganapolsky.vibratingwatchapp.core.timer;
 
+import android.os.CountDownTimer;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import android.os.CountDownTimer;
-import com.igorganapolsky.vibratingwatchapp.util.Mappers;
-import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
-import com.igorganapolsky.vibratingwatchapp.core.vibration.BeepManager;
 
-public class WatchCountdownManager implements CountdownManager {
+import com.igorganapolsky.vibratingwatchapp.core.vibration.IVibrationManager;
+import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
+import com.igorganapolsky.vibratingwatchapp.util.Mappers;
+
+public class CountdownManagerImpl implements ICountdownManager {
 
     private final MutableLiveData<TimerModel> activeModelData = new MutableLiveData<>();
-    private final BeepManager beepManager;
+    private final IVibrationManager beepManager;
 
     private TickListener tickListener;
     private CountDownTimer currentCountdownTimer;
@@ -20,7 +22,7 @@ public class WatchCountdownManager implements CountdownManager {
     private int repeatCount;
     private long timeLeft;
 
-    public WatchCountdownManager(BeepManager beepManager) {
+    public CountdownManagerImpl(IVibrationManager beepManager) {
         this.beepManager = beepManager;
     }
 

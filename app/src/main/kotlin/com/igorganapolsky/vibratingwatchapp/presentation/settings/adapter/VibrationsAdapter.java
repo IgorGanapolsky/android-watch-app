@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.igorganapolsky.vibratingwatchapp.R;
-import com.igorganapolsky.vibratingwatchapp.domain.model.BuzzSetup;
+import com.igorganapolsky.vibratingwatchapp.domain.model.VibrationModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class VibrationsAdapter extends RecyclerView.Adapter<VibrationsAdapter.Vi
     private final String[] timeTitles;
 
     private final HolderClickListener holderClickListener;
-    private final List<BuzzSetup> buzzList;
+    private final List<VibrationModel> buzzList;
 
     public VibrationsAdapter(HolderClickListener holderClickListener, String[] vibTitles, String[] timeTitles) {
         this.holderClickListener = holderClickListener;
@@ -54,26 +54,26 @@ public class VibrationsAdapter extends RecyclerView.Adapter<VibrationsAdapter.Vi
     }
 
     /**
-     * Initial method for defining all {@link BuzzSetup}
+     * Initial method for defining all {@link VibrationModel}
      *
      * @return setup list;
      */
-    private List<BuzzSetup> initBuzzList() {
-        List<BuzzSetup> setupList = new ArrayList<>(4);
-        setupList.add(new BuzzSetup(BuzzSetup.Type.SHORT_BUZZ, 1, 5));
-        setupList.add(new BuzzSetup(BuzzSetup.Type.SHORT_BUZZ, 3, 3));
-        setupList.add(new BuzzSetup(BuzzSetup.Type.SHORT_BUZZ, 5, 5));
-        setupList.add(new BuzzSetup(BuzzSetup.Type.LONG_BUZZ, 1, 20));
+    private List<VibrationModel> initBuzzList() {
+        List<VibrationModel> setupList = new ArrayList<>(4);
+        setupList.add(new VibrationModel(VibrationModel.Type.SHORT_BUZZ, 1, 5));
+        setupList.add(new VibrationModel(VibrationModel.Type.SHORT_BUZZ, 3, 3));
+        setupList.add(new VibrationModel(VibrationModel.Type.SHORT_BUZZ, 5, 5));
+        setupList.add(new VibrationModel(VibrationModel.Type.LONG_BUZZ, 1, 20));
         return setupList;
     }
 
     /**
-     * Returns concrete {@link BuzzSetup} based on position.
+     * Returns concrete {@link VibrationModel} based on position.
      *
      * @param position position of {@link RecyclerView.ViewHolder} in list;
      * @return concrete setup or first element in list, if setup wasn't found;
      */
-    public BuzzSetup getBuzzByPosition(int position) {
+    public VibrationModel getBuzzByPosition(int position) {
         try {
             return buzzList.get(position);
         } catch (IndexOutOfBoundsException exp) {
@@ -82,12 +82,12 @@ public class VibrationsAdapter extends RecyclerView.Adapter<VibrationsAdapter.Vi
     }
 
     /**
-     * Returns position o {@link BuzzSetup} in list;
+     * Returns position o {@link VibrationModel} in list;
      *
      * @param setup to define position;
-     * @return position of {@link BuzzSetup} or {@link VibrationsAdapter#DEFAULT_POSITION}
+     * @return position of {@link VibrationModel} or {@link VibrationsAdapter#DEFAULT_POSITION}
      */
-    public int getPosition(BuzzSetup setup) {
+    public int getPosition(VibrationModel setup) {
         try {
             return buzzList.indexOf(setup);
         } catch (IndexOutOfBoundsException exp) {
@@ -111,7 +111,7 @@ public class VibrationsAdapter extends RecyclerView.Adapter<VibrationsAdapter.Vi
             buzzTitle = itemView.findViewById(R.id.buzzTitle);
         }
 
-        void bind(BuzzSetup buzz, String[] vibTitles, String[] timeTitles, int index, HolderClickListener holderClickListener) {
+        void bind(VibrationModel buzz, String[] vibTitles, String[] timeTitles, int index, HolderClickListener holderClickListener) {
 
             String buzzText = vibTitles[index];
             String timeText = timeTitles[index];

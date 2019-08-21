@@ -5,24 +5,24 @@ import android.os.VibrationEffect;
 import android.os.Vibrator;
 import androidx.annotation.RequiresApi;
 import com.igorganapolsky.vibratingwatchapp.util.TimerTransform;
-import com.igorganapolsky.vibratingwatchapp.domain.model.BuzzSetup;
+import com.igorganapolsky.vibratingwatchapp.domain.model.VibrationModel;
 
-public class WatchBeepManager implements BeepManager {
+public class VibrationManagerImpl implements IVibrationManager {
 
     private final Vibrator vibrator;
-    private BuzzSetup setup;
+    private VibrationModel setup;
     private final boolean isVibratorActive;
 
     private VibrationEffect vibEffect;
     private long[] pattern;
 
-    public WatchBeepManager(Vibrator vibrator) {
+    public VibrationManagerImpl(Vibrator vibrator) {
         this.vibrator = vibrator;
         isVibratorActive = vibrator != null && vibrator.hasVibrator();
     }
 
     @Override
-    public void setup(BuzzSetup setup) {
+    public void setup(VibrationModel setup) {
         this.setup = setup;
         initVibrationEffect();
     }

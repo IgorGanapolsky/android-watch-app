@@ -7,10 +7,10 @@ import java.util.*
  * Setup values for a timer.
  */
 class TimerModel private constructor(var hours: Int, var minutes: Int, var seconds: Int) {
-    /* Buzz */
-    var buzzCount = 1
-    var buzzTimeInSecs = 5
-    var type: BuzzSetup.Type? = null
+    /* Vibration */
+    var vibrationCount = 1
+    var vibrationTimeInSecs = 5
+    var type: VibrationModel.Type? = null
 
     /* Repeat */
     var repeat: Int = 0
@@ -27,11 +27,11 @@ class TimerModel private constructor(var hours: Int, var minutes: Int, var secon
 
     constructor() : this(0, 0, 0)
 
-    fun getValue(timerSetup: TimerSetup): Int {
-        return when (timerSetup) {
-            TimerSetup.HOURS -> hours
-            TimerSetup.MINUTES -> minutes
-            TimerSetup.SECONDS -> seconds
+    fun getValue(time: Time): Int {
+        return when (time) {
+            Time.HOURS -> hours
+            Time.MINUTES -> minutes
+            Time.SECONDS -> seconds
         }
     }
 
@@ -61,9 +61,9 @@ class TimerModel private constructor(var hours: Int, var minutes: Int, var secon
             val defaultTimerRepeat = 1
 
             val model = TimerModel()
-            model.type = BuzzSetup.Type.SHORT_BUZZ
-            model.buzzCount = defaultBuzzCount
-            model.buzzTimeInSecs = defaultBuzzSecs
+            model.type = VibrationModel.Type.SHORT_BUZZ
+            model.vibrationCount = defaultBuzzCount
+            model.vibrationTimeInSecs = defaultBuzzSecs
             model.repeat = defaultTimerRepeat
             return model
         }

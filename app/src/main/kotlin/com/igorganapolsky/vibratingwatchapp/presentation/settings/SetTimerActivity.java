@@ -16,7 +16,7 @@ import com.igorganapolsky.vibratingwatchapp.util.SwipeRestrictViewPager;
 import com.igorganapolsky.vibratingwatchapp.presentation.ViewModelFactory;
 import com.igorganapolsky.vibratingwatchapp.domain.repo.TimerEntity;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
-import com.igorganapolsky.vibratingwatchapp.domain.model.TimerSetup;
+import com.igorganapolsky.vibratingwatchapp.domain.model.Time;
 
 import java.util.Locale;
 
@@ -82,18 +82,18 @@ public class SetTimerActivity extends AppCompatActivity implements View.OnClickL
         mViewModel.getSwipeState().observe(this, this::updateSwipeStateIfNeeded);
         mViewModel.getTimerData().observe(this, (timerModel -> {
             if (timerModel == null) return;
-            updateTimerData(TimerSetup.HOURS, timerModel.getHours());
-            updateTimerData(TimerSetup.MINUTES, timerModel.getMinutes());
-            updateTimerData(TimerSetup.SECONDS, timerModel.getSeconds());
+            updateTimerData(Time.HOURS, timerModel.getHours());
+            updateTimerData(Time.MINUTES, timerModel.getMinutes());
+            updateTimerData(Time.SECONDS, timerModel.getSeconds());
         }));
     }
 
-    private void updateTime(TimerSetup setup) {
+    private void updateTime(Time setup) {
         updateTimerData(setup, mViewModel.getCurrentTimeValue());
     }
 
 
-    private void updateTimerData(TimerSetup timerSetup, int newValue) {
+    private void updateTimerData(Time timerSetup, int newValue) {
         switch (timerSetup) {
             case HOURS:
                 tvTimeHours.setText(String.format(Locale.ENGLISH, "%02d", newValue));

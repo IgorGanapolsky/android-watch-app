@@ -8,10 +8,10 @@ import com.igorganapolsky.vibratingwatchapp.presentation.ViewModelFactory;
 import com.igorganapolsky.vibratingwatchapp.domain.repo.Repository;
 import com.igorganapolsky.vibratingwatchapp.domain.repo.WatchRepository;
 import com.igorganapolsky.vibratingwatchapp.domain.repo.TimersDatabase;
-import com.igorganapolsky.vibratingwatchapp.core.timer.CountdownManager;
-import com.igorganapolsky.vibratingwatchapp.core.timer.WatchCountdownManager;
-import com.igorganapolsky.vibratingwatchapp.core.vibration.BeepManager;
-import com.igorganapolsky.vibratingwatchapp.core.vibration.WatchBeepManager;
+import com.igorganapolsky.vibratingwatchapp.core.timer.ICountdownManager;
+import com.igorganapolsky.vibratingwatchapp.core.timer.CountdownManagerImpl;
+import com.igorganapolsky.vibratingwatchapp.core.vibration.IVibrationManager;
+import com.igorganapolsky.vibratingwatchapp.core.vibration.VibrationManagerImpl;
 
 import java.util.concurrent.Executors;
 
@@ -24,7 +24,7 @@ public class VibratingWatchApp extends Application {
         /* simple self implemented DI */
 
         // step 1 - > create database instance;
-        TimersDatabase database = Room.databaseBuilder(this, TimersDatabase.class, "TimersDatabase")
+        TimersDatabase database = Room.databaseBuilder(this, TimersDatabase.class, "timers")
             .allowMainThreadQueries()
             .fallbackToDestructiveMigration()
             .build();
@@ -34,10 +34,10 @@ public class VibratingWatchApp extends Application {
         Repository repository = new WatchRepository(database, Executors.newSingleThreadExecutor());
 
         // step 3 -> create os vibrator wrapper
-        BeepManager beepManager = new WatchBeepManager((Vibrator) getSystemService(Context.VIBRATOR_SERVICE));
+        IVibrationManager beepManager = new VibrationManagerImpl((Vibrator) getSystemService(Context.VIBRATOR_SERVICE));
 
         // step 4- > create countdown manager;
-        CountdownManager countdownManager = new WatchCountdownManager(beepManager);
+        ICountdownManager countdownManager = new CountdownManagerImpl(beepManager);
 
         // step 5 > create view model factory;
         ViewModelFactory.initFactory(repository, countdownManager);

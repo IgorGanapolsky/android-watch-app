@@ -6,14 +6,14 @@ import androidx.lifecycle.ViewModel;
 import com.igorganapolsky.vibratingwatchapp.domain.repo.Repository;
 import com.igorganapolsky.vibratingwatchapp.domain.model.CountData;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
-import com.igorganapolsky.vibratingwatchapp.core.timer.CountdownManager;
+import com.igorganapolsky.vibratingwatchapp.core.timer.ICountdownManager;
 import com.igorganapolsky.vibratingwatchapp.core.timer.TickListener;
 import com.igorganapolsky.vibratingwatchapp.util.TimerTransform;
 
 public class TimerDetailsViewModel extends ViewModel implements TickListener {
 
     private final Repository repository;
-    private final CountdownManager countdownManager;
+    private final ICountdownManager countdownManager;
 
     private final MutableLiveData<CountData> activeTimerData = new MutableLiveData<>();
     private final MutableLiveData<TimerModel.State> viewStateData = new MutableLiveData<>();
@@ -22,7 +22,7 @@ public class TimerDetailsViewModel extends ViewModel implements TickListener {
     private int currentId = TimerModel.UNDEFINE_ID;
     private final CountData countData;
 
-    public TimerDetailsViewModel(Repository repository, CountdownManager countdownManager) {
+    public TimerDetailsViewModel(Repository repository, ICountdownManager countdownManager) {
         this.repository = repository;
         this.countData = CountData.getDefault();
         this.countdownManager = countdownManager;

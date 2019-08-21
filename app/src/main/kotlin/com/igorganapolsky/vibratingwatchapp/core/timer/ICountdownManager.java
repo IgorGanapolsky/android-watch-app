@@ -3,7 +3,7 @@ package com.igorganapolsky.vibratingwatchapp.core.timer;
 import androidx.lifecycle.LiveData;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
 
-public interface CountdownManager {
+public interface ICountdownManager {
 
     LiveData<TimerModel> observeActiveModel();
 

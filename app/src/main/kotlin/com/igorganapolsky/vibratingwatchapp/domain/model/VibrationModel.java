@@ -3,7 +3,7 @@ package com.igorganapolsky.vibratingwatchapp.domain.model;
 /**
  * Represents timer buzz info.
  */
-public class BuzzSetup {
+public class VibrationModel {
 
     public enum Type {SHORT_BUZZ, LONG_BUZZ}
 
@@ -11,7 +11,7 @@ public class BuzzSetup {
     private final int buzzCount;
     private final int buzzTime;
 
-    public BuzzSetup(Type buzzType, int buzzCount, int buzzTime) {
+    public VibrationModel(Type buzzType, int buzzCount, int buzzTime) {
         this.buzzType = buzzType;
         this.buzzCount = buzzCount;
         this.buzzTime = buzzTime;

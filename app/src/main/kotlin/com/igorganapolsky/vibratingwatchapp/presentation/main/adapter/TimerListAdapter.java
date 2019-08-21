@@ -91,7 +91,7 @@ public class TimerListAdapter extends RecyclerView.Adapter<TimerListAdapter.Time
             }
 
             tvTime.setText(TimerTransform.millisToString(model));
-            tvVibration.setText(String.format(Locale.ENGLISH, "%d", model.getBuzzCount()));
+            tvVibration.setText(String.format(Locale.ENGLISH, "%d", model.getVibrationCount()));
             tvRepeat.setText(String.format(Locale.ENGLISH, "%d", model.getRepeat()));
             itemView.setOnClickListener(view -> itemClickListener.onItemClick(model.getId()));
         }

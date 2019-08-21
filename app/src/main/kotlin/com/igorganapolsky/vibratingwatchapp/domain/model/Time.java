@@ -1,12 +1,12 @@
 package com.igorganapolsky.vibratingwatchapp.domain.model;
 
-public enum TimerSetup {
+public enum Time {
     HOURS("H", 12.), MINUTES("M", 59.), SECONDS("S", 59.);
 
     private final String shortcut;
     private final double measure;
 
-    TimerSetup(String shortcut, double measure) {
+    Time(String shortcut, double measure) {
         this.shortcut = shortcut;
         this.measure = measure;
     }

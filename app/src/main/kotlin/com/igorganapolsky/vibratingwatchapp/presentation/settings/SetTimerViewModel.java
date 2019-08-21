@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.igorganapolsky.vibratingwatchapp.domain.repo.Repository;
-import com.igorganapolsky.vibratingwatchapp.domain.model.BuzzSetup;
+import com.igorganapolsky.vibratingwatchapp.domain.model.VibrationModel;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
-import com.igorganapolsky.vibratingwatchapp.domain.model.TimerSetup;
+import com.igorganapolsky.vibratingwatchapp.domain.model.Time;
 
 public class SetTimerViewModel extends ViewModel {
 
@@ -15,18 +15,18 @@ public class SetTimerViewModel extends ViewModel {
     private final Repository repository;
 
     private final MutableLiveData<TimerModel> timerData = new MutableLiveData<>();
-    private final MutableLiveData<TimerSetup> setupData = new MutableLiveData<>();
+    private final MutableLiveData<Time> setupData = new MutableLiveData<>();
     private final MutableLiveData<Boolean> swipeState = new MutableLiveData<>();
-    private final MutableLiveData<BuzzSetup> buzzData = new MutableLiveData<>();
+    private final MutableLiveData<VibrationModel> buzzData = new MutableLiveData<>();
 
     private Type currentType = Type.NEW;
     private TimerModel currentTimer;
-    private TimerSetup setup;
+    private Time setup;
 
     public SetTimerViewModel(Repository repository) {
         this.repository = repository;
         this.currentTimer = TimerModel.Companion.createDefault();
-        this.setup = TimerSetup.HOURS;
+        this.setup = Time.HOURS;
     }
 
     void setCurrentModelId(int currentId) {
@@ -43,11 +43,11 @@ public class SetTimerViewModel extends ViewModel {
         return timerData;
     }
 
-    public LiveData<TimerSetup> getSetupData() {
+    public LiveData<Time> getSetupData() {
         return setupData;
     }
 
-    public LiveData<BuzzSetup> getBuzzData() {
+    public LiveData<VibrationModel> getBuzzData() {
         return buzzData;
     }
 
@@ -63,13 +63,13 @@ public class SetTimerViewModel extends ViewModel {
         currentTimer.setRepeat(repeatValue + 1);
     }
 
-    public void setBuzz(BuzzSetup newBuzz) {
-        currentTimer.setBuzzTimeInSecs(newBuzz.getBuzzTime());
-        currentTimer.setBuzzCount(newBuzz.getBuzzCount());
+    public void setBuzz(VibrationModel newBuzz) {
+        currentTimer.setVibrationTimeInSecs(newBuzz.getBuzzTime());
+        currentTimer.setVibrationCount(newBuzz.getBuzzCount());
         currentTimer.setType(newBuzz.getBuzzType());
     }
 
-    public void setSelection(TimerSetup newSelection) {
+    public void setSelection(Time newSelection) {
         this.setup = newSelection;
         setupData.setValue(setup);
     }

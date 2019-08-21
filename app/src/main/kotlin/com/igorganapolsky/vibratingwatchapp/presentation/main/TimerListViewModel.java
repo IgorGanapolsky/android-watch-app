@@ -5,7 +5,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import com.igorganapolsky.vibratingwatchapp.domain.repo.Repository;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
-import com.igorganapolsky.vibratingwatchapp.core.timer.CountdownManager;
+import com.igorganapolsky.vibratingwatchapp.core.timer.ICountdownManager;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ public class TimerListViewModel extends ViewModel {
 
     private Repository repository;
 
-    private final CountdownManager countdownManager;
+    private final ICountdownManager countdownManager;
 
-    public TimerListViewModel(Repository repository, CountdownManager countdownManager) {
+    public TimerListViewModel(Repository repository, ICountdownManager countdownManager) {
         this.repository = repository;
         this.countdownManager = countdownManager;
         countdownManager.observeActiveModel().observeForever(activeObserver);

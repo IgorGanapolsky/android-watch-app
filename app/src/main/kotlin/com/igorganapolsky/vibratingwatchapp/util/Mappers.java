@@ -1,7 +1,7 @@
 package com.igorganapolsky.vibratingwatchapp.util;
 
 import com.igorganapolsky.vibratingwatchapp.domain.repo.TimerEntity;
-import com.igorganapolsky.vibratingwatchapp.domain.model.BuzzSetup;
+import com.igorganapolsky.vibratingwatchapp.domain.model.VibrationModel;
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel;
 
 public class Mappers {
@@ -10,10 +10,10 @@ public class Mappers {
         TimerModel model = new TimerModel();
         model.setId(entity.getId());
         model.setRepeat(entity.getRepeat());
-        model.setBuzzCount(entity.getBuzzCount());
-        model.setType(BuzzSetup.Type.valueOf(entity.getBuzzType()));
+        model.setVibrationCount(entity.getBuzzCount());
+        model.setType(VibrationModel.Type.valueOf(entity.getBuzzType()));
         model.setState(TimerModel.State.valueOf(entity.getState()));
-        model.setBuzzTimeInSecs(entity.getBuzzTime());
+        model.setVibrationTimeInSecs(entity.getBuzzTime());
         model.setHours(TimerTransform.getHours(entity.getMilliseconds()));
         model.setMinutes(TimerTransform.getMinutes(entity.getMilliseconds()));
         model.setSeconds(TimerTransform.getSeconds(entity.getMilliseconds()));
@@ -24,14 +24,14 @@ public class Mappers {
         TimerEntity entity = new TimerEntity();
         entity.setRepeat(model.getRepeat());
         entity.setState(TimerModel.State.FINISHED.name());
-        entity.setBuzzCount(model.getBuzzCount());
+        entity.setBuzzCount(model.getVibrationCount());
         entity.setBuzzType(model.getType().name());
-        entity.setBuzzTime(model.getBuzzTimeInSecs());
+        entity.setBuzzTime(model.getVibrationTimeInSecs());
         entity.setMilliseconds(model.getTimeInMillis());
         return entity;
     }
 
-    public static BuzzSetup mapToBuzzSetup(TimerModel model) {
-        return new BuzzSetup(model.getType(), model.getBuzzCount(), model.getBuzzTimeInSecs());
+    public static VibrationModel mapToBuzzSetup(TimerModel model) {
+        return new VibrationModel(model.getType(), model.getVibrationCount(), model.getVibrationTimeInSecs());
     }
 }
