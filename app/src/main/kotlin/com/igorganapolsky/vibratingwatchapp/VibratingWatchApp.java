@@ -3,6 +3,7 @@ package com.igorganapolsky.vibratingwatchapp;
 import android.app.Application;
 import androidx.room.Room;
 import android.content.Context;
+import android.os.Debug;
 import android.os.Vibrator;
 import com.igorganapolsky.vibratingwatchapp.presentation.ViewModelFactory;
 import com.igorganapolsky.vibratingwatchapp.domain.repo.Repository;
@@ -20,6 +21,8 @@ public class VibratingWatchApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        Debug.startMethodTracing("timer");
 
         /* simple self implemented DI */
 
@@ -41,5 +44,7 @@ public class VibratingWatchApp extends Application {
 
         // step 5 > create view model factory;
         ViewModelFactory.initFactory(repository, countdownManager);
+
+        Debug.stopMethodTracing();
     }
 }

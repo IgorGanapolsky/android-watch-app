@@ -52,7 +52,8 @@ object Libs {
         private const val rvVersion = "1.1.0-beta03"
         private const val version = "1.0.0"
         const val recyclerview = "androidx.recyclerview:recyclerview:$rvVersion"
-        const val recyclerviewSelection = "androidx.recyclerview:recyclerview-selection:$rvVersion"
+        const val recyclerviewSelection =
+            "androidx.recyclerview:recyclerview-selection:1.1.0-alpha06"
         const val appcompat = "androidx.appcompat:appcompat:1.1.0-beta01"
         const val palette = "androidx.palette:palette:$version"
         const val percentLayout = "androidx.percentlayout:percentlayout:$version"
@@ -105,16 +106,17 @@ object Libs {
 
         object Room {
             private const val version = "2.1.0"
-            val common = "androidx.room:room-common:$version"
-            val runtime = "androidx.room:room-runtime:$version"
-            val compiler = "androidx.room:room-compiler:$version"
-            val ktx = "androidx.room:room-ktx:$version"
-            val testing = "androidx.room:room-testing:$version"
+            const val common = "androidx.room:room-common:$version"
+            const val runtime = "androidx.room:room-runtime:$version"
+            const val compiler = "androidx.room:room-compiler:$version"
+            const val ktx = "androidx.room:room-ktx:$version"
+            const val testing = "androidx.room:room-testing:$version"
+            const val roomCoroutines = "androidx.room:room-coroutines:$version"
         }
 
         object Work {
             private const val version = "2.0.1"
-            val runtimeKtx = "androidx.work:work-runtime-ktx:$version"
+            const val runtimeKtx = "androidx.work:work-runtime-ktx:$version"
         }
     }
 
