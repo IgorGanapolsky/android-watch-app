@@ -35,6 +35,9 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -79,38 +82,44 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    // Gradle can cache the SNAPSHOT builds. The following ensures Gradle always picks up the
+    // ‘freshest’ version of the build.
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    }
 }
 
 dependencies {
-
-    // kotlin
+    // kotlin libs
     implementation Libs.Kotlin.stdlib
     implementation Libs.Kotlin.reflect
 
-    // wear
+    // wear libs
     implementation Libs.Wear.wear
     implementation Libs.Wear.wear_implementation
     kapt Libs.Wear.wear_compile_only
 
-    // support
+    // google libs
+    implementation Libs.Google.material
+
+    // androidx libs
+    kapt Libs.AndroidX.Room.compiler
+    kapt Libs.AndroidX.Room.runtime
+    implementation Libs.AndroidX.Room.runtime
+    testImplementation Libs.AndroidX.Room.testing
+    implementation Libs.AndroidX.Lifecycle.extensions
     implementation Libs.AndroidX.percentLayout
     implementation Libs.AndroidX.legacySupport
     implementation Libs.AndroidX.recyclerview
     implementation Libs.AndroidX.recyclerviewSelection
     implementation Libs.AndroidX.appcompat
     implementation Libs.AndroidX.annotate
-    implementation Libs.Google.material
-
-    // room and lifecycle
-    kapt Libs.AndroidX.Room.compiler
-    kapt Libs.AndroidX.Room.runtime
-    implementation Libs.AndroidX.Room.runtime
-    testImplementation Libs.AndroidX.Room.testing
-    implementation Libs.AndroidX.Lifecycle.extensions
-
-    // constraint
     implementation Libs.AndroidX.constraintlayout
+    implementation Libs.AndroidX.Fragment.fragmentKtx
+    implementation Libs.AndroidX.Activity.activityKtx
+    implementation Libs.AndroidX.coreKtx
 
-    // arc progress
-    implementation 'com.github.IgorGanapolsky:SeekArc:v1.2.0'
+    // SeekArc lib
+    implementation Libs.seekArc
 }
