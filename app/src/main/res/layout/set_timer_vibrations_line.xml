@@ -1,50 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/flSingleLine"
-        android:layout_marginTop="@dimen/text_inner_padding"
-        android:layout_marginBottom="@dimen/text_inner_padding"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_inner_padding"
+        android:layout_marginBottom="@dimen/text_inner_padding">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/index"
+            android:id="@+id/textViewIndex"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:fontFamily="@font/roboto_condensed_regular"
             android:gravity="center_horizontal|center_vertical"
-            tools:text="4"
             android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold"
             android:theme="@style/BuzzLine.Index"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="4" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/buzzTitle"
             android:layout_width="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:maxLines="1"
-            android:ellipsize="end"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_condensed_regular"
-            tools:text="1 long buzz - 20 seconds"
-            android:textSize="14sp"
             android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:maxLines="1"
+            android:textSize="14sp"
             android:theme="@style/BuzzLine.Label"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/index"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textViewIndex"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1 long buzz - 20 seconds" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
 

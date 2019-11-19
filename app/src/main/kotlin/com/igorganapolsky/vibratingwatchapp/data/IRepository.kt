@@ -2,7 +2,7 @@ package com.igorganapolsky.vibratingwatchapp.data
 
 import androidx.lifecycle.LiveData
 
-import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
 
 interface IRepository {
 

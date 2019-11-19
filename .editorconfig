@@ -1,12 +1,16 @@
 root = true
 
-[*]
+[*.{kt, kts}]
 indent_style = space
 indent_size = 4
 end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
+# true (recommended) / false
 insert_final_newline = true
+# possible values: number (e.g. 120) (package name, imports & comments are ignored), "off"
+# it's automatically set to 100 on `ktlint --android ...` (per Android Kotlin Style Guide)
+max_line_length = off
 
-[gradlew.bat]
-end_of_line = crlf
+# noinspection EditorConfigKeyCorrectness
+disabled_rules = import-ordering

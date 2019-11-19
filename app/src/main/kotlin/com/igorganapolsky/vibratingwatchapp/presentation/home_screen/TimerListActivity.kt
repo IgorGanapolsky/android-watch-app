@@ -4,58 +4,44 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.wear.widget.WearableRecyclerView
-import com.igorganapolsky.vibratingwatchapp.R
-import com.igorganapolsky.vibratingwatchapp.core.extensions.observe
-import com.igorganapolsky.vibratingwatchapp.presentation.details_screen.TimerDetailsActivity
+import com.igorganapolsky.vibratingwatchapp.databinding.ActivityMainBinding
 import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.adapter.TimerListAdapter
-import com.igorganapolsky.vibratingwatchapp.presentation.settings_screen.SetTimerActivity
+import com.igorganapolsky.vibratingwatchapp.presentation.timer_creation_screen.SetTimerActivity
+import com.igorganapolsky.vibratingwatchapp.presentation.timer_info_screen.TimerDetailsActivity
+import com.igorganapolsky.vibratingwatchapp.other.extensions.observe
+import kotlinx.android.synthetic.main.activity_main.*
 
-class TimerListActivity : AppCompatActivity(), View.OnClickListener,
-    TimerListAdapter.OnItemClickListener {
-
-//    private var mViewModel: TimerListViewModel? = null
-    //    private var mViewModel by activityViewModels<TimerListViewModel>()
-    private var timerListAdapter: TimerListAdapter? = null
-    private var ivTimerListImage: ImageView? = null
-    private var addTimerButtonImageLabel: TextView? = null
-    private var wrvTimerList: WearableRecyclerView? = null
-
+class TimerListActivity : AppCompatActivity(), View.OnClickListener, TimerListAdapter.OnItemClickListener {
     private val mViewModel by viewModels<TimersListViewModel>()
+
+    private lateinit var timerListAdapter: TimerListAdapter
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-//        val mViewModel by viewModels { ViewModelFactory(this) }
-//        mViewModel = ViewModelProviders.of(this, ViewModelFactory.instance)
-//            .get(TimerListViewModel::class.java)
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         setupView()
         setupObservers()
     }
 
     private fun setupView() {
-        findViewById<View>(R.id.addTimerButtonImage).setOnClickListener(this)
-
-        ivTimerListImage = findViewById(R.id.ivTimerListImage)
-        addTimerButtonImageLabel = findViewById(R.id.addTimerButtonImageLabel)
-        wrvTimerList = findViewById(R.id.wrvTimerList)
-
-        wrvTimerList!!.layoutManager = LinearLayoutManager(this)
         timerListAdapter = TimerListAdapter()
-        timerListAdapter!!.setItemClickListener(this)
-        wrvTimerList!!.adapter = timerListAdapter
+        timerListAdapter.setItemClickListener(this)
+
+        binding.wrvTimerList!!.layoutManager = LinearLayoutManager(this)
+        binding.wrvTimerList!!.adapter = timerListAdapter
+        binding.addTimerButtonImage.setOnClickListener(this)
     }
 
     private fun setupObservers() {
-        mViewModel!!.allTimers.observe(this) { timerList ->
-            timerListAdapter!!.setData(timerList)
+        mViewModel.allTimers.observe(this) { timerList ->
+            timerListAdapter.setData(timerList)
 
-            if (timerList != null && timerList.size > 0) {
+            if (timerList.isNotEmpty()) {
                 ivTimerListImage!!.visibility = ImageView.GONE
                 addTimerButtonImageLabel!!.visibility = View.GONE
                 wrvTimerList!!.visibility = View.VISIBLE

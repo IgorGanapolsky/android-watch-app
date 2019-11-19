@@ -3,19 +3,19 @@ package com.igorganapolsky.vibratingwatchapp.presentation.home_screen.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.igorganapolsky.vibratingwatchapp.R
-import com.igorganapolsky.vibratingwatchapp.core.TimerDiffCallback
-import com.igorganapolsky.vibratingwatchapp.core.TimerTransform
-import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.TimerDiffCallback
+import com.igorganapolsky.vibratingwatchapp.domain.model.TimerTransform
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.timer_list_item.*
 import java.util.*
 
-private class TimerListAdapter : RecyclerView.Adapter<TimerListAdapter.TimerItemViewHolder>() {
-    private var data: List<TimerModel>? = null
-    private var itemClickListener: OnItemClickListener? = null
+internal class TimerListAdapter : RecyclerView.Adapter<TimerListAdapter.TimerItemViewHolder>() {
+    private var data: List<TimerModel>
+    private lateinit var itemClickListener: OnItemClickListener
 
     init {
         data = ArrayList()
@@ -23,7 +23,7 @@ private class TimerListAdapter : RecyclerView.Adapter<TimerListAdapter.TimerItem
     }
 
     override fun getItemId(position: Int): Long {
-        return data!![position].id.toLong()
+        return data[position].id.toLong()
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, index: Int): TimerItemViewHolder {
@@ -37,15 +37,16 @@ private class TimerListAdapter : RecyclerView.Adapter<TimerListAdapter.TimerItem
     }
 
     override fun onBindViewHolder(timerItemViewHolder: TimerItemViewHolder, index: Int) {
-        timerItemViewHolder.bind(data!![index], itemClickListener)
+        timerItemViewHolder.bind(data[index], itemClickListener)
     }
 
     override fun getItemCount(): Int {
-        return data!!.size
+        return data.size
     }
 
     fun setData(data: List<TimerModel>) {
-        val callback = TimerDiffCallback(this.data!!, data)
+        val callback =
+            TimerDiffCallback(this.data, data)
         val result = DiffUtil.calculateDiff(callback)
         this.data = data
         result.dispatchUpdatesTo(this)
@@ -59,15 +60,10 @@ private class TimerListAdapter : RecyclerView.Adapter<TimerListAdapter.TimerItem
         fun onItemClick(id: Int)
     }
 
-    internal class TimerItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val ivStatus: ImageView = itemView.findViewById(R.id.ivStatus)
-        private val icProgress: ImageView = itemView.findViewById(R.id.icProgress)
-        private val tvTime: TextView = itemView.findViewById(R.id.tvTime)
-        private val tvVibration: TextView = itemView.findViewById(R.id.tvVibration)
-        private val tvRepeat: TextView = itemView.findViewById(R.id.tvRepeat)
+    internal class TimerItemViewHolder(override val containerView: View) :
+        RecyclerView.ViewHolder(containerView), LayoutContainer {
 
         fun bind(model: TimerModel, itemClickListener: OnItemClickListener?) {
-
             if (model.state === TimerModel.State.FINISHED) {
                 ivStatus.visibility = View.VISIBLE
                 icProgress.visibility = View.INVISIBLE

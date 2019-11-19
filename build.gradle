@@ -1,25 +1,21 @@
-import com.igorganapolsky.vibratingwatchapp.buildsrc.Libs
-
 buildscript {
+    ext.kotlin_version = "1.3.60"
+    ext.navigation_version = "2.2.0-rc02"
     repositories {
         google()
         jcenter()
-        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
-        maven { url "https://plugins.gradle.org/m2/" }
+        maven {
+            url("http://dl.bintray.com/kotlin/kotlin-eap")
+        }
     }
+
     dependencies {
-        classpath Libs.androidGradlePlugin
-        classpath Libs.Kotlin.kotlinGradlePlugin
-        classpath Libs.buildSrcVersions
+        classpath "com.android.tools.build:gradle:4.0.0-alpha03"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
+        classpath 'com.google.gms:google-services:4.3.3'
     }
 }
-
-plugins {
-    id "com.diffplug.gradle.spotless" version "3.24.2"
-    id "de.fayard.buildSrcVersions" version "0.4.2"
-}
-
-apply plugin: "de.fayard.buildSrcVersions"
 
 allprojects {
     repositories {
@@ -27,21 +23,6 @@ allprojects {
         jcenter()
         mavenCentral()
         mavenLocal()
-    }
-}
-
-subprojects {
-    apply plugin: 'com.diffplug.gradle.spotless'
-    spotless {
-        kotlin {
-            target "**/*.kt"
-            ktlint("0.31.0")
-            licenseHeaderFile project.rootProject.file('spotless/copyright.kt')
-        }
-    }
-
-    // Treat all Kotlin warnings as errors
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-        kotlinOptions.allWarningsAsErrors = true
+        maven { url = uri("https://jitpack.io") }
     }
 }

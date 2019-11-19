@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/dialog_red"
     android:orientation="vertical"
-    tools:context=".presentation.details_screen.dialog.TimerDeleteDialogFragment">
+    tools:context=".presentation.timer_info_screen.dialog.TimerDeleteDialogFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -44,7 +44,7 @@
         android:paddingBottom="30dp">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivCancel"
+            android:id="@+id/image_view_cancel"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
@@ -52,7 +52,7 @@
             app:srcCompat="@drawable/ic_close"/>
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivApprove"
+            android:id="@+id/image_view_approve"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="20dp"

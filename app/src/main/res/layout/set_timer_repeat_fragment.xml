@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".presentation.settings_screen.step.SetTimerRepeatFragment">
+    tools:context=".presentation.timer_creation_screen.step.SetTimerRepeatFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -17,9 +16,9 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="@dimen/icon_size"
-            android:scaleType="center"
             android:layout_height="@dimen/icon_size"
-            android:src="@drawable/ic_repeat"/>
+            android:scaleType="center"
+            android:src="@drawable/ic_repeat" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
@@ -28,7 +27,7 @@
             android:fontFamily="@font/roboto_condensed_regular"
             android:text="@string/screen_title_set_repeat"
             android:textColor="@color/white_active"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <FrameLayout
@@ -44,6 +43,6 @@
             android:overScrollMode="never"
             android:paddingLeft="75dp"
             android:paddingRight="75dp"
-            android:scrollbars="horizontal"/>
+            android:scrollbars="horizontal" />
     </FrameLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

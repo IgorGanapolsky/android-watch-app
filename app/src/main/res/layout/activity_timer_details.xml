@@ -6,7 +6,7 @@
     android:id="@+id/timer_details_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.details_screen.TimerDetailsActivity">
+    tools:context=".presentation.timer_info_screen.TimerDetailsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

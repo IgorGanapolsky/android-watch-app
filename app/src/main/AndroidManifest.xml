@@ -29,8 +29,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.settings_screen.SetTimerActivity" />
-        <activity android:name=".presentation.details_screen.TimerDetailsActivity" />
+        <activity android:name=".presentation.timer_creation_screen.SetTimerActivity" />
+        <activity android:name=".presentation.timer_info_screen.TimerDetailsActivity" />
 
         <uses-library
             android:name="com.google.android.wearable"

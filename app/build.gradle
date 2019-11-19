@@ -1,42 +1,17 @@
-import com.igorganapolsky.vibratingwatchapp.buildsrc.Libs
-
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-
-kapt {
-    correctErrorTypes = true
-    useBuildCache = true
-}
-
 apply plugin: 'kotlin-android-extensions'
-androidExtensions {
-    experimental = true
-}
-
-repositories {
-    maven {
-        url "https://jitpack.io"
-    }
-}
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
-
     defaultConfig {
         applicationId "com.igorganapolsky.vibratingwatchapp"
         minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
-    }
-
-    compileOptions {
-        sourceCompatibility = '1.8'
-        targetCompatibility = '1.8'
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     sourceSets {
@@ -44,42 +19,13 @@ android {
         test.java.srcDirs += 'src/test/kotlin'
     }
 
-    lintOptions {
-        // Disable lintVital. Not needed since lint is run on CI
-        checkReleaseBuilds false
-        // Allow lint to check dependencies
-        checkDependencies true
-        // Ignore any tests
-        ignoreTestSources true
-
-        disable 'GradleCompatible', 'FontValidationError'
-    }
-
-    dataBinding {
-        enabled = true
-    }
-
-    testOptions {
-        unitTests {
-            includeAndroidResources = true
-        }
-    }
-
-    packagingOptions {
-        // Exclude AndroidX rvVersion files
-        exclude 'META-INF/*.rvVersion'
-        // Exclude consumer proguard files
-        exclude 'META-INF/proguard/*'
-        // Exclude the Firebase/Fabric/other random properties files
-        exclude '/*.properties'
-        exclude 'fabric/*.properties'
-        exclude 'META-INF/*.properties'
-    }
+    dataBinding.enabled = true
+    viewBinding.enabled = true
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -91,35 +37,74 @@ android {
 }
 
 dependencies {
-    // kotlin libs
-    implementation Libs.Kotlin.stdlib
-    implementation Libs.Kotlin.reflect
+    /* Kotlin libs */
 
-    // wear libs
-    implementation Libs.Wear.wear
-    implementation Libs.Wear.wear_implementation
-    kapt Libs.Wear.wear_compile_only
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
-    // google libs
-    implementation Libs.Google.material
+    /* Wear libs */
 
-    // androidx libs
-    kapt Libs.AndroidX.Room.compiler
-    kapt Libs.AndroidX.Room.runtime
-    implementation Libs.AndroidX.Room.runtime
-    testImplementation Libs.AndroidX.Room.testing
-    implementation Libs.AndroidX.Lifecycle.extensions
-    implementation Libs.AndroidX.percentLayout
-    implementation Libs.AndroidX.legacySupport
-    implementation Libs.AndroidX.recyclerview
-    implementation Libs.AndroidX.recyclerviewSelection
-    implementation Libs.AndroidX.appcompat
-    implementation Libs.AndroidX.annotate
-    implementation Libs.AndroidX.constraintlayout
-    implementation Libs.AndroidX.Fragment.fragmentKtx
-    implementation Libs.AndroidX.Activity.activityKtx
-    implementation Libs.AndroidX.coreKtx
+    implementation "com.google.android.gms:play-services-wearable:17.0.0"
+    implementation "androidx.wear:wear:1.0.0"
+    implementation "com.google.android.support:wearable:2.5.0"
+    kapt "com.google.android.wearable:wearable:2.5.0"
 
-    // SeekArc lib
-    implementation Libs.seekArc
+    /* Google and Analytics libs */
+
+    implementation "com.google.android.material:material:1.2.0-alpha01"
+    implementation "com.google.firebase:firebase-analytics:17.2.1"
+    implementation "com.crashlytics.sdk.android:crashlytics:2.10.1"
+
+    /* Androidx libs */
+
+    // DB
+    implementation "androidx.room:room-ktx:2.2.1"
+    implementation "androidx.room:room-runtime:2.2.1"
+    kapt "androidx.room:room-compiler:2.2.1"
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:2.1.0"
+
+    implementation "androidx.percentlayout:1.0.0"
+    implementation "androidx.legacy.legacy-support-v4:1.0.0"
+    implementation "androidx.recyclerview:recyclerview:1.0.0"
+
+    // For control over item selection of both touch and mouse driven selection
+    implementation "androidx.recyclerview:recyclerview-selection:1.0.0"
+
+    implementation "androidx.appcompat:appcompat:1.1.0"
+    implementation "androidx.annotation:annotation:1.1.0"
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta3"
+    implementation "androidx.fragment:fragment-ktx:1.1.1"
+    implementation "androidx.fragment:fragment-ktx:1.2.0-rc02"
+    implementation "androidx.core:core-ktx:1.1.0"
+
+    /* 3rd party libs */
+    implementation "com.github.IgorGanapolsky:SeekArc:v1.2.1"
+    implementation "com.jakewharton.timber:timber:4.7.1"
+
+    /* Testing libs */
+    testImplementation "androidx.room:room-testing:2.2.1"
 }
+
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+        apiVersion = '1.3'
+        languageVersion = '1.3'
+        freeCompilerArgs = ["-XXLanguage:+InlineClasses"]
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'
+
+
+

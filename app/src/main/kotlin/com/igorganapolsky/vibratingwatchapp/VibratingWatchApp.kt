@@ -1,21 +1,35 @@
 package com.igorganapolsky.vibratingwatchapp
 
 import android.app.Application
-import androidx.room.Room
 import android.content.Context
+import android.os.StrictMode
+import android.os.StrictMode.VmPolicy
 import android.os.Vibrator
-import com.igorganapolsky.vibratingwatchapp.presentation.ViewModelFactory
-import com.igorganapolsky.vibratingwatchapp.data.WatchRepository
+import androidx.room.Room
 import com.igorganapolsky.vibratingwatchapp.data.TimersDatabase
-import com.igorganapolsky.vibratingwatchapp.core.CountdownControllerImpl
-import com.igorganapolsky.vibratingwatchapp.core.VibrationControllerImpl
-
+import com.igorganapolsky.vibratingwatchapp.data.WatchRepository
+import com.igorganapolsky.vibratingwatchapp.presentation.ViewModelFactory
+import com.igorganapolsky.vibratingwatchapp.domain.model.CountdownControllerImpl
+import com.igorganapolsky.vibratingwatchapp.other.CrashlyticsTree
+import com.igorganapolsky.vibratingwatchapp.domain.model.VibrationControllerImpl
+import timber.log.Timber
 import java.util.concurrent.Executors
+
 
 class VibratingWatchApp : Application() {
 
     override fun onCreate() {
+        // Enable strict mode before DI creates graph
+        if (BuildConfig.DEBUG) {
+            enableStrictMode()
+        }
         super.onCreate()
+
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        } else {
+            Timber.plant(CrashlyticsTree())
+        }
 
         /* simple self implemented DI */
 
@@ -31,12 +45,35 @@ class VibratingWatchApp : Application() {
 
         // step 3 -> create os vibrator wrapper
         val beepManager =
-            VibrationControllerImpl(getSystemService(Context.VIBRATOR_SERVICE) as Vibrator)
+            VibrationControllerImpl(
+                getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            )
 
         // step 4- > create countdown manager;
-        val countdownManager = CountdownControllerImpl(beepManager)
+        val countdownManager =
+            CountdownControllerImpl(beepManager)
 
         // step 5 > create view model factory;
         ViewModelFactory.initFactory(repository, countdownManager)
     }
+
+    private fun enableStrictMode() {
+        StrictMode.setThreadPolicy(
+            StrictMode.ThreadPolicy.Builder()
+                .detectDiskReads()
+                .detectDiskWrites()
+                .detectNetwork()
+                .penaltyLog()
+                .build()
+        )
+        StrictMode.setVmPolicy(
+            VmPolicy.Builder()
+                .detectLeakedSqlLiteObjects()
+                .detectLeakedClosableObjects()
+                .penaltyLog()
+                .penaltyDeath()
+                .build()
+        )
+    }
+
 }
