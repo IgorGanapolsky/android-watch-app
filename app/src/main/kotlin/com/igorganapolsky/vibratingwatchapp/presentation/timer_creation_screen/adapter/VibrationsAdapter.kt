@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.igorganapolsky.vibratingwatchapp.R
 import com.igorganapolsky.vibratingwatchapp.domain.model.model.VibrationModel
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.set_timer_vibrations_line.*
 import java.util.*
 
 internal class VibrationsAdapter(

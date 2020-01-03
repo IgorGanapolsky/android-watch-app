@@ -11,8 +11,8 @@ object Mappers {
         model.id = entity.id
         model.repeat = entity.repeat
         model.vibrationCount = entity.buzzCount
-        model.type = VibrationModel.Type.valueOf(entity.buzzType)
-        model.state = TimerModel.State.valueOf(entity.state)
+        model.type = VibrationModel.Type.valueOf(entity.buzzType.toString())
+        model.state = TimerModel.State.valueOf(entity.state.toString())
         model.vibrationTimeInSecs = entity.buzzTime
         model.hours =
             TimerTransform.getHours(entity.milliseconds)

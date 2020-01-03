@@ -12,9 +12,9 @@ import androidx.lifecycle.Observer
 import com.igorganapolsky.vibratingwatchapp.R
 import com.igorganapolsky.vibratingwatchapp.data.TimeMeasurement
 import com.igorganapolsky.vibratingwatchapp.databinding.SetTimerTimeFragmentBinding
+import com.igorganapolsky.vibratingwatchapp.domain.model.IStepTouchActionListener
 import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.NewTimerViewModel
 import com.igorganapolsky.vibratingwatchapp.presentation.timer_creation_screen.SetTimerActivity
-import com.igorganapolsky.vibratingwatchapp.domain.model.IStepTouchActionListener
 import com.triggertrap.seekarc.SeekArc
 import java.util.*
 
@@ -82,26 +82,27 @@ class SetTimerTimeFragment : Fragment(), View.OnClickListener, SeekArc.OnSeekArc
     }
 
     private fun setSelection(selection: TimeMeasurement) {
-        binding.seekArc!!.progress = mViewModel.calculateProgress()
+        binding.seekArc.progress = mViewModel.calculateProgress()
 
-        binding.tvLabelMeasure!!.text = selection.shortcut
-        binding.tvLabel!!.text = String.format(Locale.ENGLISH, "%d", mViewModel.currentTimeValue)
+        binding.tvLabelMeasure.text = selection.shortcut
+        binding.tvLabelMeasure.text =
+            String.format(Locale.ENGLISH, "%d", mViewModel.currentTimeValue)
 
         when (selection) {
             TimeMeasurement.HOURS -> {
-                binding.tvHours!!.setTextColor(activeColor)
-                binding.tvMinutes!!.setTextColor(inactiveColor)
-                binding.tvSeconds!!.setTextColor(inactiveColor)
+                binding.tvHours.setTextColor(activeColor)
+                binding.tvMinutes.setTextColor(inactiveColor)
+                binding.tvSeconds.setTextColor(inactiveColor)
             }
             TimeMeasurement.MINUTES -> {
-                binding.tvMinutes!!.setTextColor(activeColor)
-                binding.tvHours!!.setTextColor(inactiveColor)
-                binding.tvSeconds!!.setTextColor(inactiveColor)
+                binding.tvMinutes.setTextColor(activeColor)
+                binding.tvHours.setTextColor(inactiveColor)
+                binding.tvSeconds.setTextColor(inactiveColor)
             }
             TimeMeasurement.SECONDS -> {
-                binding.tvSeconds!!.setTextColor(activeColor)
-                binding.tvHours!!.setTextColor(inactiveColor)
-                binding.tvMinutes!!.setTextColor(inactiveColor)
+                binding.tvSeconds.setTextColor(activeColor)
+                binding.tvHours.setTextColor(inactiveColor)
+                binding.tvMinutes.setTextColor(inactiveColor)
             }
         }
     }

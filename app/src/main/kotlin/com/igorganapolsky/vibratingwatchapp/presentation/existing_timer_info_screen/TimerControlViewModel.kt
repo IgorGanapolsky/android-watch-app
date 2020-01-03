@@ -1,17 +1,17 @@
-package com.igorganapolsky.vibratingwatchapp.presentation.timer_info_screen
+package com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info_screen
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.igorganapolsky.vibratingwatchapp.data.IRepository
 import com.igorganapolsky.vibratingwatchapp.domain.model.ICountdownController
 import com.igorganapolsky.vibratingwatchapp.domain.model.ITickListener
 import com.igorganapolsky.vibratingwatchapp.domain.model.TimerTransform
 import com.igorganapolsky.vibratingwatchapp.domain.model.model.CountModel
-import com.igorganapolsky.vibratingwatchapp.data.IRepository
 import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
 
 /**
- * Data model for controlling an existing timer.
+ * [ViewModel] for controlling an existing timer.
  */
 class TimerControlViewModel(
     private val repository: IRepository,
@@ -19,11 +19,11 @@ class TimerControlViewModel(
 ) : ViewModel(), ITickListener {
 
     internal val activeTimerData = MutableLiveData<CountModel>()
+    private val countData: CountModel = CountModel.default
     val viewStateData = MutableLiveData<TimerModel.State>()
 
     private lateinit var currentTimer: TimerModel
     private var currentId = TimerModel.UNDEFINE_ID
-    private val countData: CountModel = CountModel.default
 
     init {
         this.countdownController.setTickListener(this)

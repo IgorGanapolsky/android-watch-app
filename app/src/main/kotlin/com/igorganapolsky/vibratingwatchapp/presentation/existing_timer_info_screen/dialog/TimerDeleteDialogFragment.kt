@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.presentation.timer_info_screen.dialog
+package com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info_screen.dialog
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.igorganapolsky.vibratingwatchapp.R
 import com.igorganapolsky.vibratingwatchapp.databinding.TimerDeleteFragmentBinding
-import com.igorganapolsky.vibratingwatchapp.presentation.timer_info_screen.TimerControlViewModel
+import com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info_screen.TimerControlViewModel
 
 class TimerDeleteDialogFragment : Fragment(), View.OnClickListener {
     private val mViewModel by viewModels<TimerControlViewModel>()

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.wear.widget.BoxInsetLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/timer_details_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.timer_info_screen.TimerDetailsActivity">
+    tools:context=".presentation.existing_timer_info_screen.TimerDetailsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,23 +21,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread"
-            app:srcCompat="@drawable/ic_settings"/>
+            app:srcCompat="@drawable/ic_settings" />
 
         <ProgressBar
             android:id="@+id/pbTime"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_centerInParent="true"
-            style="?android:attr/progressBarStyleHorizontal"
             android:indeterminate="false"
             android:progressDrawable="@drawable/progress_circular_new"
             app:layout_constraintBottom_toBottomOf="@+id/ivTimerRemove"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivTimerSettings"/>
+            app:layout_constraintTop_toBottomOf="@id/ivTimerSettings" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvTime"
+            android:id="@+id/timeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -49,7 +48,7 @@
             app:layout_constraintBottom_toBottomOf="@id/pbTime"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/pbTime"/>
+            app:layout_constraintTop_toTopOf="@id/pbTime" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivStart"
@@ -59,10 +58,10 @@
             app:layout_constraintBottom_toBottomOf="@id/pbTime"
             app:layout_constraintEnd_toStartOf="@id/ivStop"
             app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="@id/tvTime"
-            app:layout_constraintTop_toBottomOf="@id/tvTime"
+            app:layout_constraintStart_toStartOf="@id/timeTextView"
+            app:layout_constraintTop_toBottomOf="@id/timeTextView"
             app:layout_constraintVertical_bias="0.3"
-            app:srcCompat="@drawable/ic_start_pause_selector"/>
+            app:srcCompat="@drawable/ic_start_pause_selector" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivStop"
@@ -73,7 +72,7 @@
             app:layout_constraintEnd_toStartOf="@id/ivRestart"
             app:layout_constraintStart_toEndOf="@id/ivStart"
             app:layout_constraintTop_toTopOf="@id/ivStart"
-            app:srcCompat="@drawable/ic_stop"/>
+            app:srcCompat="@drawable/ic_stop" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivRestart"
@@ -81,10 +80,10 @@
             android:layout_height="@dimen/icon_size"
             android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="@id/ivStart"
-            app:layout_constraintEnd_toEndOf="@id/tvTime"
+            app:layout_constraintEnd_toEndOf="@id/timeTextView"
             app:layout_constraintStart_toEndOf="@id/ivStop"
             app:layout_constraintTop_toTopOf="@id/ivStart"
-            app:srcCompat="@drawable/ic_reload"/>
+            app:srcCompat="@drawable/ic_reload" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivTimerRemove"
@@ -95,7 +94,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pbTime"
-            app:srcCompat="@drawable/ic_remove"/>
+            app:srcCompat="@drawable/ic_remove" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivContinueTimer"
@@ -103,10 +102,10 @@
             android:layout_height="36dp"
             android:scaleType="center"
             android:visibility="gone"
-            tools:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_next"/>
+            app:srcCompat="@drawable/ic_next"
+            tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.wear.widget.BoxInsetLayout>

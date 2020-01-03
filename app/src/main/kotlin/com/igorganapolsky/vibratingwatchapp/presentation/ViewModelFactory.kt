@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.igorganapolsky.vibratingwatchapp.data.IRepository
 import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.NewTimerViewModel
-import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.TimersListViewModel
-import com.igorganapolsky.vibratingwatchapp.presentation.timer_info_screen.TimerControlViewModel
+import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.ExistingTimersListViewModel
+import com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info_screen.TimerControlViewModel
 import com.igorganapolsky.vibratingwatchapp.domain.model.ICountdownController
 
 class ViewModelFactory private constructor(
@@ -18,8 +18,8 @@ class ViewModelFactory private constructor(
         val viewModel: ViewModel
         if (modelClass.isAssignableFrom(NewTimerViewModel::class.java)) {
             viewModel = NewTimerViewModel(repository)
-        } else if (modelClass.isAssignableFrom(TimersListViewModel::class.java)) {
-            viewModel = TimersListViewModel(repository, countdownManager)
+        } else if (modelClass.isAssignableFrom(ExistingTimersListViewModel::class.java)) {
+            viewModel = ExistingTimersListViewModel(repository, countdownManager)
         } else if (modelClass.isAssignableFrom(TimerControlViewModel::class.java)) {
             viewModel = TimerControlViewModel(repository, countdownManager)
         } else {

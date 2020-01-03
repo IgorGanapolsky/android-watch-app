@@ -4,14 +4,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.igorganapolsky.vibratingwatchapp.R
+import com.igorganapolsky.vibratingwatchapp.databinding.SetTimerRepeatsItemBinding
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.set_timer_time_fragment.*
 
+/**
+ * Adapter that holds values for items in the list of repeating options for a new timer screen.
+ */
 internal class RepeatsAdapter(private val holderClickListener: HolderClickListener) :
     RecyclerView.Adapter<RepeatsAdapter.RepeatsRecyclerViewHolder>() {
 
-    private val repeats = arrayOf("1", "2", "3", "4", "5", "6", "7", "8", "9")
+    private val data = listOf("1", "2", "3", "4", "5", "6", "7", "8", "9")
 
     init {
         setHasStableIds(true)
@@ -22,27 +24,33 @@ internal class RepeatsAdapter(private val holderClickListener: HolderClickListen
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): RepeatsRecyclerViewHolder {
-        val itemView = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.set_timer_repeats_item, viewGroup, false)
-        return RepeatsRecyclerViewHolder(itemView)
+        val binding = SetTimerRepeatsItemBinding.inflate(
+            LayoutInflater.from(viewGroup.context),
+            viewGroup,
+            false
+        )
+        return RepeatsRecyclerViewHolder(binding)
     }
 
     override fun onBindViewHolder(
         repeatsRecyclerViewHolder: RepeatsRecyclerViewHolder,
         index: Int
     ) {
-        repeatsRecyclerViewHolder.bind(repeats[index], holderClickListener)
+        repeatsRecyclerViewHolder.bind(data[index], holderClickListener)
     }
 
     override fun getItemCount(): Int {
-        return repeats.size
+        return data.size
     }
 
-    internal class RepeatsRecyclerViewHolder(override val containerView: View) :
-        RecyclerView.ViewHolder(containerView), LayoutContainer {
+    internal class RepeatsRecyclerViewHolder(private val binding: SetTimerRepeatsItemBinding) :
+        RecyclerView.ViewHolder(binding.root), LayoutContainer {
+
+        override val containerView: View?
+            get() = binding.root
 
         fun bind(label: String, holderClickListener: HolderClickListener?) {
-            textViewLabel.text = label
+            binding.repeatsTextView.text = label
 
             if (holderClickListener != null) {
                 itemView.setOnClickListener {
@@ -54,5 +62,5 @@ internal class RepeatsAdapter(private val holderClickListener: HolderClickListen
             }
         }
     }
-}
 
+}

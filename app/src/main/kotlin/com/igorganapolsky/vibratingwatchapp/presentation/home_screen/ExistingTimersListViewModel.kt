@@ -9,7 +9,7 @@ import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
 /**
  * Data model for viewing all existing timers.
  */
-class TimersListViewModel(
+class ExistingTimersListViewModel(
     private val repository: IRepository,
     countdownManager: ICountdownController
 ) : ViewModel() {

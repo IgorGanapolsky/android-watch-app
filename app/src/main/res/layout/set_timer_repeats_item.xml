@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="64dp"
     android:layout_height="wrap_content"
     android:paddingVertical="10dp">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/label"
+        android:id="@+id/repeatsTextView"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
         android:fontFamily="@font/roboto_condensed_regular"
         android:gravity="center_horizontal|center_vertical"
-        tools:text="1"
         android:textAlignment="center"
         android:textColor="@color/white_active"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:theme="@style/RepeatsItem.Label"/>
+        android:theme="@style/RepeatsItem.Label"
+        tools:text="1" />
+
 </FrameLayout>

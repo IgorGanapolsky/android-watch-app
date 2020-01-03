@@ -21,7 +21,7 @@
         tools:replace="android:icon,android:theme">
 
         <activity
-            android:name=".presentation.home_screen.TimerListActivity"
+            android:name=".presentation.home_screen.ExistingTimersListActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.timer_creation_screen.SetTimerActivity" />
-        <activity android:name=".presentation.timer_info_screen.TimerDetailsActivity" />
+        <activity android:name=".presentation.existing_timer_info_screen.TimerDetailsActivity" />
 
         <uses-library
             android:name="com.google.android.wearable"
