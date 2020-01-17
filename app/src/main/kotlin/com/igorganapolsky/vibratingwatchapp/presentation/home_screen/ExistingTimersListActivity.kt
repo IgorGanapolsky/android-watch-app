@@ -8,14 +8,16 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.igorganapolsky.vibratingwatchapp.databinding.ActivityMainBinding
+import com.igorganapolsky.vibratingwatchapp.util.extensions.observe
+import com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info.TimerDetailsActivity
 import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.adapter.ExistingTimersListAdapter
 import com.igorganapolsky.vibratingwatchapp.presentation.timer_creation_screen.SetTimerActivity
-import com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info_screen.TimerDetailsActivity
-import com.igorganapolsky.vibratingwatchapp.other.extensions.observe
 import kotlinx.android.synthetic.main.activity_main.*
 
-class ExistingTimersListActivity : AppCompatActivity(), View.OnClickListener, ExistingTimersListAdapter.OnItemClickListener {
-    private val mViewModel by viewModels<ExistingTimersListViewModel>()
+class ExistingTimersListActivity : AppCompatActivity(), View.OnClickListener,
+    ExistingTimersListAdapter.OnItemClickListener {
+
+    private val existingTimersListViewModel by viewModels<ExistingTimersListViewModel>()
 
     private lateinit var existingTimersListAdapter: ExistingTimersListAdapter
     private lateinit var binding: ActivityMainBinding
@@ -24,21 +26,21 @@ class ExistingTimersListActivity : AppCompatActivity(), View.OnClickListener, Ex
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setupView()
+        setupListAdapter()
         setupObservers()
     }
 
-    private fun setupView() {
+    private fun setupListAdapter() {
         existingTimersListAdapter = ExistingTimersListAdapter()
         existingTimersListAdapter.setItemClickListener(this)
 
-        binding.wrvTimerList!!.layoutManager = LinearLayoutManager(this)
-        binding.wrvTimerList!!.adapter = existingTimersListAdapter
-        binding.addTimerButtonImage.setOnClickListener(this)
+        binding.wrvTimerList.layoutManager = LinearLayoutManager(this)
+        binding.wrvTimerList.adapter = existingTimersListAdapter
+        binding.addTimerButtone.setOnClickListener(this)
     }
 
     private fun setupObservers() {
-        mViewModel.allTimers.observe(this) { timerList ->
+        existingTimersListViewModel.allTimersLiveData.observe(this) { timerList ->
             existingTimersListAdapter.setData(timerList)
 
             if (timerList.isNotEmpty()) {

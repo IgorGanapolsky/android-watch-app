@@ -2,15 +2,15 @@ package com.igorganapolsky.vibratingwatchapp.presentation.home_screen
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.igorganapolsky.vibratingwatchapp.domain.model.ICountdownController
-import com.igorganapolsky.vibratingwatchapp.data.IRepository
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.data.ITimersRepository
+import com.igorganapolsky.vibratingwatchapp.domain.usecase.ICountdownController
+import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel
 
 /**
  * Data model for viewing all existing timers.
  */
 class ExistingTimersListViewModel(
-    private val repository: IRepository,
+    private val repository: ITimersRepository,
     countdownManager: ICountdownController
 ) : ViewModel() {
 
@@ -20,11 +20,11 @@ class ExistingTimersListViewModel(
         }
     }
 
-    internal val allTimers: LiveData<List<TimerModel>>
-        get() = repository.getAll()
-
     init {
         countdownManager.observeActiveModel().observeForever(activeObserver)
     }
+
+    internal val allTimersLiveData: LiveData<List<TimerModel>>
+        get() = repository.getAll()
 
 }

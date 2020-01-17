@@ -2,14 +2,14 @@ package com.igorganapolsky.vibratingwatchapp.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.igorganapolsky.vibratingwatchapp.data.IRepository
+import com.igorganapolsky.vibratingwatchapp.data.ITimersRepository
 import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.NewTimerViewModel
 import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.ExistingTimersListViewModel
-import com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info_screen.TimerControlViewModel
-import com.igorganapolsky.vibratingwatchapp.domain.model.ICountdownController
+import com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info.TimerControlViewModel
+import com.igorganapolsky.vibratingwatchapp.domain.usecase.ICountdownController
 
 class ViewModelFactory private constructor(
-    private val repository: IRepository,
+    private val repository: ITimersRepository,
     private val countdownManager: ICountdownController
 ) : ViewModelProvider.Factory {
 
@@ -31,7 +31,7 @@ class ViewModelFactory private constructor(
     companion object {
         private lateinit var factory: ViewModelFactory
 
-        fun initFactory(repository: IRepository, countdownController: ICountdownController) {
+        fun initFactory(repository: ITimersRepository, countdownController: ICountdownController) {
             factory = ViewModelFactory(repository, countdownController)
         }
 

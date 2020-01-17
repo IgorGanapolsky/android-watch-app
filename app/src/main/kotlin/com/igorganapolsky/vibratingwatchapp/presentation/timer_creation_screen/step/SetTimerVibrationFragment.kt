@@ -11,11 +11,11 @@ import com.igorganapolsky.vibratingwatchapp.R
 import com.igorganapolsky.vibratingwatchapp.databinding.SetTimerVibrationFragmentBinding
 import com.igorganapolsky.vibratingwatchapp.presentation.RecyclerViewSnapLayoutManager
 import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.NewTimerViewModel
-import com.igorganapolsky.vibratingwatchapp.presentation.timer_creation_screen.adapter.HolderClickListener
+import com.igorganapolsky.vibratingwatchapp.presentation.timer_creation_screen.adapter.IHolderClickListener
 import com.igorganapolsky.vibratingwatchapp.presentation.timer_creation_screen.adapter.VibrationsAdapter
 import kotlinx.android.synthetic.main.set_timer_vibration_fragment.*
 
-class SetTimerVibrationFragment : Fragment(), HolderClickListener {
+class SetTimerVibrationFragment : Fragment(), IHolderClickListener {
     private val mViewModel by viewModels<NewTimerViewModel>()
 
     private var vibrationsAdapter: VibrationsAdapter? = null

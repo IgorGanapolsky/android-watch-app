@@ -5,20 +5,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.igorganapolsky.vibratingwatchapp.R
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.VibrationModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.VibrationModel
 import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.set_timer_vibrations_line.view.*
 import java.util.*
 
 internal class VibrationsAdapter(
-    private val holderClickListener: HolderClickListener,
+    private val holderClickListener: IHolderClickListener,
     private val vibTitles: Array<String>,
     private val timeTitles: Array<String>
 ) : RecyclerView.Adapter<VibrationsAdapter.VibrationsRecyclerViewHolder>() {
 
-    private val buzzList: List<VibrationModel>?
+    private val vibrationsList: List<VibrationModel>?
 
     init {
-        buzzList = initVibrationList()
+        vibrationsList = initVibrationList()
         setHasStableIds(true)
     }
 
@@ -37,7 +38,7 @@ internal class VibrationsAdapter(
         index: Int
     ) {
         vibrationsRecyclerViewHolder.bind(
-            buzzList!![index],
+            vibrationsList!![index],
             vibTitles, timeTitles,
             index,
             holderClickListener
@@ -89,10 +90,10 @@ internal class VibrationsAdapter(
      * @return concrete setup or first element in list, if setup wasn't found;
      */
     fun getBuzzByPosition(position: Int): VibrationModel {
-        try {
-            return buzzList!![position]
+        return try {
+            vibrationsList!![position]
         } catch (exp: IndexOutOfBoundsException) {
-            return buzzList!![DEFAULT_POSITION]
+            vibrationsList!![DEFAULT_POSITION]
         }
 
     }
@@ -104,16 +105,15 @@ internal class VibrationsAdapter(
      * @return position of [VibrationModel] or [VibrationsAdapter.DEFAULT_POSITION]
      */
     fun getPosition(setup: VibrationModel): Int {
-        try {
-            return buzzList!!.indexOf(setup)
+        return try {
+            vibrationsList!!.indexOf(setup)
         } catch (exp: IndexOutOfBoundsException) {
-            return DEFAULT_POSITION
+            DEFAULT_POSITION
         }
-
     }
 
     override fun getItemCount(): Int {
-        return buzzList?.size ?: 0
+        return vibrationsList?.size ?: 0
     }
 
     internal class VibrationsRecyclerViewHolder(override val containerView: View) :
@@ -124,15 +124,14 @@ internal class VibrationsAdapter(
             vibTitles: Array<String>,
             timeTitles: Array<String>,
             index: Int,
-            holderClickListener: HolderClickListener?
+            holderClickListener: IHolderClickListener?
         ) {
-
             val buzzText = vibTitles[index]
             val timeText = timeTitles[index]
             val totalString = String.format(Locale.getDefault(), "%s - %s", buzzText, timeText)
 
-            textViewIndex.text = (index + 1).toString()
-            buzzTitle.text = totalString
+            containerView.textViewIndex.text = (index + 1).toString()
+            containerView.buzzTitle.text = totalString
 
             if (holderClickListener != null) {
                 itemView.setOnClickListener { view ->

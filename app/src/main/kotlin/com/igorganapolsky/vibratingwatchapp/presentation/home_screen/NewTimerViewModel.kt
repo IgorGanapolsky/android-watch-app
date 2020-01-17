@@ -3,15 +3,15 @@ package com.igorganapolsky.vibratingwatchapp.presentation.home_screen
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.igorganapolsky.vibratingwatchapp.data.IRepository
+import com.igorganapolsky.vibratingwatchapp.data.ITimersRepository
 import com.igorganapolsky.vibratingwatchapp.data.TimeMeasurement
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.VibrationModel
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.VibrationModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel
 
 /**
  * Data model for creating a new timer.
  */
-class NewTimerViewModel(private val repository: IRepository) : ViewModel() {
+class NewTimerViewModel(private val repository: ITimersRepository) : ViewModel() {
     private val timerData = MutableLiveData<TimerModel>()
     private val countdownData = MutableLiveData<TimeMeasurement>()
     private val swipeState = MutableLiveData<Boolean>()

@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.timer_creation_screen.SetTimerActivity" />
-        <activity android:name=".presentation.existing_timer_info_screen.TimerDetailsActivity" />
+        <activity android:name=".presentation.existing_timer_info.TimerDetailsActivity" />
 
         <uses-library
             android:name="com.google.android.wearable"

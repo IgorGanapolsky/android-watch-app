@@ -1,7 +1,7 @@
-package com.igorganapolsky.vibratingwatchapp.domain.model.model
+package com.igorganapolsky.vibratingwatchapp.domain.model
 
 import com.igorganapolsky.vibratingwatchapp.data.TimeMeasurement
-import com.igorganapolsky.vibratingwatchapp.domain.model.TimerTransform
+import com.igorganapolsky.vibratingwatchapp.domain.usecase.TimerTransform
 import java.util.*
 
 /**

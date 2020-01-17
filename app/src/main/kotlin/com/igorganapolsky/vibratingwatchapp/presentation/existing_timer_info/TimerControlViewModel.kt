@@ -1,20 +1,20 @@
-package com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info_screen
+package com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.igorganapolsky.vibratingwatchapp.data.IRepository
-import com.igorganapolsky.vibratingwatchapp.domain.model.ICountdownController
-import com.igorganapolsky.vibratingwatchapp.domain.model.ITickListener
-import com.igorganapolsky.vibratingwatchapp.domain.model.TimerTransform
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.CountModel
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.data.ITimersRepository
+import com.igorganapolsky.vibratingwatchapp.domain.usecase.ICountdownController
+import com.igorganapolsky.vibratingwatchapp.domain.usecase.ITickListener
+import com.igorganapolsky.vibratingwatchapp.domain.usecase.TimerTransform
+import com.igorganapolsky.vibratingwatchapp.domain.model.CountModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel
 
 /**
  * [ViewModel] for controlling an existing timer.
  */
 class TimerControlViewModel(
-    private val repository: IRepository,
+    private val repository: ITimersRepository,
     private val countdownController: ICountdownController
 ) : ViewModel(), ITickListener {
 

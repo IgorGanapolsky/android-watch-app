@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.igorganapolsky.vibratingwatchapp.databinding.TimerListItemBinding
-import com.igorganapolsky.vibratingwatchapp.domain.model.TimerDiffCallback
-import com.igorganapolsky.vibratingwatchapp.domain.model.TimerTransform
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.domain.usecase.TimerDiffCallback
+import com.igorganapolsky.vibratingwatchapp.domain.usecase.TimerTransform
+import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel
 import kotlinx.android.extensions.LayoutContainer
 import java.util.*
 

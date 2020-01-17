@@ -1,8 +1,8 @@
-package com.igorganapolsky.vibratingwatchapp.domain.model
+package com.igorganapolsky.vibratingwatchapp.domain.usecase
 
 import com.igorganapolsky.vibratingwatchapp.data.TimerEntity
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.VibrationModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.VibrationModel
 
 object Mappers {
 

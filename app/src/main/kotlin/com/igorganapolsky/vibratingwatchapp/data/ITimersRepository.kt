@@ -2,9 +2,9 @@ package com.igorganapolsky.vibratingwatchapp.data
 
 import androidx.lifecycle.LiveData
 
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel
 
-interface IRepository {
+interface ITimersRepository {
 
     fun getAll(): LiveData<List<TimerModel>>
 

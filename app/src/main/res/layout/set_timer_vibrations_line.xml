@@ -42,7 +42,7 @@
             app:layout_constraintStart_toEndOf="@id/textViewIndex"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="1 long buzz - 20 seconds" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>
-
-

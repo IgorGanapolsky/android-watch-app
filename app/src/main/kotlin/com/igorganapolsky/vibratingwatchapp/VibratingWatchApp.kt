@@ -9,9 +9,9 @@ import androidx.room.Room
 import com.igorganapolsky.vibratingwatchapp.data.TimersDatabase
 import com.igorganapolsky.vibratingwatchapp.data.WatchRepository
 import com.igorganapolsky.vibratingwatchapp.presentation.ViewModelFactory
-import com.igorganapolsky.vibratingwatchapp.domain.model.CountdownControllerImpl
-import com.igorganapolsky.vibratingwatchapp.other.CrashlyticsTree
-import com.igorganapolsky.vibratingwatchapp.domain.model.VibrationControllerImpl
+import com.igorganapolsky.vibratingwatchapp.domain.usecase.CountdownControllerImpl
+import com.igorganapolsky.vibratingwatchapp.util.CrashlyticsTree
+import com.igorganapolsky.vibratingwatchapp.domain.usecase.VibrationControllerImpl
 import timber.log.Timber
 import java.util.concurrent.Executors
 

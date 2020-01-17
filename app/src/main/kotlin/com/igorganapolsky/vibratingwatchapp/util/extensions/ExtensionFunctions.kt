@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.other.extensions
+package com.igorganapolsky.vibratingwatchapp.util.extensions
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

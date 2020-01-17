@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.domain.model
+package com.igorganapolsky.vibratingwatchapp.domain.usecase
 
 interface ITickListener {
 

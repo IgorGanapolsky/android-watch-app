@@ -1,10 +1,10 @@
-package com.igorganapolsky.vibratingwatchapp.domain.model
+package com.igorganapolsky.vibratingwatchapp.domain.usecase
 
 import android.os.CountDownTimer
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.*
 
 class CountdownControllerImpl(private val vibrateMgr: IVibrationController) :
     ICountdownController {

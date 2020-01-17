@@ -45,13 +45,13 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/ic_timer"
-            app:layout_constraintBottom_toTopOf="@+id/addTimerButtonImage"
+            app:layout_constraintBottom_toTopOf="@+id/add_timer_buttone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/addTimerButtonImage"
+            android:id="@+id/add_timer_buttone"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
@@ -72,6 +72,6 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addTimerButtonImage"/>
+            app:layout_constraintTop_toBottomOf="@+id/add_timer_buttone"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.wear.widget.BoxInsetLayout>

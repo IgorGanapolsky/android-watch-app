@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info_screen
+package com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info
 
 import android.content.Context
 import android.content.Intent
@@ -12,10 +12,10 @@ import androidx.fragment.app.FragmentTransaction
 import com.igorganapolsky.vibratingwatchapp.R
 import com.igorganapolsky.vibratingwatchapp.data.TimerEntity.Companion.TIMER_ID
 import com.igorganapolsky.vibratingwatchapp.databinding.ActivityTimerDetailsBinding
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.CountModel
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
-import com.igorganapolsky.vibratingwatchapp.other.extensions.observe
-import com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info_screen.dialog.TimerDeleteDialogFragment
+import com.igorganapolsky.vibratingwatchapp.domain.model.CountModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.util.extensions.observe
+import com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_info.dialog.TimerDeleteDialogFragment
 import com.igorganapolsky.vibratingwatchapp.presentation.timer_creation_screen.SetTimerActivity
 
 class TimerDetailsActivity : AppCompatActivity(), View.OnClickListener {

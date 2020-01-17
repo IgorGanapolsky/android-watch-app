@@ -1,11 +1,11 @@
-package com.igorganapolsky.vibratingwatchapp.domain.model
+package com.igorganapolsky.vibratingwatchapp.domain.usecase
 
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
 
 import androidx.annotation.RequiresApi
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.VibrationModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.VibrationModel
 
 class VibrationControllerImpl(private val vibrator: Vibrator?) :
     IVibrationController {

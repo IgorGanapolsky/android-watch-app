@@ -11,10 +11,10 @@ import com.google.android.material.tabs.TabLayout
 import com.igorganapolsky.vibratingwatchapp.data.TimeMeasurement
 import com.igorganapolsky.vibratingwatchapp.data.TimerEntity.Companion.TIMER_ID
 import com.igorganapolsky.vibratingwatchapp.databinding.ActivitySetTimerBinding
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel
 import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.NewTimerViewModel
-import com.igorganapolsky.vibratingwatchapp.domain.model.IStepTouchActionListener
-import com.igorganapolsky.vibratingwatchapp.other.extensions.observe
+import com.igorganapolsky.vibratingwatchapp.domain.usecase.IStepTouchActionListener
+import com.igorganapolsky.vibratingwatchapp.util.extensions.observe
 import java.util.*
 
 /**

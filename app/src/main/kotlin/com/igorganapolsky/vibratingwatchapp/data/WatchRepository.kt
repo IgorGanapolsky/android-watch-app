@@ -2,13 +2,13 @@ package com.igorganapolsky.vibratingwatchapp.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import com.igorganapolsky.vibratingwatchapp.domain.model.Mappers
-import com.igorganapolsky.vibratingwatchapp.domain.model.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.domain.usecase.Mappers
+import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel
 import java.util.*
 import java.util.concurrent.ExecutorService
 
 class WatchRepository(private val timerDb: TimersDatabase, private val executor: ExecutorService) :
-    IRepository {
+    ITimersRepository {
     init {
         disableAll()
     }

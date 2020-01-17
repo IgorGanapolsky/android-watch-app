@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import com.igorganapolsky.vibratingwatchapp.R
 import com.igorganapolsky.vibratingwatchapp.data.TimeMeasurement
 import com.igorganapolsky.vibratingwatchapp.databinding.SetTimerTimeFragmentBinding
-import com.igorganapolsky.vibratingwatchapp.domain.model.IStepTouchActionListener
+import com.igorganapolsky.vibratingwatchapp.domain.usecase.IStepTouchActionListener
 import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.NewTimerViewModel
 import com.igorganapolsky.vibratingwatchapp.presentation.timer_creation_screen.SetTimerActivity
 import com.triggertrap.seekarc.SeekArc

@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.domain.model.model
+package com.igorganapolsky.vibratingwatchapp.domain.model
 
 class CountModel(
     var currentTime: String?,

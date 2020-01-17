@@ -10,7 +10,7 @@ import kotlinx.android.extensions.LayoutContainer
 /**
  * Adapter that holds values for items in the list of repeating options for a new timer screen.
  */
-internal class RepeatsAdapter(private val holderClickListener: HolderClickListener) :
+internal class RepeatsAdapter(private val holderClickListener: IHolderClickListener) :
     RecyclerView.Adapter<RepeatsAdapter.RepeatsRecyclerViewHolder>() {
 
     private val data = listOf("1", "2", "3", "4", "5", "6", "7", "8", "9")
@@ -49,7 +49,7 @@ internal class RepeatsAdapter(private val holderClickListener: HolderClickListen
         override val containerView: View?
             get() = binding.root
 
-        fun bind(label: String, holderClickListener: HolderClickListener?) {
+        fun bind(label: String, holderClickListener: IHolderClickListener?) {
             binding.repeatsTextView.text = label
 
             if (holderClickListener != null) {

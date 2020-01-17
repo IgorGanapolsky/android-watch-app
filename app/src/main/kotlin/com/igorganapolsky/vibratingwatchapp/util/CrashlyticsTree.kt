@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.other
+package com.igorganapolsky.vibratingwatchapp.util
 
 import android.util.Log
 import com.crashlytics.android.Crashlytics
