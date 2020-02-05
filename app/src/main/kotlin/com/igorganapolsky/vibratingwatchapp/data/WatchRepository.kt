@@ -2,8 +2,8 @@ package com.igorganapolsky.vibratingwatchapp.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import com.igorganapolsky.vibratingwatchapp.domain.usecase.Mappers
-import com.igorganapolsky.vibratingwatchapp.domain.model.TimerModel
+import com.igorganapolsky.vibratingwatchapp.common.Mappers
+import com.igorganapolsky.vibratingwatchapp.domain.TimerModel
 import java.util.*
 import java.util.concurrent.ExecutorService
 

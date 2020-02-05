@@ -84,7 +84,7 @@
         app:layout_constraintStart_toEndOf="@id/tvSecondsSeparator"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.igorganapolsky.vibratingwatchapp.presentation.SwipeRestrictViewPager
+    <com.igorganapolsky.vibratingwatchapp.common.SwipeRestrictViewPager
         android:id="@+id/vpWizard"
         android:layout_width="0dp"
         android:layout_height="0dp"

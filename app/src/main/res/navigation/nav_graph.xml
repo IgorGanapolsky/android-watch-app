@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/HomeTimersListFragment">
+
+    <fragment
+        android:id="@+id/HomeTimersListFragment"
+        android:name="com.igorganapolsky.vibratingwatchapp.presentation.home_screen.view.HomeTimersListFragment" />
+
+    <fragment
+        android:id="@+id/ExistingTimerDetailsFragment"
+        android:name="com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_screen.view.ExistingTimerDetailsFragment" />
+
+</navigation>

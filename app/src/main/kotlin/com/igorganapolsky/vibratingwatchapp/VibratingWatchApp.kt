@@ -8,21 +8,16 @@ import android.os.Vibrator
 import androidx.room.Room
 import com.igorganapolsky.vibratingwatchapp.data.TimersDatabase
 import com.igorganapolsky.vibratingwatchapp.data.WatchRepository
-import com.igorganapolsky.vibratingwatchapp.presentation.ViewModelFactory
-import com.igorganapolsky.vibratingwatchapp.domain.usecase.CountdownControllerImpl
-import com.igorganapolsky.vibratingwatchapp.util.CrashlyticsTree
-import com.igorganapolsky.vibratingwatchapp.domain.usecase.VibrationControllerImpl
+import com.igorganapolsky.vibratingwatchapp.common.ViewModelFactory
+import com.igorganapolsky.vibratingwatchapp.common.CountdownControllerImpl
+import com.igorganapolsky.vibratingwatchapp.common.CrashlyticsTree
+import com.igorganapolsky.vibratingwatchapp.common.VibrationControllerImpl
 import timber.log.Timber
 import java.util.concurrent.Executors
-
 
 class VibratingWatchApp : Application() {
 
     override fun onCreate() {
-        // Enable strict mode before DI creates graph
-        if (BuildConfig.DEBUG) {
-            enableStrictMode()
-        }
         super.onCreate()
 
         if (BuildConfig.DEBUG) {
@@ -51,7 +46,9 @@ class VibratingWatchApp : Application() {
 
         // step 4- > create countdown manager;
         val countdownManager =
-            CountdownControllerImpl(beepManager)
+            CountdownControllerImpl(
+                beepManager
+            )
 
         // step 5 > create view model factory;
         ViewModelFactory.initFactory(repository, countdownManager)
