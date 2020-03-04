@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_view_time_hours"
+        android:id="@+id/timeHours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/list_start_padding"
@@ -15,13 +15,13 @@
         android:text="@string/timer_time_default_digit"
         android:textColor="@color/white_active"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/tvHourSeparator"
+        app:layout_constraintEnd_toStartOf="@+id/timeHourSeparator"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvHourSeparator"
+        android:id="@+id/timeHourSeparator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/list_start_padding"
@@ -31,13 +31,13 @@
         android:text="@string/timer_time_default_sep"
         android:textColor="@color/white_active"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@id/text_view_time_hours"
-        app:layout_constraintEnd_toStartOf="@+id/text_view_time_minutes"
-        app:layout_constraintStart_toEndOf="@id/text_view_time_hours"
+        app:layout_constraintBottom_toBottomOf="@id/timeHours"
+        app:layout_constraintEnd_toStartOf="@+id/timeMinutes"
+        app:layout_constraintStart_toEndOf="@id/timeHours"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_view_time_minutes"
+        android:id="@+id/timeMinutes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/list_start_padding"
@@ -47,13 +47,13 @@
         android:text="@string/timer_time_default_digit"
         android:textColor="@color/white_active"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@id/text_view_time_hours"
-        app:layout_constraintEnd_toStartOf="@+id/tvSecondsSeparator"
-        app:layout_constraintStart_toEndOf="@id/tvHourSeparator"
+        app:layout_constraintBottom_toBottomOf="@id/timeHours"
+        app:layout_constraintEnd_toStartOf="@+id/timeSecondsSeparator"
+        app:layout_constraintStart_toEndOf="@id/timeHourSeparator"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvSecondsSeparator"
+        android:id="@+id/timeSecondsSeparator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/list_start_padding"
@@ -63,13 +63,13 @@
         android:text="@string/timer_time_default_sep"
         android:textColor="@color/white_active"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@id/text_view_time_hours"
-        app:layout_constraintEnd_toStartOf="@+id/text_view_time_seconds"
-        app:layout_constraintStart_toEndOf="@id/text_view_time_minutes"
+        app:layout_constraintBottom_toBottomOf="@id/timeHours"
+        app:layout_constraintEnd_toStartOf="@+id/timeSeconds"
+        app:layout_constraintStart_toEndOf="@id/timeMinutes"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_view_time_seconds"
+        android:id="@+id/timeSeconds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/list_start_padding"
@@ -79,31 +79,31 @@
         android:text="@string/timer_time_default_digit"
         android:textColor="@color/white_active"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@id/text_view_time_hours"
+        app:layout_constraintBottom_toBottomOf="@id/timeHours"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvSecondsSeparator"
+        app:layout_constraintStart_toEndOf="@id/timeSecondsSeparator"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.igorganapolsky.vibratingwatchapp.common.SwipeRestrictViewPager
-        android:id="@+id/vpWizard"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/newTimerPager"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/tlDots"
+        app:layout_constraintBottom_toTopOf="@+id/pagerDotsLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_time_hours" />
+        app:layout_constraintTop_toBottomOf="@+id/timeHours" />
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tlDots"
+        android:id="@+id/pagerDotsLayout"
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:clickable="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vpWizard"
+        app:layout_constraintTop_toBottomOf="@id/newTimerPager"
         app:tabBackground="@drawable/tab_selector"
         app:tabGravity="center"
         app:tabIndicatorHeight="0dp"
@@ -112,7 +112,7 @@
         app:tabRippleColor="@null" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivNextPage"
+        android:id="@+id/arrowNextPage"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:scaleType="center"

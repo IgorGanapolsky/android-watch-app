@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_screen.view
+package com.igorganapolsky.vibratingwatchapp.presentation.timer_edit_screen.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.igorganapolsky.vibratingwatchapp.R
 import com.igorganapolsky.vibratingwatchapp.databinding.TimerDeleteFragmentBinding
-import com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_screen.viewmodel.ExistingTimerViewModel
+import com.igorganapolsky.vibratingwatchapp.presentation.timer_edit_screen.viewmodel.ExistingTimerViewModel
 
 // TODO: Igor - can this be DialogFragment and thus we can use FragmentScenario to test it?
 class ExistingTimerDeleteDialogFragment : Fragment(), View.OnClickListener {

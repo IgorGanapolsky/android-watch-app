@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/HomeTimersListFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/HomeTimersListFragment"
-        android:name="com.igorganapolsky.vibratingwatchapp.presentation.home_screen.view.HomeTimersListFragment" />
+        android:id="@+id/homeFragment"
+        android:name="com.igorganapolsky.vibratingwatchapp.presentation.home_screen.view.HomeFragment"
+        tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/ExistingTimerDetailsFragment"
-        android:name="com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_screen.view.ExistingTimerDetailsFragment" />
+        android:id="@+id/newTimerFragment"
+        android:name="com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.view.NewTimerWizardFragment"
+        tools:layout="@layout/fragment_new_timer_wizard" />
+
+    <fragment
+        android:id="@+id/existingTimerDetailsFragment"
+        android:name="com.igorganapolsky.vibratingwatchapp.presentation.timer_edit_screen.view.ExistingTimerDetailsFragment"
+        tools:layout="@layout/fragment_existing_timer_details" />
 
 </navigation>

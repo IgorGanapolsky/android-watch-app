@@ -6,7 +6,7 @@ import com.igorganapolsky.vibratingwatchapp.domain.TimerModel
 
 interface ITimersRepository {
 
-    fun getAll(): LiveData<List<TimerModel>>
+    fun getAllTimers(): LiveData<List<TimerModel>>
 
     fun getTimerById(timerId: Int): TimerModel
 

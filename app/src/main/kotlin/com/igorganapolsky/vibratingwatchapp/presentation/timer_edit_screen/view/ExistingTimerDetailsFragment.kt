@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_screen.view
+package com.igorganapolsky.vibratingwatchapp.presentation.timer_edit_screen.view
 
 import android.content.Context
 import android.content.Intent
@@ -15,8 +15,8 @@ import com.igorganapolsky.vibratingwatchapp.databinding.ActivityTimerDetailsBind
 import com.igorganapolsky.vibratingwatchapp.domain.CountModel
 import com.igorganapolsky.vibratingwatchapp.domain.TimerModel
 import com.igorganapolsky.vibratingwatchapp.common.extensions.observe
-import com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_screen.viewmodel.ExistingTimerViewModel
-import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.view.SetTimerActivity
+import com.igorganapolsky.vibratingwatchapp.presentation.timer_edit_screen.viewmodel.ExistingTimerViewModel
+import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.view.NewTimerWizardFragment
 
 class ExistingTimerDetailsFragment : Fragment(), View.OnClickListener {
     private val mViewModel by viewModels<ExistingTimerViewModel>()
@@ -36,7 +36,7 @@ class ExistingTimerDetailsFragment : Fragment(), View.OnClickListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == SETTING_REQUEST_CODE && resultCode == SetTimerActivity.SETTING_SUCCESS_CODE) {
+        if (requestCode == SETTING_REQUEST_CODE && resultCode == NewTimerWizardFragment.SETTING_SUCCESS_CODE) {
             mViewModel.checkUpdates()
         }
     }
@@ -84,7 +84,7 @@ class ExistingTimerDetailsFragment : Fragment(), View.OnClickListener {
                 val bundle = intent.extras
                 val currentId = bundle?.getInt(TIMER_ID) ?: TimerModel.UNDEFINE_ID
                 startActivityForResult(
-                    SetTimerActivity.createIntent(this, currentId),
+                    NewTimerWizardFragment.createIntent(this, currentId),
                     SETTING_REQUEST_CODE
                 )
             }

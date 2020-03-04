@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.presentation.existing_timer_screen.viewmodel
+package com.igorganapolsky.vibratingwatchapp.presentation.timer_edit_screen.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

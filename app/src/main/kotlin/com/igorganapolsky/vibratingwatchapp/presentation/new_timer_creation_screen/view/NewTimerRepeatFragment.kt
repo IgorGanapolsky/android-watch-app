@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.wear.widget.WearableRecyclerView
 import com.igorganapolsky.vibratingwatchapp.databinding.SetTimerRepeatFragmentBinding
 import com.igorganapolsky.vibratingwatchapp.common.RecyclerViewSnapLayoutManager
-import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.viewmodel.NewTimerViewModel
+import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.viewmodel.NewTimerViewModel
 import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.adapter.IHolderClickListener
 import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.adapter.RepeatsAdapter
 
-class SetTimerRepeatFragment : Fragment(), IHolderClickListener {
+class NewTimerRepeatFragment : Fragment(), IHolderClickListener {
     private val mViewModel by viewModels<NewTimerViewModel>()
 
     private lateinit var wearableRecyclerView: WearableRecyclerView

@@ -20,7 +20,7 @@ android {
         test.java.srcDirs += 'src/test/kotlin'
     }
 
-    buildFeatures.viewBinding = true
+    viewBinding.enabled = true
 
     buildTypes {
         release {
@@ -76,8 +76,8 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview-selection:1.0.0"
     implementation "androidx.appcompat:appcompat:1.1.0"
     implementation "androidx.annotation:annotation:1.1.0"
-    implementation "androidx.fragment:fragment-ktx:1.2.0"
-    implementation "androidx.core:core-ktx:1.1.0"
+    implementation "androidx.fragment:fragment-ktx:1.2.1"
+    implementation "androidx.core:core-ktx:1.2.0"
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
@@ -90,7 +90,7 @@ dependencies {
     implementation "com.jakewharton.timber:timber:4.7.1"
 
     /* Testing libs */
-    debugImplementation "androidx.fragment:fragment-testing:1.2.0"
+    debugImplementation "androidx.fragment:fragment-testing:1.2.1"
     testImplementation "androidx.room:room-testing:2.2.3"
 }
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".presentation.new_timer_creation_screen.view.SetTimerRepeatFragment">
+    tools:context=".presentation.new_timer_creation_screen.view.NewTimerRepeatFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -23,19 +23,20 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:fontFamily="@font/roboto_condensed_regular"
             android:text="@string/screen_title_set_repeat"
             android:textColor="@color/white_active"
             android:textSize="16sp" />
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.wear.widget.WearableRecyclerView
-            android:id="@+id/wrvRepeats"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/setTimerRepeats"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
@@ -44,5 +45,7 @@
             android:paddingLeft="75dp"
             android:paddingRight="75dp"
             android:scrollbars="horizontal" />
+
     </FrameLayout>
+
 </androidx.appcompat.widget.LinearLayoutCompat>

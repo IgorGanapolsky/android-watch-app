@@ -1,12 +1,12 @@
-package com.igorganapolsky.vibratingwatchapp.presentation.home_screen.viewmodel
+package com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.igorganapolsky.vibratingwatchapp.data.ITimersRepository
 import com.igorganapolsky.vibratingwatchapp.data.TimeMeasurement
-import com.igorganapolsky.vibratingwatchapp.domain.VibrationModel
 import com.igorganapolsky.vibratingwatchapp.domain.TimerModel
+import com.igorganapolsky.vibratingwatchapp.domain.VibrationModel
 
 /**
  * Data model for creating a new timer.
@@ -17,35 +17,34 @@ class NewTimerViewModel(private val repository: ITimersRepository) : ViewModel()
     private val swipeState = MutableLiveData<Boolean>()
     private val buzzData = MutableLiveData<VibrationModel>()
 
-    private var currentType =
-        Type.NEW
-    private var currentTimer: TimerModel
-    private var setup: TimeMeasurement
+    private var currentType = Type.NEW
+    private var timerModel: TimerModel
+    private var timeMeasurement: TimeMeasurement
 
     val currentTimeValue: Int
-        get() = currentTimer.getValue(setup)
+        get() = timerModel.getValue(timeMeasurement)
 
     val repeatPosition: Int
-        get() = if (currentTimer.repeat - 1 >= 0) currentTimer.repeat - 1 else 0
+        get() = if (timerModel.repeat - 1 >= 0) timerModel.repeat - 1 else 0
 
     internal enum class Type {
         NEW, EDIT
     }
 
     init {
-        this.currentTimer = TimerModel.createDefault()
-        this.setup = TimeMeasurement.HOURS
+        this.timerModel = TimerModel.createDefault()
+        this.timeMeasurement = TimeMeasurement.HOURS
     }
 
     internal fun setCurrentModelId(currentId: Int) {
         if (currentId >= 0) {
             currentType =
                 Type.EDIT
-            currentTimer = repository.getTimerById(currentId)
+            timerModel = repository.getTimerById(currentId)
         }
-        swipeState.value = currentTimer.hasTime()
-        countdownData.value = setup
-        timerData.value = currentTimer
+        swipeState.value = timerModel.hasTime()
+        countdownData.value = timeMeasurement
+        timerData.value = timerModel
     }
 
     fun getTimerData(): LiveData<TimerModel> {
@@ -65,42 +64,42 @@ class NewTimerViewModel(private val repository: ITimersRepository) : ViewModel()
     }
 
     fun calculateProgress(): Int {
-        return (currentTimer.getValue(setup).toDouble() / setup.measure * 100).toInt()
+        return (timerModel.getValue(timeMeasurement).toDouble() / timeMeasurement.measure * 100).toInt()
     }
 
     fun setTimerRepeat(repeatValue: Int) {
-        currentTimer.repeat = repeatValue + 1
+        timerModel.repeat = repeatValue + 1
     }
 
     fun setBuzz(newBuzz: VibrationModel) {
-        currentTimer.vibrationTimeInSecs = newBuzz.buzzTime
-        currentTimer.vibrationCount = newBuzz.buzzCount
-        currentTimer.type = newBuzz.buzzType
+        timerModel.vibrationTimeInSecs = newBuzz.buzzTime
+        timerModel.vibrationCount = newBuzz.buzzCount
+        timerModel.type = newBuzz.buzzType
     }
 
     fun setSelection(newSelection: TimeMeasurement) {
-        this.setup = newSelection
-        countdownData.value = setup
+        this.timeMeasurement = newSelection
+        countdownData.value = timeMeasurement
     }
 
     fun setTimeSelection(progress: Int) {
-        val calculatedValue = (setup.measure / 100 * progress).toInt()
+        val calculatedValue = (timeMeasurement.measure / 100 * progress).toInt()
 
-        when (setup) {
-            TimeMeasurement.HOURS -> currentTimer.hours = calculatedValue
-            TimeMeasurement.MINUTES -> currentTimer.minutes = calculatedValue
-            TimeMeasurement.SECONDS -> currentTimer.seconds = calculatedValue
+        when (timeMeasurement) {
+            TimeMeasurement.HOURS -> timerModel.hours = calculatedValue
+            TimeMeasurement.MINUTES -> timerModel.minutes = calculatedValue
+            TimeMeasurement.SECONDS -> timerModel.seconds = calculatedValue
         }
 
-        countdownData.value = setup
-        swipeState.value = currentTimer.hasTime()
+        countdownData.value = timeMeasurement
+        swipeState.value = timerModel.hasTime()
     }
 
     internal fun saveTimer() {
         if (currentType == Type.NEW) {
-            repository.saveTimer(currentTimer)
+            repository.saveTimer(timerModel)
         } else {
-            repository.updateTimer(currentTimer)
+            repository.updateTimer(timerModel)
         }
     }
 }

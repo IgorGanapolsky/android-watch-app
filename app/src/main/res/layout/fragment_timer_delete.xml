@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dialog_red"
     android:orientation="vertical"
-    tools:context=".presentation.existing_timer_screen.view.ExistingTimerDeleteDialogFragment">
+    tools:context=".presentation.timer_edit_screen.view.ExistingTimerDeleteDialogFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -24,7 +22,7 @@
             android:text="@string/delete_timer_title"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="26sp"/>
+            android:textSize="26sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
@@ -34,7 +32,7 @@
             android:text="@string/delete_timer_desc"
             android:textAlignment="center"
             android:textColor="@color/progress_gray"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -49,7 +47,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_close"/>
+            app:srcCompat="@drawable/ic_close" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_view_approve"
@@ -57,6 +55,8 @@
             android:layout_height="50dp"
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_done"/>
+            app:srcCompat="@drawable/ic_done" />
+
     </androidx.appcompat.widget.LinearLayoutCompat>
+
 </androidx.appcompat.widget.LinearLayoutCompat>

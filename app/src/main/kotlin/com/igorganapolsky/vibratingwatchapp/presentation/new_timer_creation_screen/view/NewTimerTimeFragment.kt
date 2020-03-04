@@ -10,25 +10,26 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.igorganapolsky.vibratingwatchapp.R
-import com.igorganapolsky.vibratingwatchapp.data.TimeMeasurement
-import com.igorganapolsky.vibratingwatchapp.databinding.SetTimerTimeFragmentBinding
 import com.igorganapolsky.vibratingwatchapp.common.IStepTouchActionListener
-import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.viewmodel.NewTimerViewModel
+import com.igorganapolsky.vibratingwatchapp.data.TimeMeasurement
+import com.igorganapolsky.vibratingwatchapp.databinding.FragmentNewTimerTimeBinding
+import com.igorganapolsky.vibratingwatchapp.databinding.SetTimerTimeFragmentBinding
+import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.viewmodel.NewTimerViewModel
 import com.triggertrap.seekarc.SeekArc
 import java.util.*
 
-class SetTimerTimeFragment : Fragment(), View.OnClickListener, SeekArc.OnSeekArcChangeListener {
+class NewTimerTimeFragment : Fragment(), View.OnClickListener, SeekArc.OnSeekArcChangeListener {
     private val mViewModel by viewModels<NewTimerViewModel>()
 
     private var activeColor: Int = 0
     private var inactiveColor: Int = 0
     private lateinit var stepTouchActionListener: IStepTouchActionListener
 
-    private lateinit var binding: SetTimerTimeFragmentBinding
+    private lateinit var binding: FragmentNewTimerTimeBinding
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        stepTouchActionListener = activity as SetTimerActivity
+        stepTouchActionListener = activity as NewTimerWizardFragment
     }
 
     override fun onCreateView(

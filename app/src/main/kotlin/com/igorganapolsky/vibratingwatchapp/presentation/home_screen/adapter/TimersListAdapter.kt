@@ -15,8 +15,8 @@ import java.util.*
 /**
  * Adapter that holds values for items in the list of existing timers screen.
  */
-internal class HomeTimersListAdapter :
-    RecyclerView.Adapter<HomeTimersListAdapter.TimerItemViewHolder>() {
+internal class TimersListAdapter :
+    RecyclerView.Adapter<TimersListAdapter.TimerItemViewHolder>() {
 
     private var data: List<TimerModel>
     private lateinit var itemClickListener: OnItemClickListener
