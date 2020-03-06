@@ -8,25 +8,25 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.wear.widget.WearableRecyclerView
-import com.igorganapolsky.vibratingwatchapp.databinding.SetTimerRepeatFragmentBinding
+import androidx.recyclerview.widget.RecyclerView
 import com.igorganapolsky.vibratingwatchapp.common.RecyclerViewSnapLayoutManager
-import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.viewmodel.NewTimerViewModel
+import com.igorganapolsky.vibratingwatchapp.databinding.FragmentNewTimerRepeatBinding
 import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.adapter.IHolderClickListener
 import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.adapter.RepeatsAdapter
+import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.viewmodel.NewTimerViewModel
 
 class NewTimerRepeatFragment : Fragment(), IHolderClickListener {
     private val mViewModel by viewModels<NewTimerViewModel>()
 
-    private lateinit var wearableRecyclerView: WearableRecyclerView
-    private lateinit var binding: SetTimerRepeatFragmentBinding
+    private lateinit var wearableRecyclerView: RecyclerView
+    private lateinit var binding: FragmentNewTimerRepeatBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = SetTimerRepeatFragmentBinding.inflate(inflater)
+        binding = FragmentNewTimerRepeatBinding.inflate(inflater)
         return binding.root
     }
 
@@ -45,13 +45,14 @@ class NewTimerRepeatFragment : Fragment(), IHolderClickListener {
             )
         layoutManager.setOnItemSelectedListener { pos: Int -> mViewModel.setTimerRepeat(pos) }
 
-        wearableRecyclerView = binding.wrvRepeats
+        wearableRecyclerView = binding.newTimerRepeatsList
         wearableRecyclerView.adapter = adapter
         wearableRecyclerView.layoutManager = layoutManager
     }
 
     private fun setupObservers() {
-        mViewModel.getTimerData().observe(this) { wearableRecyclerView!!.smoothScrollToPosition(mViewModel.repeatPosition) }
+        mViewModel.getTimerData()
+            .observe(this) { wearableRecyclerView!!.smoothScrollToPosition(mViewModel.repeatPosition) }
     }
 
     override fun onHolderItemClick(position: Int) {

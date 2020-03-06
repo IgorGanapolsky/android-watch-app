@@ -7,21 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.igorganapolsky.vibratingwatchapp.R
-import com.igorganapolsky.vibratingwatchapp.databinding.TimerDeleteFragmentBinding
+import com.igorganapolsky.vibratingwatchapp.databinding.FragmentTimerDeleteBinding
 import com.igorganapolsky.vibratingwatchapp.presentation.timer_edit_screen.viewmodel.ExistingTimerViewModel
 
-// TODO: Igor - can this be DialogFragment and thus we can use FragmentScenario to test it?
 class ExistingTimerDeleteDialogFragment : Fragment(), View.OnClickListener {
     private val mViewModel by viewModels<ExistingTimerViewModel>()
 
-    private lateinit var binding: TimerDeleteFragmentBinding
+    private lateinit var binding: FragmentTimerDeleteBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = TimerDeleteFragmentBinding.inflate(inflater)
+        binding = FragmentTimerDeleteBinding.inflate(inflater)
         return binding.root
     }
 

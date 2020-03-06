@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.igorganapolsky.vibratingwatchapp.databinding.SetTimerRepeatsItemBinding
+import com.igorganapolsky.vibratingwatchapp.databinding.ItemNewTimerRepeatNumberBinding
 import kotlinx.android.extensions.LayoutContainer
 
 /**
@@ -13,7 +13,7 @@ import kotlinx.android.extensions.LayoutContainer
 internal class RepeatsAdapter(private val holderClickListener: IHolderClickListener) :
     RecyclerView.Adapter<RepeatsAdapter.RepeatsRecyclerViewHolder>() {
 
-    private val data = listOf("1", "2", "3", "4", "5", "6", "7", "8", "9")
+    private val repeatsList = listOf("1", "2", "3", "4", "5", "6", "7", "8", "9")
 
     init {
         setHasStableIds(true)
@@ -24,7 +24,7 @@ internal class RepeatsAdapter(private val holderClickListener: IHolderClickListe
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): RepeatsRecyclerViewHolder {
-        val binding = SetTimerRepeatsItemBinding.inflate(
+        val binding = ItemNewTimerRepeatNumberBinding.inflate(
             LayoutInflater.from(viewGroup.context),
             viewGroup,
             false
@@ -36,21 +36,21 @@ internal class RepeatsAdapter(private val holderClickListener: IHolderClickListe
         repeatsRecyclerViewHolder: RepeatsRecyclerViewHolder,
         index: Int
     ) {
-        repeatsRecyclerViewHolder.bind(data[index], holderClickListener)
+        repeatsRecyclerViewHolder.bind(repeatsList[index], holderClickListener)
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return repeatsList.size
     }
 
-    internal class RepeatsRecyclerViewHolder(private val binding: SetTimerRepeatsItemBinding) :
+    internal class RepeatsRecyclerViewHolder(private val binding: ItemNewTimerRepeatNumberBinding) :
         RecyclerView.ViewHolder(binding.root), LayoutContainer {
 
         override val containerView: View?
             get() = binding.root
 
-        fun bind(label: String, holderClickListener: IHolderClickListener?) {
-            binding.repeatsTextView.text = label
+        fun bind(labelText: String, holderClickListener: IHolderClickListener?) {
+            binding.repeatsNumberTextView.text = labelText
 
             if (holderClickListener != null) {
                 itemView.setOnClickListener {

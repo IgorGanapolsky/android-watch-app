@@ -13,7 +13,6 @@ import com.igorganapolsky.vibratingwatchapp.R
 import com.igorganapolsky.vibratingwatchapp.common.IStepTouchActionListener
 import com.igorganapolsky.vibratingwatchapp.data.TimeMeasurement
 import com.igorganapolsky.vibratingwatchapp.databinding.FragmentNewTimerTimeBinding
-import com.igorganapolsky.vibratingwatchapp.databinding.SetTimerTimeFragmentBinding
 import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.viewmodel.NewTimerViewModel
 import com.triggertrap.seekarc.SeekArc
 import java.util.*
@@ -29,7 +28,7 @@ class NewTimerTimeFragment : Fragment(), View.OnClickListener, SeekArc.OnSeekArc
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        stepTouchActionListener = activity as NewTimerWizardFragment
+//        stepTouchActionListener = activity as NewTimerTWizardFragment
     }
 
     override fun onCreateView(
@@ -37,7 +36,7 @@ class NewTimerTimeFragment : Fragment(), View.OnClickListener, SeekArc.OnSeekArc
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = SetTimerTimeFragmentBinding.inflate(inflater)
+        binding = FragmentNewTimerTimeBinding.inflate(inflater)
         return binding.root
     }
 
@@ -50,7 +49,7 @@ class NewTimerTimeFragment : Fragment(), View.OnClickListener, SeekArc.OnSeekArc
     }
 
     private fun setupViews() {
-        binding.seekArc!!.setOnSeekArcChangeListener(this)
+        binding.seekArc.setOnSeekArcChangeListener(this)
     }
 
     private fun setupObservers() {

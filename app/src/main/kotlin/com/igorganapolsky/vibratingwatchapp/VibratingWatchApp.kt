@@ -6,12 +6,11 @@ import android.os.StrictMode
 import android.os.StrictMode.VmPolicy
 import android.os.Vibrator
 import androidx.room.Room
-import com.igorganapolsky.vibratingwatchapp.data.TimersDatabase
-import com.igorganapolsky.vibratingwatchapp.data.WatchRepository
-import com.igorganapolsky.vibratingwatchapp.common.ViewModelFactory
 import com.igorganapolsky.vibratingwatchapp.common.CountdownControllerImpl
 import com.igorganapolsky.vibratingwatchapp.common.CrashlyticsTree
 import com.igorganapolsky.vibratingwatchapp.common.VibrationControllerImpl
+import com.igorganapolsky.vibratingwatchapp.data.TimersDatabase
+import com.igorganapolsky.vibratingwatchapp.data.WatchRepository
 import timber.log.Timber
 import java.util.concurrent.Executors
 
@@ -49,9 +48,6 @@ class VibratingWatchApp : Application() {
             CountdownControllerImpl(
                 beepManager
             )
-
-        // step 5 > create view model factory;
-        ViewModelFactory.initFactory(repository, countdownManager)
     }
 
     private fun enableStrictMode() {

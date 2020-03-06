@@ -1,33 +1,28 @@
 package com.igorganapolsky.vibratingwatchapp.presentation.timer_edit_screen.view
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import com.igorganapolsky.vibratingwatchapp.R
-import com.igorganapolsky.vibratingwatchapp.data.TimerEntity.Companion.TIMER_ID
-import com.igorganapolsky.vibratingwatchapp.databinding.ActivityTimerDetailsBinding
+import com.igorganapolsky.vibratingwatchapp.databinding.FragmentExistingTimerDetailsBinding
 import com.igorganapolsky.vibratingwatchapp.domain.CountModel
 import com.igorganapolsky.vibratingwatchapp.domain.TimerModel
-import com.igorganapolsky.vibratingwatchapp.common.extensions.observe
 import com.igorganapolsky.vibratingwatchapp.presentation.timer_edit_screen.viewmodel.ExistingTimerViewModel
-import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.view.NewTimerWizardFragment
 
 class ExistingTimerDetailsFragment : Fragment(), View.OnClickListener {
     private val mViewModel by viewModels<ExistingTimerViewModel>()
 
     private var blinking: Animation? = null
-    private lateinit var binding: ActivityTimerDetailsBinding
+    private lateinit var binding: FragmentExistingTimerDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTimerDetailsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding = FragmentExistingTimerDetailsBinding.inflate(layoutInflater)
+//        setContentView(binding.root)
         setupView()
         setupViewModel()
         setupObservers()
@@ -36,15 +31,15 @@ class ExistingTimerDetailsFragment : Fragment(), View.OnClickListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == SETTING_REQUEST_CODE && resultCode == NewTimerWizardFragment.SETTING_SUCCESS_CODE) {
-            mViewModel.checkUpdates()
-        }
+//        if (requestCode == SETTING_REQUEST_CODE && resultCode == NewTimerWizardFragment.SETTING_SUCCESS_CODE) {
+//            mViewModel.checkUpdates()
+//        }
     }
 
     private fun setupViewModel() {
-        val bundle = intent.extras
-        val currentId = bundle?.getInt(TIMER_ID) ?: 0
-        mViewModel.prepareData(currentId)
+//        val bundle = intent.extras
+//        val currentId = bundle?.getInt(TIMER_ID) ?: 0
+//        mViewModel.prepareData(currentId)
     }
 
     private fun setupView() {
@@ -64,8 +59,8 @@ class ExistingTimerDetailsFragment : Fragment(), View.OnClickListener {
     }
 
     private fun setupObservers() {
-        mViewModel.activeTimerData.observe(this, ::updateTimerData)
-        mViewModel.viewStateData.observe(this, ::swapActionMenuState)
+//        mViewModel.activeTimerData.observe(this, ::updateTimerData)
+//        mViewModel.viewStateData.observe(this, ::swapActionMenuState)
     }
 
     override fun onClick(view: View) {
@@ -81,22 +76,24 @@ class ExistingTimerDetailsFragment : Fragment(), View.OnClickListener {
             R.id.ivStop -> mViewModel.onStop()
             R.id.ivRestart -> mViewModel.onRestart()
             R.id.ivTimerSettings -> {
-                val bundle = intent.extras
-                val currentId = bundle?.getInt(TIMER_ID) ?: TimerModel.UNDEFINE_ID
-                startActivityForResult(
-                    NewTimerWizardFragment.createIntent(this, currentId),
-                    SETTING_REQUEST_CODE
-                )
+//                val bundle = intent.extras
+//                val currentId = bundle?.getInt(TIMER_ID) ?: TimerModel.UNDEFINE_ID
+//                startActivityForResult(
+//                    NewTimerWizardFragment.createIntent(this, currentId),
+//                    SETTING_REQUEST_CODE
+//                )
             }
             R.id.ivContinueTimer -> mViewModel.onNextLap()
-            R.id.ivTimerRemove -> supportFragmentManager
-                .beginTransaction()
-                .addToBackStack(null)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                .replace(R.id.timer_details_fragment,
-                    ExistingTimerDeleteDialogFragment()
-                )
-                .commit()
+//            R.id.ivTimerRemove -> supportFragmentManager
+//                .beginTransaction()
+//                .addToBackStack(null)
+//                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+//                .replace(
+//                    R.id.timer_details_fragment,
+//                    ExistingTimerDeleteDialogFragment()
+//                )
+//                .commit()
+//        }
         }
     }
 
@@ -113,7 +110,7 @@ class ExistingTimerDetailsFragment : Fragment(), View.OnClickListener {
             }
             TimerModel.State.RUNNING -> {
                 binding.ivStart.isSelected = true
-                disableAdditionalButtons(true)
+//                disableAdditionalButtons(true)
                 binding.ivStart.isEnabled = true
                 binding.ivStop.isEnabled = true
                 binding.ivRestart.isEnabled = true
@@ -123,7 +120,7 @@ class ExistingTimerDetailsFragment : Fragment(), View.OnClickListener {
             }
             TimerModel.State.FINISHED -> {
                 binding.ivStart.isSelected = false
-                disableAdditionalButtons(false)
+//                disableAdditionalButtons(false)
                 binding.ivStart.isEnabled = true
                 binding.ivStop.isEnabled = true
                 binding.ivRestart.isEnabled = true
@@ -132,34 +129,25 @@ class ExistingTimerDetailsFragment : Fragment(), View.OnClickListener {
                 binding.ivContinueTimer.visibility = View.GONE
             }
             TimerModel.State.BEEPING -> {
-                binding.ivStart!!.isEnabled = false
-                binding.ivStop!!.isEnabled = false
-                binding.ivRestart!!.isEnabled = false
-                binding.timeTextView!!.startAnimation(blinking)
-                binding.ivContinueTimer!!.visibility = View.VISIBLE
+                binding.ivStart.isEnabled = false
+                binding.ivStop.isEnabled = false
+                binding.ivRestart.isEnabled = false
+                binding.timeTextView.startAnimation(blinking)
+                binding.ivContinueTimer.visibility = View.VISIBLE
             }
         }
     }
 
     private fun updateTimerData(data: CountModel) {
-        binding.pbTime!!.setProgress(100 - data.currentProgress, data.isAnimationNeeded)
-        binding.timeTextView!!.text = data.currentTime
+        binding.pbTime.setProgress(100 - data.currentProgress, data.isAnimationNeeded)
+        binding.timeTextView.text = data.currentTime
     }
 
     private fun disableAdditionalButtons(disable: Boolean) {
-        binding.ivTimerSettings!!.isClickable = !disable
-        binding.ivTimerRemove!!.isClickable = !disable
-        binding.ivTimerSettings!!.alpha = if (disable) .5f else 1f
-        binding.ivTimerRemove!!.alpha = if (disable) .5f else 1f
+        binding.ivTimerSettings.isClickable = !disable
+        binding.ivTimerRemove.isClickable = !disable
+        binding.ivTimerSettings.alpha = if (disable) .5f else 1f
+        binding.ivTimerRemove.alpha = if (disable) .5f else 1f
     }
 
-    companion object {
-        private const val SETTING_REQUEST_CODE = 100
-
-        fun createIntent(context: Context, timerId: Int): Intent {
-            val intent = Intent(context, ExistingTimerDetailsFragment::class.java)
-            intent.putExtra(TIMER_ID, timerId)
-            return intent
-        }
-    }
 }

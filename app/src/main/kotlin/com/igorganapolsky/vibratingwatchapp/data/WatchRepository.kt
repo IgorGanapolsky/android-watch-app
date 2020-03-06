@@ -9,6 +9,7 @@ import java.util.concurrent.ExecutorService
 
 class WatchRepository(private val timerDb: TimersDatabase, private val executor: ExecutorService) :
     ITimersRepository {
+
     init {
         disableAllTimers()
     }

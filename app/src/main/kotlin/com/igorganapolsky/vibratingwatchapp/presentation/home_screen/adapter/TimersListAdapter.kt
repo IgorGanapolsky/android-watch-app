@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.igorganapolsky.vibratingwatchapp.databinding.TimerListItemBinding
 import com.igorganapolsky.vibratingwatchapp.common.TimerDiffCallback
 import com.igorganapolsky.vibratingwatchapp.common.TimerTransform
+import com.igorganapolsky.vibratingwatchapp.databinding.ItemTimerListBinding
 import com.igorganapolsky.vibratingwatchapp.domain.TimerModel
 import kotlinx.android.extensions.LayoutContainer
 import java.util.*
@@ -31,7 +31,7 @@ internal class TimersListAdapter :
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, index: Int): TimerItemViewHolder {
-        val binding = TimerListItemBinding.inflate(
+        val binding = ItemTimerListBinding.inflate(
             LayoutInflater.from(viewGroup.context),
             viewGroup,
             false
@@ -66,7 +66,7 @@ internal class TimersListAdapter :
         fun onItemClick(id: Int)
     }
 
-    internal class TimerItemViewHolder(private val binding: TimerListItemBinding) :
+    internal class TimerItemViewHolder(private val binding: ItemTimerListBinding) :
         RecyclerView.ViewHolder(binding.root), LayoutContainer {
 
         override val containerView: View?

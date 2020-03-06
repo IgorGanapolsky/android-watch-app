@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.igorganapolsky.vibratingwatchapp.R
 import com.igorganapolsky.vibratingwatchapp.domain.VibrationModel
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.set_timer_vibrations_line.view.*
+import kotlinx.android.synthetic.main.item_new_timer_vibrations.view.*
 import java.util.*
 
 internal class VibrationsAdapter(
@@ -29,7 +29,7 @@ internal class VibrationsAdapter(
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): VibrationsRecyclerViewHolder {
         val itemView = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.set_timer_vibrations_line, viewGroup, false)
+            .inflate(R.layout.item_new_timer_vibrations, viewGroup, false)
         return VibrationsRecyclerViewHolder(itemView)
     }
 

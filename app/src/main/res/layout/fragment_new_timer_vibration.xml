@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tvVibrationTitle"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvVibrationTitle"
@@ -31,19 +31,19 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/icVibrationTitle"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.wear.widget.WearableRecyclerView
-        android:id="@+id/wrvVibrations"
+        android:id="@+id/vibrationsList"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingTop="26dp"
-        android:clipToPadding="false"
-        android:paddingBottom="60dp"
         android:layout_marginStart="10dp"
+        android:clipToPadding="false"
         android:overScrollMode="never"
+        android:paddingTop="26dp"
+        android:paddingBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvVibrationTitle"/>
+        app:layout_constraintTop_toBottomOf="@id/tvVibrationTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

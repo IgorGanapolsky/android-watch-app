@@ -14,17 +14,15 @@ import com.igorganapolsky.vibratingwatchapp.R
 import com.igorganapolsky.vibratingwatchapp.databinding.FragmentHomeBinding
 import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.adapter.TimersListAdapter
 import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.viewmodel.TimersListViewModel
-import com.igorganapolsky.vibratingwatchapp.presentation.timer_edit_screen.view.ExistingTimerDetailsFragment
 
 /**
  * Screen that shows a list of existing timers.
  */
 class HomeFragment : Fragment(), TimersListAdapter.OnItemClickListener {
     private lateinit var timersListAdapter: TimersListAdapter
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var binding: FragmentHomeBinding
 
     private val navController by lazy { findNavController() }
-    private val binding get() = _binding!! // This property is only valid between onCreateView and onDestroyView
     private val timersListViewModel by viewModels<TimersListViewModel>()
 
     override fun onCreateView(
@@ -32,52 +30,46 @@ class HomeFragment : Fragment(), TimersListAdapter.OnItemClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentHomeBinding.inflate(layoutInflater)
-        return binding.root
+        binding = FragmentHomeBinding.inflate(layoutInflater)
+
+        observeUi()
+
+        return this.binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun observeUi() {
         setupListAdapter()
-        observeData()
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        timersListViewModel.allTimers.observe(viewLifecycleOwner,
+            Observer { timerList ->
+                timersListAdapter.setData(timerList)
+
+                if (timerList.isEmpty()) {
+                    this.binding.logoListImage.visibility = ImageView.VISIBLE
+                    this.binding.addTimerButtonImageLabel.visibility = View.VISIBLE
+                    this.binding.timersList.visibility = View.GONE
+                } else {
+                    this.binding.logoListImage.visibility = ImageView.GONE
+                    this.binding.addTimerButtonImageLabel.visibility = View.GONE
+                    this.binding.timersList.visibility = View.VISIBLE
+                }
+            }
+        )
     }
 
     private fun setupListAdapter() {
         timersListAdapter = TimersListAdapter()
         timersListAdapter.setItemClickListener(this)
 
-        binding.timersList.layoutManager = LinearLayoutManager(context)
-        binding.timersList.adapter = timersListAdapter
-        binding.addTimerButton.setOnClickListener {
+        this.binding.timersList.layoutManager = LinearLayoutManager(context)
+        this.binding.timersList.adapter = timersListAdapter
+        this.binding.addTimerButton.setOnClickListener {
             navController.navigate(R.id.newTimerFragment)
         }
     }
 
-    private fun observeData() {
-        timersListViewModel.allTimersLiveData.observe(viewLifecycleOwner,
-            Observer { timerList ->
-                timersListAdapter.setData(timerList)
-
-                if (timerList.isEmpty()) {
-                    binding.logoListImage.visibility = ImageView.VISIBLE
-                    binding.addTimerButtonImageLabel.visibility = View.VISIBLE
-                    binding.timersList.visibility = View.GONE
-                } else {
-                    binding.logoListImage.visibility = ImageView.GONE
-                    binding.addTimerButtonImageLabel.visibility = View.GONE
-                    binding.timersList.visibility = View.VISIBLE
-                }
-            }
-        )
-    }
-
     override fun onItemClick(id: Int) {
-        startActivity(ExistingTimerDetailsFragment.createIntent(this, id))
+//        startActivity(ExistingTimerDetailsFragment.createIntent(this, id))
     }
 
 }

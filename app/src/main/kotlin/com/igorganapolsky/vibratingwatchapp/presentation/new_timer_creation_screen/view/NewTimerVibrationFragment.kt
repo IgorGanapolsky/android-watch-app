@@ -8,24 +8,24 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.igorganapolsky.vibratingwatchapp.R
-import com.igorganapolsky.vibratingwatchapp.databinding.SetTimerVibrationFragmentBinding
 import com.igorganapolsky.vibratingwatchapp.common.RecyclerViewSnapLayoutManager
-import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.viewmodel.NewTimerViewModel
+import com.igorganapolsky.vibratingwatchapp.databinding.FragmentNewTimerVibrationBinding
 import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.adapter.IHolderClickListener
 import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.adapter.VibrationsAdapter
+import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.viewmodel.NewTimerViewModel
 import kotlinx.android.synthetic.main.fragment_new_timer_vibration.*
 
 class NewTimerVibrationFragment : Fragment(), IHolderClickListener {
     private val mViewModel by viewModels<NewTimerViewModel>()
 
     private var vibrationsAdapter: VibrationsAdapter? = null
-    private lateinit var binding: SetTimerVibrationFragmentBinding
+    private lateinit var binding: FragmentNewTimerVibrationBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = SetTimerVibrationFragmentBinding.inflate(inflater)
+        binding = FragmentNewTimerVibrationBinding.inflate(inflater)
         return binding.root
     }
 
@@ -54,18 +54,19 @@ class NewTimerVibrationFragment : Fragment(), IHolderClickListener {
             resources.getStringArray(R.array.times)
         )
 
-        binding.wrvVibrations!!.adapter = vibrationsAdapter
-        binding.wrvVibrations!!.layoutManager = layoutManager
-        binding.wrvVibrations!!.setHasFixedSize(true)
+        binding.vibrationsList.adapter = vibrationsAdapter
+        binding.vibrationsList.layoutManager = layoutManager
+        binding.vibrationsList.setHasFixedSize(true)
     }
 
     private fun setupObservers() {
         mViewModel.getVibrationData().observe(this) { setup ->
-            wrvVibrations!!.scrollToPosition(vibrationsAdapter!!.getPosition(setup))
+            vibrationsList!!.scrollToPosition(vibrationsAdapter!!.getPosition(setup))
         }
     }
 
     override fun onHolderItemClick(position: Int) {
-        wrvVibrations!!.smoothScrollToPosition(position)
+        vibrationsList!!.smoothScrollToPosition(position)
     }
+
 }
