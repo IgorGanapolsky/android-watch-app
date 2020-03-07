@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <!--100	Thin (Hairline)-->
+    <!--200	Extra Light (Ultra Light)-->
+    <!--300	Light-->
+    <!--400	Normal-->
+    <!--500	Medium-->
+    <!--600	Semi Bold (Demi Bold)-->
+    <!--700	Bold-->
+    <!--800	Extra Bold (Ultra Bold)-->
+    <!--900	Black (Heavy)-->
+
+
+    <font
+            android:font="@font/source_sans_pro"
+            android:fontStyle="normal"
+            android:fontWeight="400"
+
+
+            app:fontStyle="normal"
+            app:fontWeight="400"
+            app:font="@font/source_sans_pro"/>
+
+    <font
+
+            android:font="@font/source_sans_pro"
+            android:fontStyle="italic"
+            android:fontWeight="400"
+
+
+            app:fontStyle="italic"
+            app:fontWeight="400"
+            app:font="@font/source_sans_pro"/>
+
+
+    <font
+
+            android:font="@font/source_sans_pro_bold"
+            android:fontStyle="normal"
+            android:fontWeight="700"
+
+
+            app:fontStyle="normal"
+            app:fontWeight="700"
+            app:font="@font/source_sans_pro_bold"/>
+
+
+</font-family>

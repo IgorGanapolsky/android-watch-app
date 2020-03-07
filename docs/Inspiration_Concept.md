@@ -11,4 +11,4 @@ I've been using this technique of taking breaks with timers on my smartphone.  I
 4. *you won't miss the timer when you have sound-blocking headphones on your ears*
 5. *it won't prevent you from using your phone for more important things (i.e. email, videos, notifications, calendar, etc.)*
 
-This watch timer vibrates on a user's wrist.  Simple, right :).  It is unobtrusive, accessible, and fun to use.  The vibration pattern is be customized (one buzz, three buzzes, five buzzes, or one very long buzz).  Also, the timer can be set to repeat for any number of intervals, with breaks in between.
+This watch timer vibrates on a user's wrist.  Simple, right :).  It is unobtrusive, accessible, and fun to use.  The vibration pattern is be customized (one buzzCount, three buzzes, five buzzes, or one very long buzzCount).  Also, the timer can be set to repeat for any number of intervals, with breaks in between.
