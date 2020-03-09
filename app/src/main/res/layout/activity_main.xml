@@ -1,62 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.wear.widget.BoxInsetLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.igorganapolsky.vibratingwatchapp.MainActivity"
-        tools:deviceIds="wear"
-        android:padding="@dimen/box_inset_layout_padding">
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
 
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="15dp"
-            android:orientation="vertical">
-        <ImageView
-                android:id="@+id/ivTimerListImage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/ic_timer"
-                android:contentDescription="Adding timer"
-        />
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-        >
-            <LinearLayout
-                    android:id="@+id/llAddTimerButton"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal"
-                    android:paddingBottom="10dp">
-                <ImageView
-                        android:id="@+id/addTimerButtonImage"
-                        android:layout_height="40dp"
-                        android:layout_width="40dp"
-                        android:src="@drawable/ic_plus"
-                        android:contentDescription="@string/main_add_timer_button"
-                        android:layout_margin="15dp"
-                />
-                <TextView
-                        android:id="@+id/addTimerButtonImageLabel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_condensed_regular"
-                        android:textColor="@color/white"
-                        android:text="@string/add_timer_button_label"
-                />
-            </LinearLayout>
-            <fragment
-                    android:id="@+id/timerListFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:name="com.igorganapolsky.vibratingwatchapp.ui.fragments.TimerListFragment"
-            />
-        </LinearLayout>
-    </LinearLayout>
-</android.support.wear.widget.BoxInsetLayout>
+</FrameLayout>

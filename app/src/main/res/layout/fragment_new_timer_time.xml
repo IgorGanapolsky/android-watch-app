@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/setTimer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal">
+
+    <com.triggertrap.seekarc.SeekArc
+        android:id="@+id/seekArc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        app:arcColor="@color/white_inactive"
+        app:arcWidth="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/timeSwapContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:progressColor="@color/white_active"
+        app:progressWidth="4dp"
+        app:rotation="0"
+        app:roundEdges="true"
+        app:startAngle="0"
+        app:sweepAngle="360"
+        app:thumb="@drawable/ic_thumb"
+        app:touchInside="false" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:text="@string/set_timer_default_value"
+        android:textAlignment="center"
+        android:textColor="@color/white_active"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="@+id/seekArc"
+        app:layout_constraintEnd_toEndOf="@id/seekArc"
+        app:layout_constraintStart_toStartOf="@id/seekArc"
+        app:layout_constraintTop_toTopOf="@+id/seekArc" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLabelMeasure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:textColor="@color/white_active"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewLabel"
+        app:layout_constraintStart_toEndOf="@+id/textViewLabel"
+        app:layout_constraintTop_toTopOf="@+id/textViewLabel"
+        app:layout_constraintVertical_bias="0.7"
+        tools:text="H" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/timeSwapContainer"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/seekArc"
+        app:layout_constraintStart_toStartOf="@id/seekArc"
+        app:layout_constraintTop_toBottomOf="@id/seekArc">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHours"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/shortcut_hours"
+            android:textAlignment="center"
+            android:textColor="@color/white_active"
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMinutes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/shortcut_minutes"
+            android:textAlignment="center"
+            android:textColor="@color/white_inactive"
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSeconds"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/shortcut_seconds"
+            android:textAlignment="center"
+            android:textColor="@color/white_inactive"
+            android:textSize="14sp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

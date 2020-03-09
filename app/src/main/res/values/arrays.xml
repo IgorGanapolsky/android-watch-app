@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="buzzes">
+        <item>1 buzz</item>
+        <item>2 buzzes</item>
+        <item>5 buzzes</item>
+        <item>1 long buzz</item>
+    </string-array>
+
+    <string-array name="times">
+        <item>5 seconds</item>
+        <item>3 seconds each</item>
+        <item>5 seconds each</item>
+        <item>20 seconds</item>
+    </string-array>
+</resources>

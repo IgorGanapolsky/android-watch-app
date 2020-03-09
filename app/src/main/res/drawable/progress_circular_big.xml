@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rotate xmlns:android="http://schemas.android.com/apk/res/android"
-        android:pivotX="50%"
-        android:pivotY="50%"
-        android:fromDegrees="-135"
-        android:toDegrees="-135"
->
+    android:fromDegrees="-135"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:toDegrees="-135">
     <layer-list>
         <item>
             <shape android:shape="oval">
                 <stroke
-                        android:color="@color/white_inactive"
-                        android:width="4dp"
-                />
+                    android:width="4dp"
+                    android:color="@color/white_inactive" />
             </shape>
         </item>
         <item>
             <shape
-                    android:shape="ring"
-                    android:innerRadiusRatio="2.115"
-                    android:thickness="4dp"
-                    android:useLevel="true"
-            >
-                <solid android:color="@color/white_active"/>
+                android:innerRadiusRatio="2.115"
+                android:shape="ring"
+                android:thickness="4dp"
+                android:useLevel="true">
+                <solid android:color="@color/white_active" />
             </shape>
         </item>
     </layer-list>
