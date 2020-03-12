@@ -1,4 +1,4 @@
-package com.igorganapolsky.vibratingwatchapp.presentation.home_screen.adapter
+package com.igorganapolsky.vibratingwatchapp.presentation.home_screen.model
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +9,8 @@ import com.igorganapolsky.vibratingwatchapp.common.TimerDiffCallback
 import com.igorganapolsky.vibratingwatchapp.common.TimerTransform
 import com.igorganapolsky.vibratingwatchapp.databinding.ItemTimerListBinding
 import com.igorganapolsky.vibratingwatchapp.domain.TimerModel
-import kotlinx.android.extensions.LayoutContainer
 import java.util.*
+import kotlin.reflect.KFunction0
 
 /**
  * Adapter that holds values for items in the list of existing timers screen.
@@ -63,16 +63,14 @@ internal class TimersListAdapter :
     }
 
     interface OnItemClickListener {
-        fun onItemClick(id: Int)
+        // TODO: Igor - add enum/sealed class of possible click events on individual elements
+        fun renderViewState(viewStateAction: TimersListAction): KFunction0<Unit>
     }
 
     internal class TimerItemViewHolder(private val binding: ItemTimerListBinding) :
-        RecyclerView.ViewHolder(binding.root), LayoutContainer {
+        RecyclerView.ViewHolder(binding.root) {
 
-        override val containerView: View?
-            get() = binding.root
-
-        fun bind(model: TimerModel, itemClickListener: OnItemClickListener?) {
+        fun bind(model: TimerModel, itemClickListener: OnItemClickListener) {
             if (model.state === TimerModel.State.FINISHED) {
                 binding.statusImageView.visibility = View.VISIBLE
                 binding.progressImageView.visibility = View.INVISIBLE
@@ -85,7 +83,11 @@ internal class TimersListAdapter :
             binding.vibrationTextView.text =
                 String.format(Locale.ENGLISH, "%d", model.vibrationCount)
             binding.repeatTextView.text = String.format(Locale.ENGLISH, "%d", model.repeat)
-            itemView.setOnClickListener { view -> itemClickListener!!.onItemClick(model.id) }
+
+            // TODO: Igor - set individual click listeners on items in the row
+//            binding.statusImageView.setOnClickListener()
+
+//            itemView.setOnClickListener { view -> itemClickListener.onItemClick(model.id) }
         }
     }
 

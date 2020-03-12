@@ -43,7 +43,7 @@ class NewTimerWizardFragment : Fragment(), View.OnClickListener, IStepTouchActio
         binding.newTimerPager.adapter = SetTimerPageAdapter(this)
 
         TabLayoutMediator(binding.pagerDotsLayout, binding.newTimerPager) { tab, position ->
-            //            tab.text = Card.DECK[position].toString()
+                        tab.text = "text"
         }.attach()
 
         binding.newTimerPager.offscreenPageLimit = 2

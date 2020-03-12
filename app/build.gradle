@@ -90,6 +90,7 @@ dependencies {
     implementation "com.jakewharton.timber:timber:4.7.1"
 
     /* Testing libs */
+
     debugImplementation "androidx.fragment:fragment-testing:1.2.2"
     testImplementation "androidx.room:room-testing:2.2.4"
 }

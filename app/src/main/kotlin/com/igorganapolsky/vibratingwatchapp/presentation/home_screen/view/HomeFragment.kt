@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.igorganapolsky.vibratingwatchapp.R
 import com.igorganapolsky.vibratingwatchapp.databinding.FragmentHomeBinding
-import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.adapter.TimersListAdapter
+import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.model.*
 import com.igorganapolsky.vibratingwatchapp.presentation.home_screen.viewmodel.TimersListViewModel
 
 /**
@@ -68,8 +68,11 @@ class HomeFragment : Fragment(), TimersListAdapter.OnItemClickListener {
         }
     }
 
-    override fun onItemClick(id: Int) {
-//        startActivity(ExistingTimerDetailsFragment.createIntent(this, id))
+    override fun renderViewState(viewStateAction: TimersListAction) = when (viewStateAction) {
+        HitPlayPause -> ::println
+        is GoTimerDetails -> ::println
+        is LongPress -> ::println
+        is SwipeToDelete -> ::println
     }
 
 }
