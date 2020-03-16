@@ -1,6 +1,7 @@
 package com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.view
 
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,7 +43,7 @@ class NewTimerTimeFragment : Fragment(), View.OnClickListener, SeekArc.OnSeekArc
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activeColor = ContextCompat.getColor(requireContext(), R.color.white_active)
+        activeColor = ContextCompat.getColor(requireContext(), R.attr.colorOnPrimary)
         inactiveColor = ContextCompat.getColor(requireContext(), R.color.white_inactive)
         setupViews()
         setupObservers()
@@ -81,6 +82,11 @@ class NewTimerTimeFragment : Fragment(), View.OnClickListener, SeekArc.OnSeekArc
     }
 
     private fun setSelection(selection: TimeMeasurement) {
+        val typedValue = TypedValue();
+        getTheme().resolveAttribute(R.attr.colorControlNormal, typedValue, true);
+        int color = ContextCompat.getColor(this, typedValue.resourceId)
+
+
         binding.seekArc.progress = mViewModel.calculateProgress()
 
         binding.tvLabelMeasure.text = selection.shortcut

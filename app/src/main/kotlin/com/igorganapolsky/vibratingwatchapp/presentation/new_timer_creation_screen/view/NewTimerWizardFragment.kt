@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.igorganapolsky.vibratingwatchapp.common.IStepTouchActionListener
@@ -43,10 +44,11 @@ class NewTimerWizardFragment : Fragment(), View.OnClickListener, IStepTouchActio
         binding.newTimerPager.adapter = SetTimerPageAdapter(this)
 
         TabLayoutMediator(binding.pagerDotsLayout, binding.newTimerPager) { tab, position ->
-                        tab.text = "text"
+            tab.text = "text"
         }.attach()
 
         binding.newTimerPager.offscreenPageLimit = 2
+        binding.newTimerPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         binding.arrowNextPage.setOnClickListener(this)
 
 //        binding.pagerDotsLayout.setupWithViewPager(binding.vpWizard, true)
@@ -69,12 +71,9 @@ class NewTimerWizardFragment : Fragment(), View.OnClickListener, IStepTouchActio
 
     private fun updateTimerData(timerSetup: TimeMeasurement, newValue: Int) {
         when (timerSetup) {
-            TimeMeasurement.HOURS -> binding.timeHours.text =
-                String.format("%02d", newValue)
-            TimeMeasurement.MINUTES -> binding.timeMinutes.text =
-                String.format("%02d", newValue)
-            TimeMeasurement.SECONDS -> binding.timeSeconds.text =
-                String.format("%02d", newValue)
+            TimeMeasurement.HOURS -> binding.timeHours.text = String.format("%02d", newValue)
+            TimeMeasurement.MINUTES -> binding.timeMinutes.text = String.format("%02d", newValue)
+            TimeMeasurement.SECONDS -> binding.timeSeconds.text = String.format("%02d", newValue)
         }
     }
 

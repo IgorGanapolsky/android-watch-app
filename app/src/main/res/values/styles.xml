@@ -2,6 +2,9 @@
 <resources>
 
     <style name="AppTheme" parent="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/highlight</item>
+        <item name="colorOnPrimary">@color/white_active</item>
+
         <item name="android:windowBackground">
             @drawable/background_gradient
         </item>
@@ -9,18 +12,18 @@
 
     <style name="BuzzLine" />
 
-    <style name="BuzzLine.Index">
+    <style name="BuzzLine.Index" parent="BuzzLine">
         <item name="android:background">@drawable/list_item_index_bg_selector</item>
         <item name="android:textColor">@drawable/list_item_index_selector</item>
     </style>
 
-    <style name="BuzzLine.Label">
+    <style name="BuzzLine.Label" parent="BuzzLine">
         <item name="android:textColor">@drawable/list_item_label_selector</item>
     </style>
 
     <style name="RepeatsItem" />
 
-    <style name="RepeatsItem.Label">
+    <style name="RepeatsItem.Label" parent="RepeatsItem">
         <item name="android:background">@drawable/repeat_item_outline_selector</item>
     </style>
 
