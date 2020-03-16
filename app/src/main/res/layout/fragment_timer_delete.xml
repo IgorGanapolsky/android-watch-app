@@ -22,7 +22,7 @@
             android:text="@string/delete_timer_title"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="26sp" />
+            android:textSize="?attr/textAppearanceHeadline5" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:text="@string/delete_timer_desc"
             android:textAlignment="center"
             android:textColor="@color/progress_gray"
-            android:textSize="14sp" />
+            android:textSize="?attr/textAppearanceSubtitle2" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat

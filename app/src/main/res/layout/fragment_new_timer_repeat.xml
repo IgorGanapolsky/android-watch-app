@@ -27,7 +27,7 @@
             android:fontFamily="@font/roboto_condensed_regular"
             android:text="@string/screen_title_set_repeat"
             android:textColor="@color/white_active"
-            android:textSize="16sp" />
+            android:textSize="?attr/textAppearanceSubtitle1" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

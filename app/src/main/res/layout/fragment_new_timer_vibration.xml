@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".presentation.new_timer_creation_screen.view.NewTimerVibrationFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -28,7 +26,7 @@
         android:fontFamily="@font/roboto_condensed_regular"
         android:text="@string/screen_title_vibration"
         android:textColor="@color/white_active"
-        android:textSize="14sp"
+        android:textSize="?attr/textAppearanceSubtitle2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/icVibrationTitle"
         app:layout_constraintTop_toTopOf="parent" />

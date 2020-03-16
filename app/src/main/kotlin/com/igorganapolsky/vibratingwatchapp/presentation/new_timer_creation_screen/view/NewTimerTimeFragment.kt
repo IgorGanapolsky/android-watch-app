@@ -1,13 +1,11 @@
 package com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.view
 
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.igorganapolsky.vibratingwatchapp.R
@@ -43,7 +41,7 @@ class NewTimerTimeFragment : Fragment(), View.OnClickListener, SeekArc.OnSeekArc
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activeColor = ContextCompat.getColor(requireContext(), R.attr.colorOnPrimary)
+        activeColor = ContextCompat.getColor(requireContext(), R.color.white_active)
         inactiveColor = ContextCompat.getColor(requireContext(), R.color.white_inactive)
         setupViews()
         setupObservers()
@@ -55,7 +53,7 @@ class NewTimerTimeFragment : Fragment(), View.OnClickListener, SeekArc.OnSeekArc
 
     private fun setupObservers() {
         mViewModel.getCountdownData().observe(
-            Objects.requireNonNull<FragmentActivity>(activity),
+            requireActivity(),
             Observer<TimeMeasurement> { this.setSelection(it) })
     }
 
@@ -82,11 +80,6 @@ class NewTimerTimeFragment : Fragment(), View.OnClickListener, SeekArc.OnSeekArc
     }
 
     private fun setSelection(selection: TimeMeasurement) {
-        val typedValue = TypedValue();
-        getTheme().resolveAttribute(R.attr.colorControlNormal, typedValue, true);
-        int color = ContextCompat.getColor(this, typedValue.resourceId)
-
-
         binding.seekArc.progress = mViewModel.calculateProgress()
 
         binding.tvLabelMeasure.text = selection.shortcut

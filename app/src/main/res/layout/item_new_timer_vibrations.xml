@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/flSingleLine"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="@dimen/text_inner_padding"
         android:layout_marginBottom="@dimen/text_inner_padding">
 
@@ -19,7 +19,7 @@
             android:fontFamily="@font/roboto_condensed_regular"
             android:gravity="center_horizontal|center_vertical"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textSize="?attr/textAppearanceHeadline6"
             android:textStyle="bold"
             android:theme="@style/BuzzLine.Index"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -35,7 +35,7 @@
             android:ellipsize="end"
             android:fontFamily="@font/roboto_condensed_regular"
             android:maxLines="1"
-            android:textSize="14sp"
+            android:textSize="?attr/textAppearanceSubtitle2"
             android:theme="@style/BuzzLine.Label"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -32,14 +32,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_condensed_regular"
-        android:text="@string/set_timer_default_value"
         android:textAlignment="center"
         android:textColor="@color/white_active"
-        android:textSize="35sp"
+        android:textSize="?attr/textAppearanceHeadline4"
         app:layout_constraintBottom_toBottomOf="@+id/seekArc"
         app:layout_constraintEnd_toEndOf="@id/seekArc"
         app:layout_constraintStart_toStartOf="@id/seekArc"
-        app:layout_constraintTop_toTopOf="@+id/seekArc" />
+        app:layout_constraintTop_toTopOf="@+id/seekArc"
+        tools:text="@string/set_timer_default_value" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvLabelMeasure"
@@ -80,7 +80,7 @@
             android:text="@string/shortcut_hours"
             android:textAlignment="center"
             android:textColor="@color/white_active"
-            android:textSize="14sp" />
+            android:textSize="?attr/textAppearanceSubtitle2" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvMinutes"
@@ -95,7 +95,7 @@
             android:text="@string/shortcut_minutes"
             android:textAlignment="center"
             android:textColor="@color/white_inactive"
-            android:textSize="14sp" />
+            android:textSize="?attr/textAppearanceSubtitle2" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvSeconds"
@@ -110,7 +110,7 @@
             android:text="@string/shortcut_seconds"
             android:textAlignment="center"
             android:textColor="@color/white_inactive"
-            android:textSize="14sp" />
+            android:textSize="?attr/textAppearanceSubtitle2" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

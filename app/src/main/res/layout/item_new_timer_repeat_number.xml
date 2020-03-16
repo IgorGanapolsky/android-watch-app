@@ -14,7 +14,7 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/white_active"
-        android:textSize="18sp"
+        android:textSize="?attr/textAppearanceHeadline6"
         android:textStyle="bold"
         android:theme="@style/RepeatsItem.Label"
         app:layout_constraintBottom_toBottomOf="parent"
