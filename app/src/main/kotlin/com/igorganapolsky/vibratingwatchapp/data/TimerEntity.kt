@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 class TimerEntity {
 
     @PrimaryKey(autoGenerate = true)
-    var id: Int = 0
+    var timerId: Int = 0
 
     @ColumnInfo(name = "time")
     var milliseconds: Long = 0

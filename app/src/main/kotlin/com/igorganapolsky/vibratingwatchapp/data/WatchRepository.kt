@@ -32,7 +32,7 @@ class WatchRepository(private val timerDb: TimersDatabase, private val executor:
     override fun updateTimer(timer: TimerModel) {
         executor.execute {
             val timerEntity = Mappers.mapToTimerEntity(timer)
-            timerEntity.id = timer.id
+            timerEntity.timerId = timer.id
             timerDb.timersDao().update(timerEntity)
         }
     }

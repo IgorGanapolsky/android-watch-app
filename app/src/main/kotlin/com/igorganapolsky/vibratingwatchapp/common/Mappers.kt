@@ -8,7 +8,7 @@ object Mappers {
 
     fun mapToTimerModel(entity: TimerEntity): TimerModel {
         val model = TimerModel()
-        model.id = entity.id
+        model.id = entity.timerId
         model.repeat = entity.repeat
         model.vibrationCount = entity.buzzCount
         model.type = VibrationModel.Type.valueOf(entity.buzzType.toString())

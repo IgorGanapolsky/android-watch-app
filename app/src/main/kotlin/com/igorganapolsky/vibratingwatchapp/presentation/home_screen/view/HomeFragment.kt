@@ -45,12 +45,14 @@ class HomeFragment : Fragment(), TimersListAdapter.OnItemClickListener {
                 timersListAdapter.setData(timerList)
 
                 if (timerList.isEmpty()) {
-                    this.binding.logoListImage.visibility = ImageView.VISIBLE
-                    this.binding.addTimerButtonImageLabel.visibility = View.VISIBLE
+                    this.binding.topLogo.visibility = ImageView.VISIBLE
+                    this.binding.addTimerButton.visibility = View.VISIBLE
+                    this.binding.addTimerText.visibility = View.VISIBLE
                     this.binding.timersList.visibility = View.GONE
                 } else {
-                    this.binding.logoListImage.visibility = ImageView.GONE
-                    this.binding.addTimerButtonImageLabel.visibility = View.GONE
+                    this.binding.topLogo.visibility = ImageView.GONE
+                    this.binding.addTimerButton.visibility = View.GONE
+                    this.binding.addTimerText.visibility = View.GONE
                     this.binding.timersList.visibility = View.VISIBLE
                 }
             }

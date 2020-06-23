@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.wear.widget.WearableLinearLayoutManager
 import com.igorganapolsky.vibratingwatchapp.common.RecyclerViewSnapLayoutManager
 import com.igorganapolsky.vibratingwatchapp.databinding.FragmentNewTimerRepeatBinding
 import com.igorganapolsky.vibratingwatchapp.presentation.new_timer_creation_screen.adapter.IHolderClickListener
@@ -41,7 +41,7 @@ class NewTimerRepeatFragment : Fragment(), IHolderClickListener {
         val layoutManager =
             RecyclerViewSnapLayoutManager(
                 requireContext(),
-                LinearLayoutManager.HORIZONTAL
+                WearableLinearLayoutManager.HORIZONTAL
             )
         layoutManager.setOnItemSelectedListener { pos: Int -> mViewModel.setTimerRepeat(pos) }
 
@@ -52,10 +52,10 @@ class NewTimerRepeatFragment : Fragment(), IHolderClickListener {
 
     private fun setupObservers() {
         mViewModel.getTimerData()
-            .observe(this) { wearableRecyclerView!!.smoothScrollToPosition(mViewModel.repeatPosition) }
+            .observe(this) { wearableRecyclerView.smoothScrollToPosition(mViewModel.repeatPosition) }
     }
 
     override fun onHolderItemClick(position: Int) {
-        wearableRecyclerView!!.smoothScrollToPosition(position)
+        wearableRecyclerView.smoothScrollToPosition(position)
     }
 }

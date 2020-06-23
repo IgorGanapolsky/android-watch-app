@@ -13,8 +13,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivTimerSettings"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
+            android:layout_width="@dimen/medium_icon_size"
+            android:layout_height="@dimen/medium_icon_size"
             android:padding="4dp"
             app:layout_constraintBottom_toTopOf="@+id/pbTime"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,8 +52,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivStart"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
+            android:layout_width="@dimen/medium_icon_size"
+            android:layout_height="@dimen/medium_icon_size"
             android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="@id/pbTime"
             app:layout_constraintEnd_toStartOf="@id/ivStop"
@@ -65,8 +65,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivStop"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
+            android:layout_width="@dimen/medium_icon_size"
+            android:layout_height="@dimen/medium_icon_size"
             android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="@id/ivStart"
             app:layout_constraintEnd_toStartOf="@id/ivRestart"
@@ -76,8 +76,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivRestart"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
+            android:layout_width="@dimen/medium_icon_size"
+            android:layout_height="@dimen/medium_icon_size"
             android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="@id/ivStart"
             app:layout_constraintEnd_toEndOf="@id/timeTextView"
@@ -87,14 +87,14 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivTimerRemove"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
+            android:layout_width="@dimen/medium_icon_size"
+            android:layout_height="@dimen/medium_icon_size"
             android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pbTime"
-            app:srcCompat="@drawable/ic_remove" />
+            app:srcCompat="@drawable/ic_dialog-remove" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivContinueTimer"
